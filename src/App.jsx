@@ -25,11 +25,11 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route element={<AppLayout />}>
-            <Route path='dashboard' element={<Dashboard />} />
+            <Route path='/' element={<Dashboard />} />
             <Route path='records' element={<Records />} />
             <Route path='settings' element={<Settings />} />
-            <Route path='*' element={<PageNotFound />} />
           </Route>
+          <Route path='*' element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
 
