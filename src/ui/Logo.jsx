@@ -1,11 +1,9 @@
-import { Link } from 'react-router-dom';
-
 function Logo() {
   return (
-    <Link to='/' className='mx-auto'>
+    <div className='text-center'>
       {/* <img src='/logo.png' alt='coinchef-logo' className='h-28' /> */}
-      <p className='text-3xl '>Coin Chef</p>
-    </Link>
+      <p className='text-3xl uppercase text-emerald-700'>Coin Chef</p>
+    </div>
   );
 }
 

@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .navLink {
+    @apply flex items-center 
+    gap-3 text-gray-700 text-sm font-medium px-5 py-3 
+    transition-all duration-300 hover:text-gray-900 hover:bg-gray-100 hover:rounded-md
+    active:text-gray-900 active:bg-gray-100 active:rounded-md;
+  }
+
+  .navLink.active {
+    @apply text-gray-900 bg-gray-100 rounded-md;
+  }
+
+  .navLink:hover .navSvg,
+  .navLink:active .navSvg,
+  .navLink.active .navSvg {
+    @apply text-emerald-600;
+  }
+
+  .navSvg {
+    @apply w-6 h-6 text-gray-400 transition-all duration-300;
+  }
+}
