@@ -5,11 +5,8 @@ import {
   HiOutlineDocumentChartBar,
   HiOutlineHome,
   HiOutlineNewspaper,
+  HiOutlineTag,
 } from 'react-icons/hi2';
-
-const navLinkClasses = `  `;
-
-const svgClasses = ``;
 
 function MainNav() {
   return (
@@ -31,6 +28,12 @@ function MainNav() {
           <NavLink to='/calendar' className='navLink'>
             <HiOutlineCalendarDays className='navSvg' />
             <span>Calendar</span>
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to='/tags' className='navLink'>
+            <HiOutlineTag className='navSvg' />
+            <span>Tags</span>
           </NavLink>
         </li>
         <li>

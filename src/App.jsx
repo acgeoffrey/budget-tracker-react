@@ -7,6 +7,7 @@ import AppLayout from './ui/AppLayout';
 import Dashboard from './pages/Dashboard';
 import Records from './pages/Records';
 import Calendar from './pages/Calendar';
+import Tags from './pages/Tags';
 import Budgets from './pages/Budgets';
 import Settings from './pages/Settings';
 import PageNotFound from './pages/PageNotFound';
@@ -40,6 +41,7 @@ function App() {
             <Route path='dashboard' element={<Dashboard />} />
             <Route path='records' element={<Records />} />
             <Route path='calendar' element={<Calendar />} />
+            <Route path='tags' element={<Tags />} />
             <Route path='budgets' element={<Budgets />} />
             <Route path='settings' element={<Settings />} />
           </Route>
