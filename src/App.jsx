@@ -10,6 +10,7 @@ import Calendar from './pages/Calendar';
 import Budgets from './pages/Budgets';
 import Settings from './pages/Settings';
 import PageNotFound from './pages/PageNotFound';
+import Login from './pages/Login';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -34,6 +35,8 @@ function App() {
             <Route path='budgets' element={<Budgets />} />
             <Route path='settings' element={<Settings />} />
           </Route>
+
+          <Route path='login' element={<Login />} />
           <Route path='*' element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
