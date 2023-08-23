@@ -11,6 +11,7 @@ import Budgets from './pages/Budgets';
 import Settings from './pages/Settings';
 import PageNotFound from './pages/PageNotFound';
 import Login from './pages/Login';
+import Signup from './pages/Signup';
 import ProtectedRoute from './ui/ProtectedRoute';
 
 const queryClient = new QueryClient({
@@ -44,6 +45,7 @@ function App() {
           </Route>
 
           <Route path='login' element={<Login />} />
+          <Route path='signup' element={<Signup />} />
           <Route path='*' element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>

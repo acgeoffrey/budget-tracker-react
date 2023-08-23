@@ -5,6 +5,7 @@ const API_ROOT = import.meta.env.VITE_API_URL;
 export const API_URLS = {
   login: () => `${API_ROOT}/user/login`,
   getCurrentUser: () => `${API_ROOT}/user`,
+  signup: () => `${API_ROOT}/user/signup`,
 };
 
 export const customFetch = async (url, { body, ...customConfig }) => {

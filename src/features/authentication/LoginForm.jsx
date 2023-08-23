@@ -5,8 +5,8 @@ import LoaderMini from '../../ui/LoaderMini';
 import { useLogin } from './useLogin';
 
 function LoginForm() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('test@gmail.com');
+  const [password, setPassword] = useState('qwer1234');
   const [error, setError] = useState({ email: '', password: '' });
   const { login, isLoading } = useLogin();
 
@@ -47,6 +47,7 @@ function LoginForm() {
         onSettled: () => {
           setEmail('');
           setPassword('');
+          setError({ email: '', password: '' });
         },
       },
     );

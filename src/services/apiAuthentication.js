@@ -32,3 +32,13 @@ export const getCurrentUser = async () => {
 export const logout = () => {
   removeItemFromLocalStorage('auth-token-cc');
 };
+
+export const signup = async (body) => {
+  const data = await customFetch(API_URLS.signup(), {
+    method: 'POST',
+    body,
+  });
+
+  if (data.status === 'fail') throw new Error(data.data);
+  return data;
+};
