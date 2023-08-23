@@ -1,14 +1,27 @@
 import { useState } from 'react';
 
 import FormElement from '../../ui/FormElement';
+import LoaderMini from '../../ui/LoaderMini';
+import { useLogin } from './useLogin';
 
 function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const { login, isLoading } = useLogin();
 
   function handleSubmit(e) {
     e.preventDefault();
     if (!email || !password) return;
+
+    login(
+      { email, password },
+      {
+        onSettled: () => {
+          setEmail('');
+          setPassword('');
+        },
+      },
+    );
   }
 
   return (
@@ -24,6 +37,7 @@ function LoginForm() {
           placeholder='user@email.com'
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          disabled={isLoading}
           className='input'
         />
       </FormElement>
@@ -35,13 +49,16 @@ function LoginForm() {
           placeholder='Min. 8 characters'
           autoComplete='current-password'
           value={password}
+          disabled={isLoading}
           onChange={(e) => setPassword(e.target.value)}
           className='input'
         />
       </FormElement>
 
       <FormElement>
-        <button className='button'>Log in</button>
+        <button className='button' disabled={isLoading}>
+          {!isLoading ? 'Log in' : <LoaderMini />}
+        </button>
       </FormElement>
     </form>
   );

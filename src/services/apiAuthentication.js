@@ -1,0 +1,34 @@
+import { API_URLS, customFetch } from '../utils/api';
+import {
+  getItemFromLocalStorage,
+  removeItemFromLocalStorage,
+  setItemInLocalStorage,
+} from '../utils/helpers';
+
+export const login = async (body) => {
+  const data = await customFetch(API_URLS.login(), {
+    method: 'POST',
+    body,
+  });
+
+  if (data.status === 'fail') throw new Error(data.data);
+
+  setItemInLocalStorage('auth-token-cc', data.token);
+  return data;
+};
+
+export const getCurrentUser = async () => {
+  if (!getItemFromLocalStorage('auth-token-cc')) return null;
+
+  const data = await customFetch(API_URLS.getCurrentUser(), {
+    method: 'GET',
+  });
+
+  if (data.status === 'fail') throw new Error(data);
+
+  return data;
+};
+
+export const logout = () => {
+  removeItemFromLocalStorage('auth-token-cc');
+};
