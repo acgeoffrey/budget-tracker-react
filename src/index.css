@@ -33,7 +33,7 @@
   }
 
   .input {
-    @apply rounded-xl border-[1px] border-solid border-gray-300 px-5 py-3 shadow-sm outline-emerald-600;
+    @apply mb-1 rounded-xl border-[1px] border-solid border-gray-300 px-5 py-3 shadow-sm outline-emerald-600;
   }
 
   .button {
