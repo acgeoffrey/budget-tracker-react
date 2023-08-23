@@ -1,3 +1,4 @@
+import { toast } from 'react-hot-toast';
 import { getItemFromLocalStorage } from './helpers';
 
 const API_ROOT = import.meta.env.VITE_API_URL;
@@ -39,6 +40,9 @@ export const customFetch = async (url, { body, ...customConfig }) => {
 
     throw new Error(data);
   } catch (err) {
+    if (err.message === 'Failed to fetch') {
+      throw new Error('Failed to fetch data. \n Check your connection');
+    }
     return {
       status: 'fail',
       data: err.message,

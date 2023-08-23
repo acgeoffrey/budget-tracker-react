@@ -50,7 +50,19 @@ function App() {
         </Routes>
       </BrowserRouter>
 
-      <Toaster />
+      <Toaster
+        position='top-right'
+        gutter={12}
+        containerClassName='text-base m-2 px-5 py-3 text-gray-700'
+        toastOptions={{
+          success: {
+            duration: 3000,
+          },
+          error: {
+            duration: 5000,
+          },
+        }}
+      />
     </QueryClientProvider>
   );
 }
