@@ -5,13 +5,13 @@
 @layer components {
   .navLink {
     @apply flex items-center 
-    gap-3 text-gray-700 text-sm font-medium px-5 py-3 
-    transition-all duration-300 hover:text-gray-900 hover:bg-gray-100 hover:rounded-md
-    active:text-gray-900 active:bg-gray-100 active:rounded-md;
+    gap-3 px-5 py-3 text-sm font-medium text-gray-700 
+    transition-all duration-300 hover:rounded-md hover:bg-gray-100 hover:text-gray-900
+    active:rounded-md active:bg-gray-100 active:text-gray-900;
   }
 
   .navLink.active {
-    @apply text-gray-900 bg-gray-100 rounded-md;
+    @apply rounded-md bg-gray-100 text-gray-900;
   }
 
   .navLink:hover .navSvg,
@@ -21,6 +21,14 @@
   }
 
   .navSvg {
-    @apply w-6 h-6 text-gray-400 transition-all duration-300;
+    @apply h-6 w-6 text-gray-400 transition-all duration-300;
+  }
+
+  .input {
+    @apply rounded-xl border-[1px] border-solid border-gray-300 px-5 py-3 shadow-sm;
+  }
+
+  .button {
+    @apply rounded-md bg-emerald-600 py-3 text-base text-emerald-50 hover:bg-emerald-700;
   }
 }

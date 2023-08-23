@@ -12,14 +12,19 @@ function LoginForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form
+      onSubmit={handleSubmit}
+      className='overflow-hidden rounded-xl border-[1px] border-solid border-gray-100 bg-white px-10 py-6 text-base'
+    >
       <FormElement label='Email'>
         <input
           type='email'
           id='email'
           autoComplete='username'
+          placeholder='user@email.com'
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          className='input'
         />
       </FormElement>
 
@@ -27,13 +32,17 @@ function LoginForm() {
         <input
           type='password'
           id='password'
+          placeholder='Min. 8 characters'
           autoComplete='current-password'
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          className='input'
         />
       </FormElement>
 
-      <button>Log in</button>
+      <FormElement>
+        <button className='button'>Log in</button>
+      </FormElement>
     </form>
   );
 }
