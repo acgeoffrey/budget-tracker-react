@@ -5,7 +5,11 @@ export default {
     fontFamily: {
       sans: 'Poppins, sans-serif',
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        number: 'Montserrat, sans-serif',
+      },
+    },
   },
   plugins: [],
 };

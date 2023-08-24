@@ -4,7 +4,7 @@ import Logout from '../features/authentication/Logout';
 
 function Header() {
   return (
-    <header className='absolute right-12 top-12 bg-transparent'>
+    <header className='absolute right-12 top-8 bg-transparent'>
       <Logout />
     </header>
   );

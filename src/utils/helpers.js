@@ -24,3 +24,8 @@ export const removeItemFromLocalStorage = (key) => {
 
   localStorage.removeItem(key);
 };
+
+export const formatCurrency = (currency, value) =>
+  new Intl.NumberFormat('en', { style: 'currency', currency: currency }).format(
+    value,
+  );
