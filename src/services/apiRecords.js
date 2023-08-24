@@ -1,7 +1,7 @@
 import { API_URLS, customFetch } from '../utils/api';
 
-export async function getRecords() {
-  const data = await customFetch(API_URLS.getAllRecords(), {
+export async function getRecords(query, page) {
+  const data = await customFetch(API_URLS.getAllRecords(query, page), {
     method: 'GET',
   });
 

@@ -1,14 +1,23 @@
+import { useState } from 'react';
 import Table from '../../ui/Table';
-import CreateRecordForm from './CreateRecordForm';
 import RecordsRow from './RecordsRow';
 import { useRecords } from './useRecords';
 
 function RecordsTable() {
-  const { isLoading, records } = useRecords();
+  const [query, setQuery] = useState('sort=-amount');
+  const [page, setPage] = useState(1);
+  const { records } = useRecords(query, page);
+  const noDataNext = records?.length < 10;
+
+  console.log('Render ', page);
+
+  function handlePage() {
+    setPage((page) => page + 1);
+  }
 
   return (
     <>
-      <Table columns='grid-cols-[1.4fr_0.6fr_0.6fr_0.8fr_0.8fr_0.2fr]'>
+      <Table columns='grid-cols-[1.2fr_0.6fr_0.6fr_0.7fr_0.8fr_0.2fr]'>
         <Table.Header>
           <div>Title</div>
           <div>Type</div>
@@ -22,6 +31,9 @@ function RecordsTable() {
           render={(record) => <RecordsRow record={record} key={record.id} />}
         />
       </Table>
+      <button onClick={handlePage} disabled={noDataNext}>
+        next
+      </button>
     </>
   );
 }

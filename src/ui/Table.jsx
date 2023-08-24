@@ -21,8 +21,8 @@ function Header({ children }) {
   return (
     <header
       role='row'
-      className={`grid ${columns} items-center gap-x-8 border-b-[1px] bg-gray-50 px-5 py-3 font-medium 
-      uppercase tracking-wide text-gray-600 transition-none`}
+      className={`grid ${columns} items-center gap-x-8 border-b bg-gray-50 px-5 py-3 font-medium 
+      uppercase tracking-wide text-gray-600 transition-none `}
     >
       {children}
     </header>
@@ -35,7 +35,7 @@ function Row({ children }) {
   return (
     <div
       role='row'
-      className={`grid ${columns} items-center gap-x-6 px-5 py-3 transition-none `}
+      className={`grid ${columns} items-center gap-x-6 border-b px-5 py-3 transition-none last:border-none`}
     >
       {children}
     </div>
@@ -43,7 +43,12 @@ function Row({ children }) {
 }
 
 function Body({ data, render }) {
-  if (!data || !data.length) return <p>No data to show at the moment</p>;
+  if (!data || !data.length)
+    return (
+      <p className='py-3 text-center text-gray-700'>
+        No data to show at the moment
+      </p>
+    );
 
   return <section className='my-1'>{data.map(render)}</section>;
 }

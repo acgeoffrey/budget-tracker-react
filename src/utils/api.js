@@ -6,8 +6,8 @@ export const API_URLS = {
   login: () => `${API_ROOT}/user/login`,
   getCurrentUser: () => `${API_ROOT}/user`,
   signup: () => `${API_ROOT}/user/signup`,
-  getAllRecords: (query = 'sort=-amount') =>
-    `${API_ROOT}/budget/record?${query}`,
+  getAllRecords: (query = 'sort=-amount', page = 1) =>
+    `${API_ROOT}/budget/record?${query}&page=${page}&limit=10`,
   createRecord: () => `${API_ROOT}/budget/record`,
 };
 

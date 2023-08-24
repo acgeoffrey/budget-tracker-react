@@ -8,7 +8,7 @@ export function useCreateRecord() {
   const { mutate: createRecord, isLoading: isCreating } = useMutation({
     mutationFn: createRecordAPI,
     onSuccess: () => {
-      toast.success('Entry added.');
+      toast.success('Entry added');
       queryClient.invalidateQueries({ queryKey: ['records'] });
     },
     onError: (err) => toast.error(err.message),
