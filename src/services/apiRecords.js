@@ -9,3 +9,14 @@ export async function getRecords() {
 
   return data?.data?.records;
 }
+
+export async function createRecord(body) {
+  const data = await customFetch(API_URLS.createRecord(), {
+    method: 'POST',
+    body,
+  });
+
+  if (data.status === 'fail') throw new Error(data.data);
+
+  return data;
+}

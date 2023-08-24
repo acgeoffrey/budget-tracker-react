@@ -8,6 +8,7 @@ export const API_URLS = {
   signup: () => `${API_ROOT}/user/signup`,
   getAllRecords: (query = 'sort=-amount') =>
     `${API_ROOT}/budget/record?${query}`,
+  createRecord: () => `${API_ROOT}/budget/record`,
 };
 
 export const customFetch = async (url, { body, ...customConfig }) => {

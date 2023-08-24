@@ -1,5 +1,5 @@
+import AddRecord from '../features/records/AddRecord';
 import RecordsTable from '../features/records/RecordsTable';
-import Table from '../ui/Table';
 
 function Records() {
   return (
@@ -10,6 +10,7 @@ function Records() {
 
       <div className='flex flex-col gap-5'>
         <RecordsTable />
+        <AddRecord />
       </div>
     </>
   );
