@@ -6,7 +6,8 @@ export const API_URLS = {
   login: () => `${API_ROOT}/user/login`,
   getCurrentUser: () => `${API_ROOT}/user`,
   signup: () => `${API_ROOT}/user/signup`,
-  getAllRecords: () => `${API_ROOT}/budget/record?sort=-amount`,
+  getAllRecords: (query = 'sort=-amount') =>
+    `${API_ROOT}/budget/record?${query}`,
 };
 
 export const customFetch = async (url, { body, ...customConfig }) => {
