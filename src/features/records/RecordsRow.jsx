@@ -35,7 +35,7 @@ function RecordsRow({ record }) {
     <Table.Row>
       <div className='font-medium capitalize text-gray-600'>{title}</div>
       <div
-        className={`w-24 rounded-2xl text-center text-sm capitalize ${
+        className={`w-24 rounded-2xl text-center text-sm uppercase tracking-wide ${
           recordType === 'expense'
             ? 'bg-sky-200 text-sky-700'
             : 'bg-yellow-200 text-yellow-700'

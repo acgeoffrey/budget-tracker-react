@@ -15,16 +15,17 @@ export function useRecords() {
   const filterTypeParams =
     !filterType || filterType === 'all' ? null : filterType;
 
-  if (filterType === 'all') {
-    searchParams.delete('category');
-    setSearchParams(searchParams);
-  }
+  // FIXME: this code messes with the other navigation
+  // if (filterType === 'all') {
+  //   searchParams.delete('category');
+  //   setSearchParams(searchParams);
+  // }
 
   const filterCategoryParams = !filterCategory ? null : filterCategory;
 
   const sortParams = !sort ? '-amount' : sort;
 
-  const pageParams = !page ? 1 : page;
+  const pageParams = !page ? 1 : Number(page);
 
   // for (const entry of searchParams.entries()) {
   //   if (entry[0] === 'recordType' && entry[1] === 'all') {
