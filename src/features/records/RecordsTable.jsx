@@ -1,7 +1,9 @@
 import { useState } from 'react';
+
+import { useRecords } from './useRecords';
+
 import Table from '../../ui/Table';
 import RecordsRow from './RecordsRow';
-import { useRecords } from './useRecords';
 
 function RecordsTable() {
   const [query, setQuery] = useState('sort=-amount');

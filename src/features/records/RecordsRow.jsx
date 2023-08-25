@@ -1,24 +1,34 @@
-import Table from '../../ui/Table';
+import { useState } from 'react';
+import { DateTime } from 'luxon';
+import { HiOutlinePencil, HiOutlineTrash } from 'react-icons/hi2';
+import { HiOutlineDotsVertical } from 'react-icons/hi';
+// import { useDispatch, useSelector } from 'react-redux';
+
 import { useUser } from '../authentication/useUser';
 import { formatCurrency } from '../../utils/helpers';
-import { DateTime } from 'luxon';
-import ContextMenu from '../../ui/ContextMenu';
-import { useState } from 'react';
-import { HiOutlineDotsVertical } from 'react-icons/hi';
-import { HiOutlinePencil, HiOutlineTrash } from 'react-icons/hi2';
+import { useDeleteRecord } from './useDeleteRecord';
+// import { viewContextMenu } from './recordSlice';
+
+import Table from '../../ui/Table';
 import Modal from '../../ui/Modal';
+import ContextMenu from '../../ui/ContextMenu';
 import CreateRecordForm from './CreateRecordForm';
 import ConfirmDelete from '../../ui/ConfirmDelete';
-import { useDeleteRecord } from './useDeleteRecord';
 
 function RecordsRow({ record }) {
+  // const dispatch = useDispatch();
+  // const open = useSelector((store) => store.records.currentContextWindow);
   const [open, setOpen] = useState(false);
+  console.log(open);
+
   const { isDeleting, deleteRecord } = useDeleteRecord();
   const { id, title, recordType, category, date, amount } = record;
   const { user } = useUser();
   const currency = user?.data?.settings[0]?.currency;
 
-  function handleClose() {
+  function handleOpen() {
+    // if (id === open) dispatch(viewContextMenu(''));
+    // dispatch(viewContextMenu(id));
     setOpen(!open);
   }
 
@@ -35,43 +45,37 @@ function RecordsRow({ record }) {
       <div>
         <div className='relative outline-emerald-600'>
           <button className='outline-offset-4 outline-emerald-600'>
-            <HiOutlineDotsVertical onClick={handleClose} />
+            <HiOutlineDotsVertical onClick={handleOpen} />
           </button>
 
           <Modal>
-            <ContextMenu open={open} handleClose={handleClose}>
+            <ContextMenu open={open} handleClose={() => setOpen(false)}>
               <Modal.Open openWindow='update-record'>
-                <button
-                  className='flex items-center justify-center gap-2 outline-offset-4 outline-emerald-600'
-                  onBlur={handleClose}
-                >
+                <button className='flex items-center justify-center gap-2 outline-offset-4 outline-emerald-600'>
                   <HiOutlinePencil className='text-gray-700' />
                   <span>Edit</span>
                 </button>
               </Modal.Open>
 
               <Modal.Open openWindow='delete-record'>
-                <button
-                  className='flex items-center justify-center gap-2 outline-offset-4 outline-emerald-600'
-                  onClick={handleClose}
-                >
+                <button className='flex items-center justify-center gap-2 outline-offset-4 outline-emerald-600'>
                   <HiOutlineTrash className='text-gray-700' />
                   <span>Delete</span>
                 </button>
               </Modal.Open>
-
-              <Modal.Window windowName='update-record'>
-                <CreateRecordForm updateForm={record} />
-              </Modal.Window>
-
-              <Modal.Window windowName='delete-record'>
-                <ConfirmDelete
-                  name='record'
-                  disabled={isDeleting}
-                  onConfirm={() => deleteRecord(id)}
-                />
-              </Modal.Window>
             </ContextMenu>
+
+            <Modal.Window windowName='update-record'>
+              <CreateRecordForm updateForm={record} />
+            </Modal.Window>
+
+            <Modal.Window windowName='delete-record'>
+              <ConfirmDelete
+                name='record'
+                disabled={isDeleting}
+                onConfirm={() => deleteRecord(id)}
+              />
+            </Modal.Window>
           </Modal>
         </div>
       </div>
