@@ -1,10 +1,14 @@
 import Table from '../../ui/Table';
-import { HiOutlineDotsVertical } from 'react-icons/hi';
 import { useUser } from '../authentication/useUser';
 import { formatCurrency } from '../../utils/helpers';
 import { DateTime } from 'luxon';
+import ContextMenu from '../../ui/ContextMenu';
+import { useState } from 'react';
+import { HiOutlineDotsVertical } from 'react-icons/hi';
+import { HiOutlinePencil, HiOutlineTrash } from 'react-icons/hi2';
 
 function RecordsRow({ record }) {
+  const [open, setOpen] = useState(false);
   const { id, title, recordType, category, date, description, amount } = record;
   const { user, isLoading } = useUser();
   const currency = user?.data?.settings[0]?.currency;
@@ -19,7 +23,21 @@ function RecordsRow({ record }) {
       </div>
       <div>{DateTime.fromISO(date).toLocaleString(DateTime.DATE_MED)}</div>
       <div>
-        <HiOutlineDotsVertical />
+        <div className='relative outline-emerald-600'>
+          <button className='outline-offset-4 outline-emerald-600'>
+            <HiOutlineDotsVertical onClick={() => setOpen(!open)} />
+          </button>
+          <ContextMenu open={open}>
+            <button className='flex items-center justify-center gap-2 outline-offset-4 outline-emerald-600'>
+              <HiOutlinePencil className='text-gray-700' />
+              <span>Edit</span>
+            </button>
+            <button className='flex items-center justify-center gap-2 outline-offset-4 outline-emerald-600'>
+              <HiOutlineTrash className='text-gray-700' />
+              <span>Delete</span>
+            </button>
+          </ContextMenu>
+        </div>
       </div>
     </Table.Row>
   );

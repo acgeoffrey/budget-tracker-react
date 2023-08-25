@@ -31,7 +31,7 @@ function Window({ children, windowName }) {
   if (windowName !== openComponent) return null;
 
   return createPortal(
-    <div className='bg-backdrop fixed left-0 top-0 z-10 h-screen w-[100%] backdrop-blur-sm transition-all duration-500'>
+    <div className='bg-backdrop fixed left-0 top-0 z-50 h-screen w-[100%] backdrop-blur-sm transition-all duration-500'>
       <div
         className='translate fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] 
         rounded-lg bg-white px-3 py-5 transition-all duration-500'
