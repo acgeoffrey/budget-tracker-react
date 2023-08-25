@@ -3,6 +3,7 @@ import { useRecords } from './useRecords';
 import Table from '../../ui/Table';
 import RecordsRow from './RecordsRow';
 import Loader from '../../ui/Loader';
+import Pagination from '../../ui/Pagination';
 
 function RecordsTable() {
   const { isLoading, records } = useRecords();
@@ -36,6 +37,9 @@ function RecordsTable() {
           data={records}
           render={(record) => <RecordsRow record={record} key={record.id} />}
         />
+        <Table.Footer>
+          <Pagination count={records.length} />
+        </Table.Footer>
       </Table>
     </>
   );

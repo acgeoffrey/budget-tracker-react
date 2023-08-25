@@ -1,9 +1,12 @@
 import { API_URLS, customFetch } from '../utils/api';
 
-export async function getRecords(query, page) {
-  const data = await customFetch(API_URLS.getAllRecords(query, page), {
-    method: 'GET',
-  });
+export async function getRecords(type, tag, sort, page) {
+  const data = await customFetch(
+    API_URLS.getAllRecords(type, tag, sort, page),
+    {
+      method: 'GET',
+    },
+  );
 
   if (data.status === 'fail') throw new Error(data.data);
 

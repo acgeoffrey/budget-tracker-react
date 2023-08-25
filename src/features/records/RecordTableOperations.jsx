@@ -43,8 +43,8 @@ function RecordTableOperations() {
         options={[
           { value: '-amount', label: 'Sort by amount (highest first)' },
           { value: 'amount', label: 'Sort by amount (lowest first)' },
-          { value: '-date', label: 'Sort by Date (Latest)' },
-          { value: 'date', label: 'Sort by Date (Oldest)' },
+          { value: '-date', label: 'Sort by Date (Latest first)' },
+          { value: 'date', label: 'Sort by Date (Oldest first)' },
         ]}
         action='sort'
       />

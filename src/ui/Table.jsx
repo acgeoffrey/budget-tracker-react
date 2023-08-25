@@ -53,8 +53,17 @@ function Body({ data, render }) {
   return <section className='my-1'>{data.map(render)}</section>;
 }
 
+function Footer({ children }) {
+  return (
+    <footer className='flex justify-center bg-gray-50 p-3 [&>:not(*)]:hidden'>
+      {children}
+    </footer>
+  );
+}
+
 Table.Header = Header;
 Table.Body = Body;
 Table.Row = Row;
+Table.Footer = Footer;
 
 export default Table;

@@ -6,8 +6,12 @@ export const API_URLS = {
   login: () => `${API_ROOT}/user/login`,
   getCurrentUser: () => `${API_ROOT}/user`,
   signup: () => `${API_ROOT}/user/signup`,
-  getAllRecords: (query = 'sort=-amount', page = 1) =>
-    `${API_ROOT}/budget/record?${query}&page=${page}&limit=10`,
+  // getAllRecords: (query = 'sort=-amount', page = 1) =>
+  //   `${API_ROOT}/budget/record?${query}&page=${page}&limit=10`,
+  getAllRecords: (type, tag, sort, page) =>
+    `${API_ROOT}/budget/record?${type ? `recordType=${type}&` : ''}${
+      tag ? `category=${tag}&` : ''
+    }${sort ? `sort=${sort}&` : ''}page=${page}`,
   createRecord: () => `${API_ROOT}/budget/record`,
   updateRecord: (id) => `${API_ROOT}/budget/record/${id}`,
   deleteRecord: (id) => `${API_ROOT}/budget/record/${id}`,
