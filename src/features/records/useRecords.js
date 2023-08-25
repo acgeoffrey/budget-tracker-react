@@ -1,8 +1,10 @@
-import { useQuery } from '@tanstack/react-query';
-import { getRecords } from '../../services/apiRecords';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { useSearchParams } from 'react-router-dom';
 
+import { getRecords } from '../../services/apiRecords';
+
 export function useRecords() {
+  const queryClient = useQueryClient();
   const [searchParams, setSearchParams] = useSearchParams();
 
   // let query = 'sort=-amount';
@@ -14,12 +16,6 @@ export function useRecords() {
 
   const filterTypeParams =
     !filterType || filterType === 'all' ? null : filterType;
-
-  // FIXME: this code messes with the other navigation
-  // if (filterType === 'all') {
-  //   searchParams.delete('category');
-  //   setSearchParams(searchParams);
-  // }
 
   const filterCategoryParams = !filterCategory ? null : filterCategory;
 
@@ -62,6 +58,45 @@ export function useRecords() {
         pageParams,
       ),
   });
+
+  // PRE-FETCHING
+  if (records?.length > 9) {
+    queryClient.prefetchQuery({
+      queryKey: [
+        'records',
+        filterTypeParams,
+        filterCategoryParams,
+        sortParams,
+        pageParams + 1,
+      ],
+      queryFn: () =>
+        getRecords(
+          filterTypeParams,
+          filterCategoryParams,
+          sortParams,
+          pageParams + 1,
+        ),
+    });
+  }
+
+  if (pageParams > 1) {
+    queryClient.prefetchQuery({
+      queryKey: [
+        'records',
+        filterTypeParams,
+        filterCategoryParams,
+        sortParams,
+        pageParams - 1,
+      ],
+      queryFn: () =>
+        getRecords(
+          filterTypeParams,
+          filterCategoryParams,
+          sortParams,
+          pageParams - 1,
+        ),
+    });
+  }
 
   return { isLoading, error, records };
 }

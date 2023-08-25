@@ -7,6 +7,8 @@ function Sort({ options, action }) {
 
   function handleChange(e) {
     searchParams.set(action, e.target.value);
+    if (action === 'category' && searchParams.get('page'))
+      searchParams.set('page', 1);
     setSearchParams(searchParams);
   }
 

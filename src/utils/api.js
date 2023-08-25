@@ -1,4 +1,5 @@
 import { getItemFromLocalStorage } from './helpers';
+import { PAGE_LIMIT } from './constants';
 
 const API_ROOT = import.meta.env.VITE_API_URL;
 
@@ -11,7 +12,7 @@ export const API_URLS = {
   getAllRecords: (type, tag, sort, page = 1) =>
     `${API_ROOT}/budget/record?${type ? `recordType=${type}&` : ''}${
       tag ? `category=${tag}&` : ''
-    }${sort ? `sort=${sort}&` : ''}page=${page}&limit=10`,
+    }${sort ? `sort=${sort}&` : ''}page=${page}&limit=${PAGE_LIMIT}`,
   createRecord: () => `${API_ROOT}/budget/record`,
   updateRecord: (id) => `${API_ROOT}/budget/record/${id}`,
   deleteRecord: (id) => `${API_ROOT}/budget/record/${id}`,

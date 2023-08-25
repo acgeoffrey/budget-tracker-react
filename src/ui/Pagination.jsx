@@ -1,6 +1,8 @@
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi2';
 import { useSearchParams } from 'react-router-dom';
 
+import { PAGE_LIMIT } from '../utils/constants';
+
 const paginationButton = `flex items-center justify-center gap-2 border-none px-2 rounded
 py-1 font-medium  transition-all duration-300 [&>svg]:h-5 [&>svg]:w-5 outline-emerald-600`;
 
@@ -37,7 +39,7 @@ function Pagination({ count }) {
       <div className='flex gap-2'>
         <button
           onClick={previousPage}
-          // disabled={currentPage === 1}
+          disabled={currentPage === 1}
           className={`${paginationButton}`}
         >
           <HiChevronLeft />
@@ -45,7 +47,7 @@ function Pagination({ count }) {
         </button>
         <button
           onClick={nextPage}
-          // disabled={currentPage === totalPages}
+          disabled={count < PAGE_LIMIT}
           className={`${paginationButton} `}
         >
           <span>Next</span>

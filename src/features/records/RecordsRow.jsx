@@ -59,14 +59,14 @@ function RecordsRow({ record }) {
             <ContextMenu open={open} handleClose={() => setOpen(false)}>
               <Modal.Open openWindow='update-record'>
                 <button className='flex items-center justify-center gap-2 outline-offset-4 outline-emerald-600'>
-                  <HiOutlinePencil className='text-gray-700' />
+                  <HiOutlinePencil className=' text-blue-700' />
                   <span>Edit</span>
                 </button>
               </Modal.Open>
 
               <Modal.Open openWindow='delete-record'>
                 <button className='flex items-center justify-center gap-2 outline-offset-4 outline-emerald-600'>
-                  <HiOutlineTrash className='text-gray-700' />
+                  <HiOutlineTrash className='text-red-700' />
                   <span>Delete</span>
                 </button>
               </Modal.Open>
