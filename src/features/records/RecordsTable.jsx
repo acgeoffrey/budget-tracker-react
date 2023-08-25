@@ -1,5 +1,3 @@
-import { useSearchParams } from 'react-router-dom';
-
 import { useRecords } from './useRecords';
 
 import Table from '../../ui/Table';
@@ -7,20 +5,8 @@ import RecordsRow from './RecordsRow';
 import Loader from '../../ui/Loader';
 
 function RecordsTable() {
-  const [searchParams] = useSearchParams();
-
-  let query = 'sort=-amount';
-  for (const entry of searchParams.entries()) {
-    if (entry[0] === 'recordType' && entry[1] === 'all') continue;
-
-    query += '&';
-    query += entry.toString().replace(',', '=');
-  }
-
-  const { isLoading, records } = useRecords(query, 1);
+  const { isLoading, records } = useRecords();
   if (isLoading) return <Loader />;
-
-  console.log(query);
 
   // const filterValue = searchParams.get('recordType') || 'expense';
 

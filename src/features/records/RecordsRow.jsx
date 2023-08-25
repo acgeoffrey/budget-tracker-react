@@ -34,7 +34,15 @@ function RecordsRow({ record }) {
   return (
     <Table.Row>
       <div className='font-medium capitalize text-gray-600'>{title}</div>
-      <div className='capitalize'>{recordType}</div>
+      <div
+        className={`w-24 rounded-2xl text-center text-sm capitalize ${
+          recordType === 'expense'
+            ? 'bg-sky-200 text-sky-700'
+            : 'bg-yellow-200 text-yellow-700'
+        }`}
+      >
+        {recordType}
+      </div>
       <div className='capitalize'>{category}</div>
       <div className='font-number font-semibold'>
         {formatCurrency(currency, amount)}
