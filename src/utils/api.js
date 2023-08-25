@@ -9,6 +9,7 @@ export const API_URLS = {
   getAllRecords: (query = 'sort=-amount', page = 1) =>
     `${API_ROOT}/budget/record?${query}&page=${page}&limit=10`,
   createRecord: () => `${API_ROOT}/budget/record`,
+  updateRecord: (id) => `${API_ROOT}/budget/record/${id}`,
 };
 
 export const customFetch = async (url, { body, ...customConfig }) => {

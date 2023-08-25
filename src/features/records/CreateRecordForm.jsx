@@ -1,5 +1,4 @@
 import { Controller, useForm, useWatch } from 'react-hook-form';
-// import Select from 'react-select';
 import { useUser } from '../authentication/useUser';
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterLuxon } from '@mui/x-date-pickers/AdapterLuxon';
@@ -8,6 +7,7 @@ import { DateTime } from 'luxon';
 import FormElementRow from '../../ui/FormElementRow';
 import { useCreateRecord } from './useCreateRecord';
 import LoaderMini from '../../ui/LoaderMini';
+import { useUpdateRecord } from './useUpdateRecord';
 
 // const recordTypeOptions = [
 //   {
@@ -20,14 +20,21 @@ import LoaderMini from '../../ui/LoaderMini';
 //   },
 // ];
 
-function CreateRecordForm({ editForm = {}, onCloseModal }) {
-  const { register, handleSubmit, reset, getValues, formState, control } =
-    useForm();
-  const { errors } = formState;
-  const { user } = useUser();
-  const settings = user?.data?.settings[0];
+function CreateRecordForm({ updateForm = {}, onCloseModal }) {
   const { isCreating, createRecord } = useCreateRecord();
-  const busy = isCreating;
+  const { isUpdating, updateRecord } = useUpdateRecord();
+
+  const { user } = useUser();
+
+  const settings = user?.data?.settings[0];
+  const busy = isCreating || isUpdating;
+
+  const { id: updateId, ...updateValues } = updateForm;
+  const isUpdate = Boolean(updateId);
+
+  const { register, handleSubmit, reset, getValues, formState, control } =
+    useForm({ defaultValues: isUpdate ? updateValues : {} });
+  const { errors } = formState;
 
   function onSubmit(data) {
     const newData = { ...data, date: data.date.toISO() };

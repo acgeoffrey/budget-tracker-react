@@ -9,7 +9,7 @@ import { HiOutlinePencil, HiOutlineTrash } from 'react-icons/hi2';
 
 function RecordsRow({ record }) {
   const [open, setOpen] = useState(false);
-  const { id, title, recordType, category, date, description, amount } = record;
+  const { id, title, recordType, category, date, amount } = record;
   const { user, isLoading } = useUser();
   const currency = user?.data?.settings[0]?.currency;
 
