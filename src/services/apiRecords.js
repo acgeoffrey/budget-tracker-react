@@ -21,9 +21,10 @@ export async function createRecord(body) {
   return data;
 }
 
-export async function updateRecord(id) {
+export async function updateRecord(body, id) {
   const data = await customFetch(API_URLS.updateRecord(id), {
     method: 'PATCH',
+    body,
   });
 
   if (data.status === 'fail') throw new Error(data.data);

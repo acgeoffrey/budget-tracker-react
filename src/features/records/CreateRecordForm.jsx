@@ -5,8 +5,9 @@ import { AdapterLuxon } from '@mui/x-date-pickers/AdapterLuxon';
 import { DateTime } from 'luxon';
 
 import FormElementRow from '../../ui/FormElementRow';
-import { useCreateRecord } from './useCreateRecord';
 import LoaderMini from '../../ui/LoaderMini';
+
+import { useCreateRecord } from './useCreateRecord';
 import { useUpdateRecord } from './useUpdateRecord';
 
 // const recordTypeOptions = [
@@ -33,17 +34,34 @@ function CreateRecordForm({ updateForm = {}, onCloseModal }) {
   const isUpdate = Boolean(updateId);
 
   const { register, handleSubmit, reset, getValues, formState, control } =
-    useForm({ defaultValues: isUpdate ? updateValues : {} });
+    useForm({
+      defaultValues: isUpdate
+        ? { ...updateValues, date: DateTime.fromISO(updateValues.date) }
+        : {},
+    });
   const { errors } = formState;
 
   function onSubmit(data) {
-    const newData = { ...data, date: data.date.toISO() };
-    createRecord(newData, {
-      onSuccess: () => {
-        reset();
-        onCloseModal?.();
-      },
-    });
+    if (isUpdate)
+      updateRecord(
+        { updateData: { ...data, date: data.date.toISO() }, id: updateId },
+        {
+          onSuccess: () => {
+            reset();
+            onCloseModal?.();
+          },
+        },
+      );
+    else
+      createRecord(
+        { ...data, date: data.date.toISO() },
+        {
+          onSuccess: () => {
+            reset();
+            onCloseModal?.();
+          },
+        },
+      );
   }
 
   // console.log('RENDER', getValues().recordType);

@@ -6,7 +6,7 @@ export function useUpdateRecord() {
   const queryClient = useQueryClient();
 
   const { mutate: updateRecord, isLoading: isUpdating } = useMutation({
-    mutationFn: updateRecordAPI,
+    mutationFn: ({ updateData, id }) => updateRecordAPI(updateData, id),
     onSuccess: () => {
       toast.success('Entry updated');
       queryClient.invalidateQueries({ queryKey: ['records'] });
