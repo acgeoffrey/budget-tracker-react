@@ -3,14 +3,21 @@ import Select from './Select';
 
 function Sort({ options, action }) {
   const [searchParams, setSearchParams] = useSearchParams();
-  const sortBy = searchParams.get(action) || '';
+  const sort = searchParams.get(action) || '';
 
   function handleChange(e) {
     searchParams.set(action, e.target.value);
     setSearchParams(searchParams);
   }
 
-  return <Select options={options} value={sortBy} onChange={handleChange} />;
+  return (
+    <Select
+      options={options}
+      action={action}
+      value={sort}
+      onChange={handleChange}
+    />
+  );
 }
 
 export default Sort;
