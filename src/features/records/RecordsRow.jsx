@@ -19,7 +19,6 @@ function RecordsRow({ record }) {
   // const dispatch = useDispatch();
   // const open = useSelector((store) => store.records.currentContextWindow);
   const [open, setOpen] = useState(false);
-  console.log(open);
 
   const { isDeleting, deleteRecord } = useDeleteRecord();
   const { id, title, recordType, category, date, amount } = record;
