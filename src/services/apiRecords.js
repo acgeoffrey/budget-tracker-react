@@ -31,3 +31,13 @@ export async function updateRecord(body, id) {
 
   return data;
 }
+
+export async function deleteRecord(id) {
+  const data = await customFetch(API_URLS.deleteRecord(id), {
+    method: 'DELETE',
+  });
+
+  if (data.status === 'fail') throw new Error(data.data);
+
+  return data;
+}

@@ -7,7 +7,7 @@ function Table({ columns, children }) {
     <TableContext.Provider value={{ columns }}>
       <div
         role='table'
-        className='overflow-hidden rounded-md border-[1px] border-solid border-gray-200 bg-white text-base'
+        className=' rounded-md border-[1px] border-solid border-gray-200 bg-white text-base'
       >
         {children}
       </div>

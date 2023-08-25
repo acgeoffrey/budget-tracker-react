@@ -9,7 +9,7 @@ function RecordsTable() {
   const { records } = useRecords(query, page);
   const noDataNext = records?.length < 10;
 
-  console.log('Render ', page);
+  // console.log('Render ', page);
 
   function handlePage() {
     setPage((page) => page + 1);

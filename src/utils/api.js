@@ -10,6 +10,7 @@ export const API_URLS = {
     `${API_ROOT}/budget/record?${query}&page=${page}&limit=10`,
   createRecord: () => `${API_ROOT}/budget/record`,
   updateRecord: (id) => `${API_ROOT}/budget/record/${id}`,
+  deleteRecord: (id) => `${API_ROOT}/budget/record/${id}`,
 };
 
 export const customFetch = async (url, { body, ...customConfig }) => {
@@ -37,7 +38,10 @@ export const customFetch = async (url, { body, ...customConfig }) => {
 
   try {
     const response = await fetch(url, config);
-    const data = await response.json();
+
+    const data =
+      response.status !== 204 ? await response.json() : { status: 'success' };
+
     console.log(data);
     if (data.status === 'success') return data;
 

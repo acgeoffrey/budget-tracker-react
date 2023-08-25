@@ -8,9 +8,12 @@ import { HiOutlineDotsVertical } from 'react-icons/hi';
 import { HiOutlinePencil, HiOutlineTrash } from 'react-icons/hi2';
 import Modal from '../../ui/Modal';
 import CreateRecordForm from './CreateRecordForm';
+import ConfirmDelete from '../../ui/ConfirmDelete';
+import { useDeleteRecord } from './useDeleteRecord';
 
 function RecordsRow({ record }) {
   const [open, setOpen] = useState(false);
+  const { isDeleting, deleteRecord } = useDeleteRecord();
   const { id, title, recordType, category, date, amount } = record;
   const { user } = useUser();
   const currency = user?.data?.settings[0]?.currency;
@@ -59,6 +62,14 @@ function RecordsRow({ record }) {
 
               <Modal.Window windowName='update-record'>
                 <CreateRecordForm updateForm={record} />
+              </Modal.Window>
+
+              <Modal.Window windowName='delete-record'>
+                <ConfirmDelete
+                  name='record'
+                  disabled={isDeleting}
+                  onConfirm={() => deleteRecord(id)}
+                />
               </Modal.Window>
             </ContextMenu>
           </Modal>
