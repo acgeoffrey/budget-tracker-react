@@ -1,8 +1,9 @@
 import { useSearchParams } from 'react-router-dom';
+import { useUser } from '../authentication/useUser';
+
 import BasicFilter from '../../ui/BasicFilter';
 import Loader from '../../ui/Loader';
 import Sort from '../../ui/Sort';
-import { useUser } from '../authentication/useUser';
 
 function RecordTableOperations() {
   const [searchParams] = useSearchParams();

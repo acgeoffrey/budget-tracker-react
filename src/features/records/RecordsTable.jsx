@@ -18,7 +18,6 @@ function RecordsTable() {
   }
 
   const { isLoading, records } = useRecords(query, 1);
-
   if (isLoading) return <Loader />;
 
   console.log(query);
