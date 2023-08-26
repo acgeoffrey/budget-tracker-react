@@ -9,10 +9,12 @@ export const API_URLS = {
   signup: () => `${API_ROOT}/user/signup`,
   // getAllRecords: (query = 'sort=-amount', page = 1) =>
   //   `${API_ROOT}/budget/record?${query}&page=${page}&limit=10`,
-  getAllRecords: (type, tag, sort, page = 1) =>
+  getAllRecords: (type, tag, sort, dateStart, dateEnd, page = 1) =>
     `${API_ROOT}/budget/record?${type ? `recordType=${type}&` : ''}${
       tag ? `category=${tag}&` : ''
-    }${sort ? `sort=${sort}&` : ''}page=${page}&limit=${PAGE_LIMIT}`,
+    }${sort ? `sort=${sort}&` : ''}${
+      dateStart ? `date[gte]=${dateStart}&` : ''
+    }${dateEnd ? `date[lte]=${dateEnd}&` : ''}page=${page}&limit=${PAGE_LIMIT}`,
   createRecord: () => `${API_ROOT}/budget/record`,
   updateRecord: (id) => `${API_ROOT}/budget/record/${id}`,
   deleteRecord: (id) => `${API_ROOT}/budget/record/${id}`,

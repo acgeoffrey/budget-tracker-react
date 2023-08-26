@@ -1,6 +1,6 @@
 // import { useSearchParams } from 'react-router-dom';
 import { useState } from 'react';
-import { HiAdjustmentsHorizontal } from 'react-icons/hi2';
+import { HiAdjustmentsHorizontal, HiOutlineXCircle } from 'react-icons/hi2';
 
 import { useUser } from '../authentication/useUser';
 
@@ -8,9 +8,10 @@ import BasicFilter from '../../ui/BasicFilter';
 import Loader from '../../ui/Loader';
 import Sort from '../../ui/Sort';
 import Filter from '../../ui/Filter';
+import { useSearchParams } from 'react-router-dom';
 
 function RecordTableOperations() {
-  // const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [openFilter, setOpenFilter] = useState(false);
   const { isLoading } = useUser();
 
@@ -26,6 +27,16 @@ function RecordTableOperations() {
   // incomeCategories = incomeCategories.map((item) => {
   //   return { value: item, label: item };
   // });
+
+  function handleClearFilters() {
+    searchParams.delete('recordType');
+    searchParams.delete('date[gte]');
+    searchParams.delete('date[lte]');
+    searchParams.delete('sort');
+    searchParams.delete('category');
+
+    setSearchParams(searchParams);
+  }
 
   return (
     <div className='flex items-center gap-3'>
@@ -64,8 +75,14 @@ function RecordTableOperations() {
           <HiAdjustmentsHorizontal className='text-base ' />
           <span className='uppercase tracking-wide'>Filters</span>
         </button>
-        {openFilter && <Filter />}
+        {openFilter && <Filter setOpenFilter={setOpenFilter} />}
       </div>
+      <button
+        className='cursor-pointer text-xl text-gray-600'
+        onClick={handleClearFilters}
+      >
+        <HiOutlineXCircle />
+      </button>
     </div>
   );
 }

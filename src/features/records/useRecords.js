@@ -23,6 +23,13 @@ export function useRecords() {
 
   const pageParams = !page ? 1 : Number(page);
 
+  const dateStart = !searchParams.get('date[gte]')
+    ? null
+    : searchParams.get('date[gte]');
+  const dateEnd = !searchParams.get('date[lte]')
+    ? null
+    : searchParams.get('date[lte]');
+
   // for (const entry of searchParams.entries()) {
   //   if (entry[0] === 'recordType' && entry[1] === 'all') {
   //     query = 'sort=-amount';
@@ -48,6 +55,8 @@ export function useRecords() {
       filterCategoryParams,
       sortParams,
       pageParams,
+      dateStart,
+      dateEnd,
     ],
     // queryFn: () => getRecords(query, 1),
     queryFn: () =>
@@ -55,6 +64,8 @@ export function useRecords() {
         filterTypeParams,
         filterCategoryParams,
         sortParams,
+        dateStart,
+        dateEnd,
         pageParams,
       ),
   });
@@ -67,6 +78,8 @@ export function useRecords() {
         filterTypeParams,
         filterCategoryParams,
         sortParams,
+        dateStart,
+        dateEnd,
         pageParams + 1,
       ],
       queryFn: () =>
@@ -74,6 +87,8 @@ export function useRecords() {
           filterTypeParams,
           filterCategoryParams,
           sortParams,
+          dateStart,
+          dateEnd,
           pageParams + 1,
         ),
     });
@@ -93,6 +108,8 @@ export function useRecords() {
           filterTypeParams,
           filterCategoryParams,
           sortParams,
+          dateStart,
+          dateEnd,
           pageParams - 1,
         ),
     });
