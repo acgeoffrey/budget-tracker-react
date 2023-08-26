@@ -126,7 +126,7 @@ function Filter({ setOpenFilter }) {
         <h3 className={h3Classes}>Search Records</h3>
         <input
           type='text'
-          placeholder='Movie'
+          placeholder='Search Title'
           className='input rounded p-2 text-sm focus:placeholder:text-emerald-600'
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
