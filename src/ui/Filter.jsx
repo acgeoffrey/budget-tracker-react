@@ -12,6 +12,9 @@ function Filter({ setOpenFilter }) {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(null);
 
+  const [minAmount, setMinAmount] = useState(0);
+  const [maxAmount, setMaxAmount] = useState(0);
+
   const onChangeDate = (dates) => {
     const [start, end] = dates;
     setStartDate(start);
@@ -22,6 +25,9 @@ function Filter({ setOpenFilter }) {
   };
 
   function handleSubmitFilter() {
+    searchParams.set('amount[gte]', minAmount);
+    searchParams.set('amount[lte]', maxAmount);
+
     setSearchParams(searchParams);
     setOpenFilter(false);
   }
@@ -56,11 +62,15 @@ function Filter({ setOpenFilter }) {
           type='number'
           className='input rounded-sm p-2 text-sm'
           placeholder='Min Amount'
+          value={minAmount}
+          onChange={(e) => setMinAmount(e.target.value)}
         />
         <input
           type='number'
           className='input rounded-sm p-2 text-sm'
           placeholder='Max Amount'
+          value={maxAmount}
+          onChange={(e) => setMaxAmount(e.target.value)}
         />
       </div>
     </div>

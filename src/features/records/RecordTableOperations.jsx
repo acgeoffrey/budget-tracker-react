@@ -32,10 +32,13 @@ function RecordTableOperations() {
     searchParams.delete('recordType');
     searchParams.delete('date[gte]');
     searchParams.delete('date[lte]');
+    searchParams.delete('amount[gte]');
+    searchParams.delete('amount[lte]');
     searchParams.delete('sort');
     searchParams.delete('category');
 
     setSearchParams(searchParams);
+    setOpenFilter(false);
   }
 
   return (

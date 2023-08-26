@@ -1,8 +1,26 @@
 import { API_URLS, customFetch } from '../utils/api';
 
-export async function getRecords(type, tag, sort, dateStart, dateEnd, page) {
+export async function getRecords(
+  type,
+  tag,
+  sort,
+  dateStart,
+  dateEnd,
+  amountStart,
+  amountEnd,
+  page,
+) {
   const data = await customFetch(
-    API_URLS.getAllRecords(type, tag, sort, dateStart, dateEnd, page),
+    API_URLS.getAllRecords(
+      type,
+      tag,
+      sort,
+      dateStart,
+      dateEnd,
+      amountStart,
+      amountEnd,
+      page,
+    ),
     {
       method: 'GET',
     },

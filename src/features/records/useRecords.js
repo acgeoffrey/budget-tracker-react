@@ -5,7 +5,7 @@ import { getRecords } from '../../services/apiRecords';
 
 export function useRecords() {
   const queryClient = useQueryClient();
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
 
   // let query = 'sort=-amount';
 
@@ -29,6 +29,13 @@ export function useRecords() {
   const dateEnd = !searchParams.get('date[lte]')
     ? null
     : searchParams.get('date[lte]');
+
+  const amountStart = !searchParams.get('amount[gte]')
+    ? null
+    : searchParams.get('amount[gte]');
+  const amountEnd = !searchParams.get('amount[lte]')
+    ? null
+    : searchParams.get('amount[lte]');
 
   // for (const entry of searchParams.entries()) {
   //   if (entry[0] === 'recordType' && entry[1] === 'all') {
@@ -57,6 +64,8 @@ export function useRecords() {
       pageParams,
       dateStart,
       dateEnd,
+      amountStart,
+      amountEnd,
     ],
     // queryFn: () => getRecords(query, 1),
     queryFn: () =>
@@ -66,6 +75,8 @@ export function useRecords() {
         sortParams,
         dateStart,
         dateEnd,
+        amountStart,
+        amountEnd,
         pageParams,
       ),
   });
@@ -80,6 +91,8 @@ export function useRecords() {
         sortParams,
         dateStart,
         dateEnd,
+        amountStart,
+        amountEnd,
         pageParams + 1,
       ],
       queryFn: () =>
@@ -89,6 +102,8 @@ export function useRecords() {
           sortParams,
           dateStart,
           dateEnd,
+          amountStart,
+          amountEnd,
           pageParams + 1,
         ),
     });
@@ -101,6 +116,10 @@ export function useRecords() {
         filterTypeParams,
         filterCategoryParams,
         sortParams,
+        dateStart,
+        dateEnd,
+        amountStart,
+        amountEnd,
         pageParams - 1,
       ],
       queryFn: () =>
@@ -110,6 +129,8 @@ export function useRecords() {
           sortParams,
           dateStart,
           dateEnd,
+          amountStart,
+          amountEnd,
           pageParams - 1,
         ),
     });
