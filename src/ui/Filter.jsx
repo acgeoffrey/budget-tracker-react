@@ -2,7 +2,6 @@ import { DateTime } from 'luxon';
 import { useState } from 'react';
 import DatePicker from 'react-datepicker';
 
-import 'react-datepicker/dist/react-datepicker.css';
 import { useSearchParams } from 'react-router-dom';
 import { useUser } from '../features/authentication/useUser';
 import Loader from './Loader';

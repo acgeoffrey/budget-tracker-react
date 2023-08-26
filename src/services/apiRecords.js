@@ -65,9 +65,10 @@ export async function deleteRecord(id) {
   return data;
 }
 
-export async function getAllCategories() {
+export async function getAllCategories(body) {
   const data = await customFetch(API_URLS.getCategoryRecord(), {
-    method: 'GET',
+    method: 'POST',
+    body,
   });
 
   if (data.status === 'fail') throw new Error(data.data);
