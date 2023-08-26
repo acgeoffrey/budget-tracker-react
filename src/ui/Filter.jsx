@@ -25,8 +25,10 @@ function Filter({ setOpenFilter }) {
   };
 
   function handleSubmitFilter() {
+    searchParams.delete('page');
     searchParams.set('amount[gte]', minAmount);
-    searchParams.set('amount[lte]', maxAmount);
+
+    if (maxAmount > 0) searchParams.set('amount[lte]', maxAmount);
 
     setSearchParams(searchParams);
     setOpenFilter(false);

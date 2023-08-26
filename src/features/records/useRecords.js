@@ -21,7 +21,7 @@ export function useRecords() {
 
   const sortParams = !sort ? '-date' : sort;
 
-  const pageParams = !page ? 1 : Number(page);
+  const pageParams = !page ? null : Number(page);
 
   const dateStart = !searchParams.get('date[gte]')
     ? null
