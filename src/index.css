@@ -6,12 +6,12 @@
   .navLink {
     @apply flex items-center 
     gap-3 px-5 py-3 text-sm font-medium text-gray-700 
-    outline-emerald-600 transition-all duration-300 hover:rounded-md hover:bg-gray-100
-    hover:text-gray-900 active:rounded-md active:bg-gray-100 active:text-gray-900;
+    outline-emerald-600 transition-all duration-300 hover:rounded-md hover:bg-emerald-100
+    hover:text-gray-900 active:rounded-md active:bg-emerald-100 active:text-gray-900;
   }
 
   .navLink.active {
-    @apply rounded-md bg-gray-100 text-gray-900;
+    @apply rounded-md bg-emerald-100 text-gray-900;
   }
 
   .navLink:hover .navSvg,
