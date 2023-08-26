@@ -44,7 +44,11 @@ function RecordsRow({ record }) {
         {recordType}
       </div>
       <div className='capitalize'>{category}</div>
-      <div className='font-number font-semibold'>
+      <div
+        className={`font-number font-semibold text-${
+          recordType === 'expense' ? 'red' : 'green'
+        }-600`}
+      >
         {formatCurrency(currency, amount)}
       </div>
       <div>{DateTime.fromISO(date).toLocaleString(DateTime.DATE_MED)}</div>
