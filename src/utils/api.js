@@ -64,7 +64,7 @@ export const customFetch = async (url, { body, ...customConfig }) => {
     const data =
       response.status !== 204 ? await response.json() : { status: 'success' };
 
-    console.log(data);
+    // console.log(data);
     if (data.status === 'success') return data;
 
     throw new Error(data);

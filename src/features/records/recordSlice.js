@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   currentContextWindow: '',
+  dateRangeTag: [null, null],
 };
 
 const recordSlice = createSlice({
@@ -11,9 +12,12 @@ const recordSlice = createSlice({
     viewContextMenu(state, action) {
       state.currentContextWindow = action.payload;
     },
+    dateTag(state, action) {
+      state.dateRangeTag = [action.payload];
+    },
   },
 });
 
-export const { viewContextMenu } = recordSlice.actions;
+export const { viewContextMenu, dateTag } = recordSlice.actions;
 
 export default recordSlice.reducer;

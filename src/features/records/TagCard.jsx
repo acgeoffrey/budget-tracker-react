@@ -7,26 +7,21 @@ import {
   BadgeDelta,
   Grid,
 } from '@tremor/react';
-import { formatCurrency } from '../utils/helpers';
+import { formatCurrency } from '../../utils/helpers';
 
-// const categories = [
-//   {
-//     title: 'Sales',
-//     metric: '$ 456,000',
-//   },
-//   {
-//     title: 'Transactions',
-//     metric: '89,123',
-//   },
-//   {
-//     title: 'Merchants',
-//     metric: '22',
-//   },
-//   {
-//     title: 'Orders',
-//     metric: '678',
-//   },
-// ];
+const colors = [
+  'amber',
+  'teal',
+  'sky',
+  'purple',
+  'pink',
+  'rose',
+  'blue',
+  'green',
+  'orange',
+  'stone',
+];
+const color = () => colors[Math.floor(Math.random() * colors.length)];
 
 export default function TagCard({ tags, currency }) {
   const categories = tags?.data?.categoryStats;
@@ -50,12 +45,20 @@ export default function TagCard({ tags, currency }) {
     ).toFixed(1);
   }
 
+  const isSaving = percentageSpent >= 100 ? false : true;
+
   return (
-    <Card className='mx-auto'>
-      <Card>
+    <Card className='mx-auto bg-white'>
+      <Card className='bg-lime-50'>
         <Flex>
           <Text className='truncate font-bold'>Total Expense</Text>
-          <BadgeDelta deltaType='moderateIncrease'>13.1%</BadgeDelta>
+          {percentageSpent && (
+            <BadgeDelta
+              deltaType={isSaving ? 'moderateIncrease' : 'moderateDecrease'}
+            >
+              {isSaving ? 100 - percentageSpent : percentageSpent}%
+            </BadgeDelta>
+          )}
         </Flex>
         <Flex
           justifyContent='start'
@@ -66,30 +69,33 @@ export default function TagCard({ tags, currency }) {
             {formatCurrency(currency, expenseStats?.totalAmount)}
           </Metric>
           <Text>
-            spent on a total of{' '}
+            spent on over{' '}
             <span className='font-bold text-gray-900'>
-              {expenseStats?.numRecords}
+              {categories?.length}
             </span>{' '}
-            Expenses
+            categories
           </Text>
         </Flex>
-        <CategoryBar
-          values={[10, 25, 45, 20]}
-          colors={['emerald', 'yellow', 'orange', 'red']}
-          markerValue={percentageSpent}
-          tooltip={`${percentageSpent}% spent on your total income`}
-          className='mt-2'
-        />
+        {percentageSpent && (
+          <CategoryBar
+            values={[10, 25, 45, 20]}
+            colors={['emerald', 'yellow', 'orange', 'red']}
+            markerValue={percentageSpent}
+            tooltip={`${percentageSpent}% spent on your total income`}
+            className='mt-2'
+          />
+        )}
       </Card>
-      <Grid numItemsSm={3} className='mt-4 gap-4'>
+      <Grid numItemsSm={4} className='mt-4 gap-4'>
         {categories?.map((item) => (
-          <Card key={item._id}>
-            <h2 className='mt-2 truncate text-2xl font-normal capitalize text-gray-600'>
+          <Card key={item._id} className={`bg-${color()}-100`}>
+            <h2 className='mt-2 truncate text-xl font-medium capitalize text-gray-700'>
               {item?._id?.toLowerCase()}
             </h2>
             <h3 className='font-number text-lg font-semibold text-gray-900'>
               {formatCurrency(currency, item.totalAmount)}
             </h3>
+            <p className='mt-2 text-gray-600'>{item.numRecords} Expense</p>
           </Card>
         ))}
       </Grid>
