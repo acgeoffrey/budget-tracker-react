@@ -37,6 +37,10 @@ export function useRecords() {
     ? null
     : searchParams.get('amount[lte]');
 
+  const search = !searchParams.get('search')
+    ? null
+    : searchParams.get('search');
+
   // for (const entry of searchParams.entries()) {
   //   if (entry[0] === 'recordType' && entry[1] === 'all') {
   //     query = 'sort=-amount';
@@ -66,6 +70,7 @@ export function useRecords() {
       dateEnd,
       amountStart,
       amountEnd,
+      search,
     ],
     // queryFn: () => getRecords(query, 1),
     queryFn: () =>
@@ -77,6 +82,7 @@ export function useRecords() {
         dateEnd,
         amountStart,
         amountEnd,
+        search,
         pageParams,
       ),
   });
@@ -93,6 +99,7 @@ export function useRecords() {
         dateEnd,
         amountStart,
         amountEnd,
+        search,
         pageParams + 1,
       ],
       queryFn: () =>
@@ -104,6 +111,7 @@ export function useRecords() {
           dateEnd,
           amountStart,
           amountEnd,
+          search,
           pageParams + 1,
         ),
     });
@@ -120,6 +128,7 @@ export function useRecords() {
         dateEnd,
         amountStart,
         amountEnd,
+        search,
         pageParams - 1,
       ],
       queryFn: () =>
@@ -131,6 +140,7 @@ export function useRecords() {
           dateEnd,
           amountStart,
           amountEnd,
+          search,
           pageParams - 1,
         ),
     });

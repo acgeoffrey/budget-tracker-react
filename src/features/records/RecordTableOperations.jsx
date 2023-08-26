@@ -5,7 +5,6 @@ import { HiAdjustmentsHorizontal, HiOutlineXCircle } from 'react-icons/hi2';
 import { useUser } from '../authentication/useUser';
 
 import BasicFilter from '../../ui/BasicFilter';
-import Loader from '../../ui/Loader';
 import Sort from '../../ui/Sort';
 import Filter from '../../ui/Filter';
 import { useSearchParams } from 'react-router-dom';
@@ -13,20 +12,6 @@ import { useSearchParams } from 'react-router-dom';
 function RecordTableOperations() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [openFilter, setOpenFilter] = useState(false);
-  const { isLoading } = useUser();
-
-  // const recordType = searchParams.get('recordType');
-
-  if (isLoading) return <Loader />;
-
-  // let expenseCategories = user.data.settings[0].expenseCategories;
-  // let incomeCategories = user.data.settings[0].incomeCategories;
-  // expenseCategories = expenseCategories.map((item) => {
-  //   return { value: item, label: item };
-  // });
-  // incomeCategories = incomeCategories.map((item) => {
-  //   return { value: item, label: item };
-  // });
 
   function handleClearFilters() {
     searchParams.delete('recordType');
@@ -36,6 +21,7 @@ function RecordTableOperations() {
     searchParams.delete('amount[lte]');
     searchParams.delete('sort');
     searchParams.delete('category');
+    searchParams.delete('search');
 
     setSearchParams(searchParams);
     setOpenFilter(false);
@@ -52,12 +38,6 @@ function RecordTableOperations() {
           { value: 'income', label: 'Income' },
         ]}
       />
-      {/* {recordType === 'expense' && (
-        <Sort options={expenseCategories} action='category' />
-      )}
-      {recordType === 'income' && (
-        <Sort options={incomeCategories} action='category' />
-      )} */}
       <Sort
         options={[
           { value: '-date', label: 'Sort by Date (Latest first)' },

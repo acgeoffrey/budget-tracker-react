@@ -8,6 +8,7 @@ export async function getRecords(
   dateEnd,
   amountStart,
   amountEnd,
+  search,
   page,
 ) {
   const data = await customFetch(
@@ -19,6 +20,7 @@ export async function getRecords(
       dateEnd,
       amountStart,
       amountEnd,
+      search,
       page,
     ),
     {

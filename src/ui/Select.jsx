@@ -8,7 +8,7 @@ function Select({ options, value, onChange, ...props }) {
     >
       {props.action !== 'sort' && (
         <option disabled={true} value=''>
-          -- {props.action} --
+          -- Choose a {props.action} --
         </option>
       )}
       {options.map((option) => (

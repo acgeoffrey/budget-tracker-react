@@ -17,6 +17,7 @@ export const API_URLS = {
     dateEnd,
     amountStart,
     amountEnd,
+    search,
     page,
   ) =>
     `${API_ROOT}/budget/record?${type ? `recordType=${type}&` : ''}${
@@ -26,8 +27,8 @@ export const API_URLS = {
     }${dateEnd ? `date[lte]=${dateEnd}&` : ''}${
       amountStart ? `amount[gte]=${amountStart}&` : ''
     }${amountEnd ? `amount[lte]=${amountEnd}&` : ''}${
-      page ? `page=${page}` : ''
-    }&limit=${PAGE_LIMIT}`,
+      search ? `search=${search}&` : ''
+    }${page ? `page=${page}` : ''}&limit=${PAGE_LIMIT}`,
   createRecord: () => `${API_ROOT}/budget/record`,
   updateRecord: (id) => `${API_ROOT}/budget/record/${id}`,
   deleteRecord: (id) => `${API_ROOT}/budget/record/${id}`,
