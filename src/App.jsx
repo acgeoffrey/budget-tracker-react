@@ -17,6 +17,8 @@ import PageNotFound from './pages/PageNotFound';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import ProtectedRoute from './ui/ProtectedRoute';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterLuxon } from '@mui/x-date-pickers/AdapterLuxon';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -31,43 +33,45 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={false} />
       <Provider store={store}>
-        <BrowserRouter>
-          <Routes>
-            <Route
-              element={
-                <ProtectedRoute>
-                  <AppLayout />
-                </ProtectedRoute>
-              }
-            >
-              <Route index element={<Navigate replace to='dashboard' />} />
-              <Route path='dashboard' element={<Dashboard />} />
-              <Route path='records' element={<Records />} />
-              <Route path='calendar' element={<Calendar />} />
-              <Route path='tags' element={<Tags />} />
-              <Route path='budgets' element={<Budgets />} />
-              <Route path='settings' element={<Settings />} />
-            </Route>
+        <LocalizationProvider dateAdapter={AdapterLuxon}>
+          <BrowserRouter>
+            <Routes>
+              <Route
+                element={
+                  <ProtectedRoute>
+                    <AppLayout />
+                  </ProtectedRoute>
+                }
+              >
+                <Route index element={<Navigate replace to='dashboard' />} />
+                <Route path='dashboard' element={<Dashboard />} />
+                <Route path='records' element={<Records />} />
+                <Route path='calendar' element={<Calendar />} />
+                <Route path='tags' element={<Tags />} />
+                <Route path='budgets' element={<Budgets />} />
+                <Route path='settings' element={<Settings />} />
+              </Route>
 
-            <Route path='login' element={<Login />} />
-            <Route path='signup' element={<Signup />} />
-            <Route path='*' element={<PageNotFound />} />
-          </Routes>
-        </BrowserRouter>
+              <Route path='login' element={<Login />} />
+              <Route path='signup' element={<Signup />} />
+              <Route path='*' element={<PageNotFound />} />
+            </Routes>
+          </BrowserRouter>
 
-        <Toaster
-          position='top-right'
-          gutter={12}
-          containerClassName='text-base m-2 px-5 py-3 text-gray-700'
-          toastOptions={{
-            success: {
-              duration: 3000,
-            },
-            error: {
-              duration: 5000,
-            },
-          }}
-        />
+          <Toaster
+            position='top-right'
+            gutter={12}
+            containerClassName='text-base m-2 px-5 py-3 text-gray-700'
+            toastOptions={{
+              success: {
+                duration: 3000,
+              },
+              error: {
+                duration: 5000,
+              },
+            }}
+          />
+        </LocalizationProvider>
       </Provider>
     </QueryClientProvider>
   );

@@ -19,7 +19,7 @@ export function useRecords() {
 
   const filterCategoryParams = !filterCategory ? null : filterCategory;
 
-  const sortParams = !sort ? '-amount' : sort;
+  const sortParams = !sort ? '-date' : sort;
 
   const pageParams = !page ? 1 : Number(page);
 

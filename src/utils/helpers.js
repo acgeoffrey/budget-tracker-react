@@ -25,7 +25,11 @@ export const removeItemFromLocalStorage = (key) => {
   localStorage.removeItem(key);
 };
 
-export const formatCurrency = (currency, value) =>
-  new Intl.NumberFormat('en', { style: 'currency', currency: currency }).format(
-    value,
-  );
+export const formatCurrency = (currency, value) => {
+  if (!currency || !value) return;
+
+  return new Intl.NumberFormat('en', {
+    style: 'currency',
+    currency: currency,
+  }).format(value);
+};

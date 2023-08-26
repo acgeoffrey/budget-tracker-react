@@ -1,7 +1,6 @@
 import { Controller, useForm, useWatch } from 'react-hook-form';
 import { useUser } from '../authentication/useUser';
-import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
-import { AdapterLuxon } from '@mui/x-date-pickers/AdapterLuxon';
+import { DatePicker } from '@mui/x-date-pickers';
 import { DateTime } from 'luxon';
 
 import FormElementRow from '../../ui/FormElementRow';
@@ -131,16 +130,14 @@ function CreateRecordForm({ updateForm = {}, onCloseModal }) {
       </FormElementRow>
 
       <FormElementRow label='Date'>
-        <LocalizationProvider dateAdapter={AdapterLuxon}>
-          <Controller
-            name='date'
-            defaultValue={DateTime.now()}
-            control={control}
-            render={({ field: { onChange, value } }) => (
-              <DatePicker value={value} onChange={onChange} />
-            )}
-          />
-        </LocalizationProvider>
+        <Controller
+          name='date'
+          defaultValue={DateTime.now()}
+          control={control}
+          render={({ field: { onChange, value } }) => (
+            <DatePicker value={value} onChange={onChange} />
+          )}
+        />
       </FormElementRow>
 
       <FormElementRow label='Notes' error={errors?.notes?.message}>
