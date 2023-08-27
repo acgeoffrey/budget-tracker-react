@@ -23,13 +23,24 @@
 
 ### Dashboard
 
+![Alt text](./screenshots/image.png)
+
 ### Records
+
+![Alt text](./screenshots/records.png)
+![Alt text](./screenshots/records2.png)
 
 ### Calendar
 
+![Alt text](./screenshots/calendar.png)
+
 ### Tag
 
+![Alt text](./screenshots/tags.png)
+
 ### User and Authentication
+
+![Alt text](./screenshots/settings.png)
 
 ### Features To Implement
 

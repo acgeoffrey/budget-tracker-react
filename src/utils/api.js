@@ -40,6 +40,7 @@ export const API_URLS = {
   getDateWiseData: () => `${API_ROOT}/budget/date`,
   updateSettings: () => `${API_ROOT}/user/settings`,
   forgetPassword: () => `${API_ROOT}/user/forgotPassword`,
+  resetPassword: (token) => `${API_ROOT}/user/resetPassword/${token}`,
 };
 
 export const customFetch = async (url, { body, ...customConfig }) => {

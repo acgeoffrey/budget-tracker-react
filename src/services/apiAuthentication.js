@@ -60,3 +60,13 @@ export const forgetPassword = async (body) => {
   if (data.status === 'fail') throw new Error(data.data);
   return data;
 };
+
+export const resetPassword = async (body, token) => {
+  const data = await customFetch(API_URLS.resetPassword(token), {
+    method: 'PATCH',
+    body,
+  });
+
+  if (data.status === 'fail') throw new Error(data.data);
+  return data;
+};

@@ -2,11 +2,20 @@ import { useState } from 'react';
 import Logo from '../ui/Logo';
 import FormElement from '../ui/FormElement';
 import { Link } from 'react-router-dom';
+import { useForgetPassword } from '../features/authentication/useForgetPassword';
+import Loader from '../ui/Loader';
+import LoaderMini from '../ui/LoaderMini';
 
 function ForgetPassword() {
   const [email, setEmail] = useState('');
 
-  function handleSubmit() {}
+  const { isLoading, forgetPassword } = useForgetPassword();
+
+  if (isLoading) return <Loader />;
+
+  function handleSubmit() {
+    forgetPassword({ email });
+  }
 
   return (
     <main className='grid min-h-screen grid-cols-[40%] content-center justify-center gap-9 bg-gray-100'>
@@ -17,13 +26,14 @@ function ForgetPassword() {
           <input
             type='email'
             value={email}
-            onChange={setEmail}
+            onChange={(e) => setEmail(e.target.value)}
             className='input'
+            disabled={isLoading}
           />
         </FormElement>
         <FormElement>
-          <button className='button mx-auto w-96'>
-            Send Reset Password Link
+          <button className='button mx-auto w-96' disabled={isLoading}>
+            {isLoading ? <LoaderMini /> : 'Send Reset Password Link'}
           </button>
         </FormElement>
       </form>

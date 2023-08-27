@@ -40,12 +40,12 @@ export function totalStatsHelper(data) {
   const totalStats = data?.data?.totalStats;
 
   const expenseStats =
-    totalStats?.[0]._id.toLowerCase() === 'expense'
+    totalStats?.[0]?._id.toLowerCase() === 'expense'
       ? totalStats?.[0]
       : totalStats?.[1];
 
   const incomeStats =
-    totalStats?.[0]._id.toLowerCase() === 'income'
+    totalStats?.[0]?._id.toLowerCase() === 'income'
       ? totalStats?.[0]
       : totalStats?.[1];
 
