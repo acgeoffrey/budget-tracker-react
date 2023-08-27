@@ -6,9 +6,16 @@ function Logout() {
   const { logout, isLoading } = useLogout();
 
   return (
-    <button className='button-icon' onClick={logout} disabled={isLoading}>
+    <button
+      className='button-icon flex items-center justify-center gap-2 bg-lime-100
+      hover:bg-lime-200'
+      onClick={logout}
+      disabled={isLoading}
+    >
       {!isLoading ? (
-        <HiOutlineArrowRightOnRectangle />
+        <>
+          <span>Logout</span> <HiOutlineArrowRightOnRectangle />
+        </>
       ) : (
         <LoaderMini color='emerald-600' />
       )}

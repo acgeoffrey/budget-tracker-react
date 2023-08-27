@@ -36,7 +36,7 @@ function MainNav() {
             <span>Tags</span>
           </NavLink>
         </li>
-        <li>
+        <li className='hidden'>
           <NavLink to='/budgets' className='navLink'>
             <HiOutlineDocumentChartBar className='navSvg' />
             <span>Budgets</span>
