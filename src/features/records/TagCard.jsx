@@ -48,7 +48,8 @@ export default function TagCard({ tags, currency }) {
   const isSaving = percentageSpent >= 100 ? false : true;
 
   return (
-    <Card className='mx-auto bg-white'>
+    <>
+      {/* <Card className=' mx-auto bg-white'> */}
       <Card className='bg-lime-50'>
         <Flex>
           <Text className='truncate font-bold'>Total Expense</Text>
@@ -99,6 +100,7 @@ export default function TagCard({ tags, currency }) {
           </Card>
         ))}
       </Grid>
-    </Card>
+      {/* </Card> */}
+    </>
   );
 }

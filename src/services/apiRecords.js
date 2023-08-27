@@ -33,6 +33,19 @@ export async function getRecords(
   return data?.data?.records;
 }
 
+export async function getCalendarRecord(type, date1, date2) {
+  const data = await customFetch(
+    API_URLS.getCalendarRecords(type, date1, date2),
+    {
+      method: 'GET',
+    },
+  );
+
+  if (data.status === 'fail') throw new Error(data.data);
+
+  return data?.data?.records;
+}
+
 export async function createRecord(body) {
   const data = await customFetch(API_URLS.createRecord(), {
     method: 'POST',

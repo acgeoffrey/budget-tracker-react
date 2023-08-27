@@ -50,7 +50,7 @@ function Body({ data, render }) {
       </p>
     );
 
-  return <section className='my-1'>{data.map(render)}</section>;
+  return <section className=''>{data.map(render)}</section>;
 }
 
 function Footer({ children }) {
