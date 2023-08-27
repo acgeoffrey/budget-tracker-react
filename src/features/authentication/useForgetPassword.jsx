@@ -12,6 +12,9 @@ export function useForgetPassword() {
       navigate('/login');
       toast.success('Reset password link sent to email');
     },
+    onError: (err) => {
+      toast.error(err.message);
+    },
   });
 
   return { forgetPassword, isLoading };

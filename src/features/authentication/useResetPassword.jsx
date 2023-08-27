@@ -13,6 +13,9 @@ export function useResetPassword() {
       navigate('/login');
       toast.success('Password Reset Successful.');
     },
+    onError: (err) => {
+      toast.error(err.message);
+    },
   });
 
   return { resetPassword, isLoading };
