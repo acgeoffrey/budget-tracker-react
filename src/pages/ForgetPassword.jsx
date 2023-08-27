@@ -13,7 +13,8 @@ function ForgetPassword() {
 
   if (isLoading) return <Loader />;
 
-  function handleSubmit() {
+  function handleSubmit(e) {
+    e.preventDefault();
     forgetPassword({ email });
   }
 
