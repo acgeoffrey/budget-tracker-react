@@ -11,12 +11,10 @@ function Calendar() {
   const [date, setDate] = useState(DateTime.now());
   const [type, setType] = useState('expense');
 
-  const newDate = date.startOf('day');
-
   const { isLoading, calendar } = useCalendar(
     type,
-    newDate.toUTC().toISO(),
-    newDate.plus({ days: 1 }).toUTC().toISO(),
+    date.startOf('day').toUTC().toISO(),
+    date.endOf('day').toUTC().toISO(),
   );
 
   if (isLoading) return <Loader />;
