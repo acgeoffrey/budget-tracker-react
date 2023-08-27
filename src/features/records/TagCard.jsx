@@ -28,12 +28,12 @@ export default function TagCard({ tags, currency }) {
   const totalStats = tags?.data?.totalStats;
 
   const expenseStats =
-    totalStats?.[0]._id.toLowerCase() === 'expense'
+    totalStats?.[0]?._id.toLowerCase() === 'expense'
       ? totalStats?.[0]
       : totalStats?.[1];
 
   const incomeStats =
-    totalStats?.[0]._id.toLowerCase() === 'income'
+    totalStats?.[0]?._id.toLowerCase() === 'income'
       ? totalStats?.[0]
       : totalStats?.[1];
 
@@ -46,6 +46,13 @@ export default function TagCard({ tags, currency }) {
   }
 
   const isSaving = percentageSpent >= 100 ? false : true;
+
+  if (!expenseStats || !incomeStats)
+    return (
+      <Card className='bg-lime-50'>
+        <p>Not enough data</p>
+      </Card>
+    );
 
   return (
     <>

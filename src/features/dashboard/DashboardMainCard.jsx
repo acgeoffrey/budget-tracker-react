@@ -18,27 +18,35 @@ function DashboardMainCard({
       <div className='flex items-center gap-6 '>
         {icon}
         <div>
-          <h4 className='text-lg uppercase text-gray-600'>{type}</h4>
-          <h2 className='mb-2 font-number text-2xl font-semibold'>
-            {formatCurrency(currency, amount)}
-          </h2>
+          {!amount ? (
+            <p>Not enough data</p>
+          ) : (
+            <>
+              <h4 className='text-lg uppercase text-gray-600'>{type}</h4>
+              <h2 className='mb-2 font-number text-2xl font-semibold'>
+                {formatCurrency(currency, amount)}
+              </h2>
+            </>
+          )}
         </div>
       </div>
 
-      <div className='flex items-center justify-start gap-2'>
-        <BadgeDelta
-          deltaType={difference < 0 ? 'moderateDecrease' : 'moderateIncrease'}
-          isIncreasePositive={type === 'expenses' ? false : true}
-          size='sm'
-        />
+      {difference ? (
+        <div className='flex items-center justify-start gap-2'>
+          <BadgeDelta
+            deltaType={difference < 0 ? 'moderateDecrease' : 'moderateIncrease'}
+            isIncreasePositive={type === 'expenses' ? false : true}
+            size='sm'
+          />
 
-        <p className='text-sm text-gray-500'>
-          <span className='font-number font-medium text-gray-900'>
-            {formatCurrency(currency, difference)}
-          </span>{' '}
-          from last month
-        </p>
-      </div>
+          <p className='text-sm text-gray-500'>
+            <span className='font-number font-medium text-gray-900'>
+              {formatCurrency(currency, difference)}
+            </span>{' '}
+            from last month
+          </p>
+        </div>
+      ) : null}
     </div>
   );
 }
