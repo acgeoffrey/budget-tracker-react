@@ -76,7 +76,7 @@ export const customFetch = async (url, { body, ...customConfig }) => {
 
     // console.log(data);
     if (data.status === 'success') return data;
-    console.log(data);
+    // console.log(data);
     throw new Error(data.message);
   } catch (err) {
     if (err.message === 'Failed to fetch') {
