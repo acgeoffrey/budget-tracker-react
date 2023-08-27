@@ -13,7 +13,7 @@ function DashboardMainCard({
 
   return (
     <div
-      className={`flex flex-grow flex-col gap-3 rounded-md border-2 border-gray-100 bg-gray-50 px-7 py-5`}
+      className={`flex flex-grow flex-col gap-4 rounded-md border-2 border-gray-100 bg-gray-50 px-7 py-5`}
     >
       <div className='flex items-center gap-6 '>
         {icon}

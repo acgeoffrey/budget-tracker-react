@@ -8,6 +8,8 @@ import { useUser } from '../features/authentication/useUser';
 import Loader from '../ui/Loader';
 import { useTags } from '../features/records/useTags';
 import { totalStatsHelper } from '../utils/helpers';
+import { useDateData } from '../features/dashboard/useDateData';
+import DashboardGraph from '../features/dashboard/DashboardGraph';
 
 const currFirstDay = DateTime.now().startOf('month');
 const currLastDay = DateTime.now().endOf('day');
@@ -38,7 +40,16 @@ function Dashboard() {
     prevLastDay,
   );
 
-  if (currentLoading || previousLoading || userLoading) return <Loader />;
+  const { isLoading: dateDataLoading, dateData } = useDateData(
+    currentMonthBody,
+    currLastDay,
+  );
+
+  if (currentLoading || previousLoading || userLoading || dateDataLoading)
+    return <Loader />;
+
+  const dateWiseExpenses = dateData?.data?.dateWiseExpenses;
+  // console.log(dateWiseExpenses);
 
   const { expenseStats: currExpenseStats, incomeStats: currIncomeStats } =
     totalStatsHelper(currentMonthData);
@@ -85,6 +96,9 @@ function Dashboard() {
             <GiReceiveMoney className='rounded-full bg-sky-100 p-3 text-6xl text-sky-700' />
           }
         />
+      </div>
+      <div>
+        <DashboardGraph chartData={dateWiseExpenses} />
       </div>
     </>
   );
