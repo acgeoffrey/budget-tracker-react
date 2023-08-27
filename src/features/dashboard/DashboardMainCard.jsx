@@ -6,18 +6,24 @@ function DashboardMainCard({
   type,
   difference,
   currency,
-  color = 'sky',
+
+  icon,
 }) {
   // if (type === 'expenses') difference = Number(difference) * -1;
 
   return (
     <div
-      className={`flex flex-grow flex-col gap-2 rounded-md bg-${color}-50 border-2 px-7 py-5 border-${color}-600`}
+      className={`flex flex-grow flex-col gap-3 rounded-md border-2 border-gray-100 bg-gray-50 px-7 py-5`}
     >
-      <h4 className='text-xl capitalize'>{type}</h4>
-      <h2 className='mb-2 font-number text-2xl font-semibold'>
-        {formatCurrency(currency, amount)}
-      </h2>
+      <div className='flex items-center gap-6 '>
+        {icon}
+        <div>
+          <h4 className='text-lg uppercase text-gray-600'>{type}</h4>
+          <h2 className='mb-2 font-number text-2xl font-semibold'>
+            {formatCurrency(currency, amount)}
+          </h2>
+        </div>
+      </div>
 
       <div className='flex items-center justify-start gap-2'>
         <BadgeDelta

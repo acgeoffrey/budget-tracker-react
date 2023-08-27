@@ -76,7 +76,7 @@ function UpdatePassForm() {
           />
         </FormElementRow>
         <FormElementRow styles='flex justify-start items-center '>
-          <button className='button mt-3 px-5' disabled={isLoading}>
+          <button className='button mt-3 px-3 py-2' disabled={isLoading}>
             {isLoading ? <LoaderMini /> : 'Update Password'}
           </button>
         </FormElementRow>

@@ -1,4 +1,8 @@
 import { DateTime } from 'luxon';
+import { LiaPiggyBankSolid } from 'react-icons/lia';
+import { GiReceiveMoney } from 'react-icons/gi';
+import { PiMoneyLight } from 'react-icons/pi';
+
 import DashboardMainCard from '../features/dashboard/DashboardMainCard';
 import { useUser } from '../features/authentication/useUser';
 import Loader from '../ui/Loader';
@@ -52,28 +56,34 @@ function Dashboard() {
 
   return (
     <>
-      {/* <h1 className='text-center text-xl font-medium'>Monthly Statistics</h1> */}
+      <h1 className='text-center text-xl font-medium'>Monthly Summary</h1>
       <div className='flex items-center justify-around gap-5'>
         <DashboardMainCard
           type='savings'
           amount={currentSavings}
           currency={user?.data?.settings[0]?.currency}
           difference={currentSavings - previousSavings}
-          color='green'
+          icon={
+            <LiaPiggyBankSolid className='rounded-full bg-emerald-100 p-2 text-6xl text-emerald-700' />
+          }
         />
         <DashboardMainCard
           type='expenses'
           amount={currExpenseAmount}
           currency={user?.data?.settings[0]?.currency}
           difference={currExpenseAmount - prevExpenseAmount}
-          color='sky'
+          icon={
+            <PiMoneyLight className='rounded-full bg-rose-100 p-3 text-6xl text-rose-700' />
+          }
         />
         <DashboardMainCard
           type='income'
           amount={currIncomeAmount}
           currency={user?.data?.settings[0]?.currency}
           difference={currIncomeAmount - prevIncomeAmount}
-          color='yellow'
+          icon={
+            <GiReceiveMoney className='rounded-full bg-sky-100 p-3 text-6xl text-sky-700' />
+          }
         />
       </div>
     </>

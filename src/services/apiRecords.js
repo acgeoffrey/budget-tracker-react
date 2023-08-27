@@ -88,3 +88,14 @@ export async function getAllCategories(body) {
 
   return data;
 }
+
+export async function getDateWiseData(body) {
+  const data = await customFetch(API_URLS.getDateWiseData(), {
+    method: 'POST',
+    body,
+  });
+
+  if (data.status === 'fail') throw new Error(data.data);
+
+  return data;
+}
