@@ -22,24 +22,24 @@
 
 ### Dashboard
 
-![Alt text](./screenshots/image.png)
+![Alt text](./public/screenshots/dashboard.png)
 
 ### Records
 
-![Alt text](./screenshots/records.png)
-![Alt text](./screenshots/records2.png)
+![Alt text](./public/screenshots/records.png)
+![Alt text](./public/screenshots/records2.png)
 
 ### Calendar
 
-![Alt text](./screenshots/calendar.png)
+![Alt text](./public/screenshots/calendar.png)
 
 ### Tag
 
-![Alt text](./screenshots/tags.png)
+![Alt text](./public/screenshots/tags.png)
 
 ### User and Authentication
 
-![Alt text](./screenshots/settings.png)
+![Alt text](./public/screenshots/settings.png)
 
 ### Features To Implement
 
