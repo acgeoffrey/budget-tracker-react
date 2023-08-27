@@ -21,8 +21,8 @@ function Tags() {
 
   if (startDate && endDate) {
     body = {
-      startDate: DateTime.fromJSDate(startDate).toISODate(),
-      endDate: DateTime.fromJSDate(endDate).toISODate(),
+      startDate,
+      endDate,
     };
   }
 

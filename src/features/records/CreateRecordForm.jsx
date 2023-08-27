@@ -41,6 +41,7 @@ function CreateRecordForm({ updateForm = {}, onCloseModal }) {
   const { errors } = formState;
 
   function onSubmit(data) {
+    console.log(data.date.toISO());
     if (isUpdate)
       updateRecord(
         { updateData: { ...data, date: data.date.toISO() }, id: updateId },
@@ -67,7 +68,7 @@ function CreateRecordForm({ updateForm = {}, onCloseModal }) {
   useWatch({ control, name: 'recordType' });
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className='w-[80rem] text-base'>
+    <form onSubmit={handleSubmit(onSubmit)} className='w-[80vw] text-base'>
       <FormElementRow label='Title' error={errors?.title?.message}>
         <input
           type='text'

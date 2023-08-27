@@ -40,9 +40,16 @@ function Filter({ setOpenFilter }) {
     const [start, end] = dates;
     setStartDate(start);
     setEndDate(end);
-    searchParams.set('date[gte]', DateTime.fromJSDate(start).toISODate());
+
+    searchParams.set(
+      'date[gte]',
+      DateTime.fromJSDate(start).startOf('day').toUTC().toISO(),
+    );
     if (end)
-      searchParams.set('date[lte]', DateTime.fromJSDate(end).toISODate());
+      searchParams.set(
+        'date[lte]',
+        DateTime.fromJSDate(end).endOf('day').toUTC().toISO(),
+      );
   };
 
   function handleSubmitFilter() {
