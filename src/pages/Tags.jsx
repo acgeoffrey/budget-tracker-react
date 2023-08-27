@@ -10,26 +10,33 @@ function Tags() {
   const { isLoading: userLoading, user } = useUser();
   if (userLoading) <Loader />;
 
-  const date = new Date();
-  const firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
-  const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+  const firstDay = DateTime.now().startOf('month');
+  const lastDay = DateTime.now().endOf('day');
 
-  const [dateRange, setDateRange] = useState([firstDay, lastDay]);
+  // console.log(DateTime.now().startOf('month').toJSDate(), lastDay);
+
+  const [dateRange, setDateRange] = useState([
+    firstDay.toJSDate(),
+    lastDay.toJSDate(),
+  ]);
   const [startDate, endDate] = dateRange;
 
-  let body = { startDate: firstDay, endDate: lastDay };
+  let body = {
+    startDate: firstDay.toUTC().toISO(),
+    endDate: lastDay.toUTC().toISO(),
+  };
 
   if (startDate && endDate) {
     body = {
-      startDate,
-      endDate,
+      startDate: DateTime.fromJSDate(startDate).startOf('day').toJSDate(),
+      endDate: DateTime.fromJSDate(endDate).endOf('day').toJSDate(),
     };
   }
 
   const { isLoading, tags } = useTags(body, endDate);
   if (isLoading || userLoading) return <Loader />;
 
-  console.log(tags);
+  // console.log(tags);
 
   return (
     <>
