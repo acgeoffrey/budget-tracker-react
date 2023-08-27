@@ -47,7 +47,7 @@ export default function TagCard({ tags, currency }) {
 
   const isSaving = percentageSpent >= 100 ? false : true;
 
-  if (!expenseStats || !incomeStats)
+  if (!expenseStats)
     return (
       <Card className='bg-lime-50'>
         <p>Not enough data</p>

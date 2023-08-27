@@ -7,7 +7,7 @@ import { DateTime } from 'luxon';
 import useMonthData from '../hooks/useMonthData';
 
 const firstDay = DateTime.now().startOf('month');
-const lastDay = DateTime.now().endOf('day');
+const lastDay = DateTime.now().endOf('month');
 
 function Tags() {
   const { isLoading: userLoading, user } = useUser();
