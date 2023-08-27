@@ -24,8 +24,6 @@ export const getCurrentUser = async () => {
     method: 'GET',
   });
 
-  if (data.status === 'fail') throw new Error(data);
-
   return data;
 };
 
@@ -36,6 +34,16 @@ export const logout = () => {
 export const signup = async (body) => {
   const data = await customFetch(API_URLS.signup(), {
     method: 'POST',
+    body,
+  });
+
+  if (data.status === 'fail') throw new Error(data.data);
+  return data;
+};
+
+export const updatePassword = async (body) => {
+  const data = await customFetch(API_URLS.updatePassword(), {
+    method: 'PATCH',
     body,
   });
 

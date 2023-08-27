@@ -20,6 +20,7 @@ import Signup from './pages/Signup';
 import ProtectedRoute from './ui/ProtectedRoute';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterLuxon } from '@mui/x-date-pickers/AdapterLuxon';
+import AuthLayout from './ui/AuthLayout';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -52,9 +53,10 @@ function App() {
                 <Route path='budgets' element={<Budgets />} />
                 <Route path='settings' element={<Settings />} />
               </Route>
-
-              <Route path='login' element={<Login />} />
-              <Route path='signup' element={<Signup />} />
+              <Route element={<AuthLayout />}>
+                <Route path='login' element={<Login />} />
+                <Route path='signup' element={<Signup />} />
+              </Route>
               <Route path='*' element={<PageNotFound />} />
             </Routes>
           </BrowserRouter>

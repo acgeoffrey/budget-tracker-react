@@ -28,8 +28,26 @@ export const removeItemFromLocalStorage = (key) => {
 export const formatCurrency = (currency, value) => {
   if (!currency || !value) return;
 
+  // if (value < 0) value = Math.abs(value);
+
   return new Intl.NumberFormat('en', {
     style: 'currency',
     currency: currency,
   }).format(value);
 };
+
+export function totalStatsHelper(data) {
+  const totalStats = data?.data?.totalStats;
+
+  const expenseStats =
+    totalStats?.[0]._id.toLowerCase() === 'expense'
+      ? totalStats?.[0]
+      : totalStats?.[1];
+
+  const incomeStats =
+    totalStats?.[0]._id.toLowerCase() === 'income'
+      ? totalStats?.[0]
+      : totalStats?.[1];
+
+  return { expenseStats, incomeStats };
+}

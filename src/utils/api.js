@@ -1,5 +1,6 @@
 import { getItemFromLocalStorage } from './helpers';
 import { PAGE_LIMIT } from './constants';
+import { logout } from '../services/apiAuthentication';
 
 const API_ROOT = import.meta.env.VITE_API_URL;
 
@@ -35,6 +36,7 @@ export const API_URLS = {
   updateRecord: (id) => `${API_ROOT}/budget/record/${id}`,
   deleteRecord: (id) => `${API_ROOT}/budget/record/${id}`,
   getCategoryRecord: () => `${API_ROOT}/budget/category`,
+  updatePassword: () => `${API_ROOT}/user/updatePassword`,
 };
 
 export const customFetch = async (url, { body, ...customConfig }) => {
@@ -63,13 +65,15 @@ export const customFetch = async (url, { body, ...customConfig }) => {
   try {
     const response = await fetch(url, config);
 
+    if (!token && response.status === 401) logout();
+
     const data =
       response.status !== 204 ? await response.json() : { status: 'success' };
 
     // console.log(data);
     if (data.status === 'success') return data;
-
-    throw new Error(data);
+    console.log(data);
+    throw new Error(data.message);
   } catch (err) {
     if (err.message === 'Failed to fetch') {
       throw new Error('Failed to fetch data. \n Check your connection');
