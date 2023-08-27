@@ -10,8 +10,7 @@ function Records() {
 
   return (
     <>
-      <div className='flex items-center justify-between'>
-        <h1 className='text-2xl font-medium'>Financial Records</h1>
+      <div className='flex items-center justify-end'>
         <RecordTableOperations />
       </div>
 

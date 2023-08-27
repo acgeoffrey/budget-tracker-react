@@ -21,8 +21,7 @@ function Calendar() {
 
   return (
     <>
-      <div className='flex items-center justify-between'>
-        <h1 className='text-2xl font-medium'>Calendar</h1>
+      <div className='flex items-center justify-end'>
         <CalendarTableOperations type={type} setType={setType} />
       </div>
       <div className='flex items-start justify-between gap-3'>

@@ -40,8 +40,7 @@ function Tags() {
 
   return (
     <>
-      <div className='flex items-center justify-between'>
-        <h1 className='text-2xl font-medium'>Overview on Tags</h1>
+      <div className='flex items-center justify-end'>
         <TagTableOperations
           startDate={startDate}
           endDate={endDate}
