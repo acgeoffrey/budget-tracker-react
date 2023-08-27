@@ -86,6 +86,7 @@ function CreateRecordForm({ updateForm = {}, onCloseModal }) {
         <Controller
           name='recordType'
           control={control}
+          defaultValue='expense'
           render={({ field: { onChange, value } }) => (
             <Select value={value} onValueChange={onChange} disabled={busy}>
               <SelectItem value='expense' className='capitalize'>
