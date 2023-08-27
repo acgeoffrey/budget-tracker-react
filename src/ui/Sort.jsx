@@ -5,8 +5,8 @@ function Sort({ options, action }) {
   const [searchParams, setSearchParams] = useSearchParams();
   const sort = searchParams.get(action) || '';
 
-  function handleChange(e) {
-    searchParams.set(action, e.target.value);
+  function handleChange(data) {
+    searchParams.set(action, data);
     if (action === 'category' && searchParams.get('page'))
       searchParams.set('page', 1);
     setSearchParams(searchParams);

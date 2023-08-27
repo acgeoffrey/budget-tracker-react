@@ -102,6 +102,19 @@ function Filter({ setOpenFilter }) {
         />
       </div>
 
+      {recordType === 'expense' && (
+        <div className='flex flex-col gap-2'>
+          <h3 className={h3Classes}>Categories</h3>
+          <Sort options={expenseCategories} action='category' />
+        </div>
+      )}
+      {recordType === 'income' && (
+        <div className='flex flex-col gap-2'>
+          <h3 className={h3Classes}>Categories</h3>
+          <Sort options={incomeCategories} action='category' />
+        </div>
+      )}
+
       <div className='flex flex-col gap-2'>
         <h3 className={h3Classes}>Amount</h3>
         <div className='flex items-center justify-start gap-3 text-sm'>
@@ -138,19 +151,6 @@ function Filter({ setOpenFilter }) {
           onChange={(e) => setSearchText(e.target.value)}
         />
       </div>
-
-      {recordType === 'expense' && (
-        <div className='flex flex-col gap-2'>
-          <h3 className={h3Classes}>Categories</h3>
-          <Sort options={expenseCategories} action='category' />
-        </div>
-      )}
-      {recordType === 'income' && (
-        <div className='flex flex-col gap-2'>
-          <h3 className={h3Classes}>Categories</h3>
-          <Sort options={incomeCategories} action='category' />
-        </div>
-      )}
     </div>
   );
 }

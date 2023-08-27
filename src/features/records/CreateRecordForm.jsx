@@ -2,6 +2,7 @@ import { Controller, useForm, useWatch } from 'react-hook-form';
 import { useUser } from '../authentication/useUser';
 import { DatePicker } from '@mui/x-date-pickers';
 import { DateTime } from 'luxon';
+import { Select, SelectItem } from '@tremor/react';
 
 import FormElementRow from '../../ui/FormElementRow';
 import LoaderMini from '../../ui/LoaderMini';
@@ -108,6 +109,28 @@ function CreateRecordForm({ updateForm = {}, onCloseModal }) {
       </FormElementRow>
 
       <FormElementRow label='Category'>
+        <Controller
+          name='category'
+          control={control}
+          render={({ field: { onChange, value } }) => (
+            <Select value={value} onValueChange={onChange}>
+              {getValues().recordType === 'income'
+                ? settings.incomeCategories.map((item) => (
+                    <SelectItem value={item} key={item} className='capitalize'>
+                      {item}
+                    </SelectItem>
+                  ))
+                : settings.expenseCategories.map((item) => (
+                    <SelectItem value={item} key={item} className='capitalize'>
+                      {item}
+                    </SelectItem>
+                  ))}
+            </Select>
+          )}
+        />
+      </FormElementRow>
+
+      {/* <FormElementRow label='Category'>
         <select
           name='category'
           id='category'
@@ -128,7 +151,7 @@ function CreateRecordForm({ updateForm = {}, onCloseModal }) {
                 </option>
               ))}
         </select>
-      </FormElementRow>
+      </FormElementRow> */}
 
       <FormElementRow label='Date'>
         <Controller

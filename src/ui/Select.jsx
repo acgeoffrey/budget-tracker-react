@@ -1,23 +1,37 @@
-function Select({ options, value, onChange, ...props }) {
+import { Select, SelectItem } from '@tremor/react';
+
+function SelectComponent({ options, value, onChange, ...props }) {
   return (
-    <select
-      value={value}
-      onChange={onChange}
-      {...props}
-      className='rounded-sm border border-solid border-gray-300 bg-white px-4 py-1 text-sm font-medium capitalize shadow-sm outline-emerald-600'
+    <Select
+      value={props.action === 'sort' && !value ? '-date' : value}
+      onValueChange={onChange}
+      className={` ${props.action === 'sort' ? 'w-[16rem]' : ''}`}
     >
-      {props.action !== 'sort' && (
-        <option disabled={true} value=''>
-          -- Choose a {props.action} --
-        </option>
-      )}
       {options.map((option) => (
-        <option value={option.value} key={option.value}>
+        <SelectItem value={option.value} key={option.value} icon={option.icon}>
           {option.label}
-        </option>
+        </SelectItem>
       ))}
-    </select>
+    </Select>
+
+    // <select
+    //   value={value}
+    //   onChange={onChange}
+    //   {...props}
+    //   className='rounded-sm border border-solid border-gray-300 bg-white px-4 py-1 text-sm font-medium capitalize shadow-sm outline-emerald-600'
+    // >
+    //   {props.action !== 'sort' && (
+    //     <option disabled={true} value=''>
+    //       -- Choose a {props.action} --
+    //     </option>
+    //   )}
+    //   {options.map((option) => (
+    //     <option value={option.value} key={option.value}>
+    //       {option.label}
+    //     </option>
+    //   ))}
+    // </select>
   );
 }
 
-export default Select;
+export default SelectComponent;

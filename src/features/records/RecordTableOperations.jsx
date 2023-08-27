@@ -1,8 +1,8 @@
 // import { useSearchParams } from 'react-router-dom';
 import { useState } from 'react';
 import { HiAdjustmentsHorizontal, HiOutlineXCircle } from 'react-icons/hi2';
-
-import { useUser } from '../authentication/useUser';
+import { BsSortNumericDownAlt, BsSortNumericDown } from 'react-icons/bs';
+import { TbCalendarDown, TbCalendarUp } from 'react-icons/tb';
 
 import BasicFilter from '../../ui/BasicFilter';
 import Sort from '../../ui/Sort';
@@ -40,10 +40,26 @@ function RecordTableOperations() {
       />
       <Sort
         options={[
-          { value: '-date', label: 'Sort by Date (Latest first)' },
-          { value: 'date', label: 'Sort by Date (Oldest first)' },
-          { value: '-amount', label: 'Sort by amount (highest first)' },
-          { value: 'amount', label: 'Sort by amount (lowest first)' },
+          {
+            value: '-date',
+            label: 'Sort by Date (Latest first)',
+            icon: TbCalendarDown,
+          },
+          {
+            value: 'date',
+            label: 'Sort by Date (Oldest first)',
+            icon: TbCalendarUp,
+          },
+          {
+            value: '-amount',
+            label: 'Sort by amount (highest first)',
+            icon: BsSortNumericDownAlt,
+          },
+          {
+            value: 'amount',
+            label: 'Sort by amount (lowest first)',
+            icon: BsSortNumericDown,
+          },
         ]}
         action='sort'
       />
