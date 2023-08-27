@@ -12,8 +12,7 @@
 
 ## Links
 
-- [Live API URL](https://api-coinchef.cyclic.cloud/)
-- [Postman Documentation](https://documenter.getpostman.com/view/26849144/2s9Y5SWRGR)
+- [Live Site URL](https://coin-chef-react.vercel.app/)
 
 ## Overview
 
