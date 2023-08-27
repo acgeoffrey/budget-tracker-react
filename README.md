@@ -1,4 +1,4 @@
-# CoinChef | Budget Tracker REST API
+# CoinChef | Budget Tracker React Application
 
 ## Table of contents
 
@@ -17,59 +17,44 @@
 
 ## Overview
 
-- This is a Budget Tracker REST API. It contains endpoints for Authentication, Users, Expense/Income Records and Budget Planning. This API can be used be develop Frontend for a budget tracker application.
+- This is a React Budget Tracker Application integrated with the [Budget Tracker API Backend Application](https://github.com/acgeoffrey/budget-tracker-api). It contains dashboard with monthly summary, records page where all expense and income records are displayed, a calendar page where records of the selected date will be displayed and Category summary page.
 
-### Features
+## Features
 
-- REST API Architecture.
-- CRUD Operations - Users, Records, Budget planning
-- Users are authorized using JSON Web Token.
-- Filter, Sort, Pagination, Aggregation operations can be performed on Income and Expense records.
-- Expense categories can be compared with the Budget planned and expense done on those categories on specified date.
-- This API can be used to develop Frontend for a budget tracker application.
+### Dashboard
+
+### Records
+
+### Calendar
+
+### Tag
+
+### User and Authentication
 
 ### Features To Implement
 
-- Update Budget planning.
+- More graphs to compare to records between current month and previous month.
+- Graph to visualize the tag expenses through the month.
+- Budget Planner
 - Add Subscription tracking.
 - Add Google OAuth.
-- Upload documents
+- Upload bills and upload avatars.
 
 ## Built with
 
-- NodeJS
-- Express
-- MongoDB
+- React
+- ReactQuery, React Hook Form
+- Tremor, Material UI
 
 ## To run the app on Local Server
 
-- Must have NodeJs and MongoDB installed.
 - Install all needed npm dependencies with `npm install`.
-- Save the following environmental variables in a config.env file.
+- Save the following environmental variables in a .env.local file.
 
-  - NODE_ENV(`development`)
-  - DATABASE (MongoDB)
-  - DATABASE_PASSWORD
-  - JWT_SECRET
-  - JWT_EXPIRES_IN (`30d`)
-  - JWT_COOKIE_EXPIRES_IN (`30`)
+  - VITE_API_URL (Connect with the API)
 
-    **TESTING**
-
-  - EMAIL_USERNAME
-  - EMAIL_PASSWORD
-  - EMAIL_HOST
-  - EMAIL_PORT
-
-    **PRODUCTION**
-
-  - BREVO_USERNAME
-  - BREVO_PASSWORD
-  - BREVO_HOST
-  - BREVO_PORT
-
-- "npm start:dev"
-- Server should run on [http://localhost:3000/](http://localhost:3000/).
+- "npm run dev"
+- Server should run on [http://localhost:5173/](http://localhost:5173/).
 
 ## Author
 
