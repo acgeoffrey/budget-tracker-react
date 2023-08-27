@@ -74,7 +74,7 @@ function CreateRecordForm({ updateForm = {}, onCloseModal }) {
         <input
           type='text'
           id='title'
-          className='input rounded-md'
+          className='input h-10 rounded-md'
           disabled={busy}
           {...register('title', {
             required: 'This field is required',
@@ -83,26 +83,27 @@ function CreateRecordForm({ updateForm = {}, onCloseModal }) {
       </FormElementRow>
 
       <FormElementRow label='Type' error={errors?.recordType?.message}>
-        <select
+        <Controller
           name='recordType'
-          id='recordType'
-          className='input rounded-md'
-          defaultValue='expense'
-          disabled={busy}
-          {...register('recordType', {
-            required: 'This field is required',
-          })}
-        >
-          <option value='expense'>Expense</option>
-          <option value='income'>Income</option>
-        </select>
+          control={control}
+          render={({ field: { onChange, value } }) => (
+            <Select value={value} onValueChange={onChange} disabled={busy}>
+              <SelectItem value='expense' className='capitalize'>
+                Expense
+              </SelectItem>
+              <SelectItem value='income' className='capitalize'>
+                Income
+              </SelectItem>
+            </Select>
+          )}
+        />
       </FormElementRow>
 
       <FormElementRow label='Amount' error={errors?.amount?.message}>
         <input
           type='number'
           id='amount'
-          className='input rounded-md'
+          className='input h-10 rounded-md'
           disabled={busy}
           {...register('amount', { required: 'This field is required' })}
         />
@@ -113,7 +114,7 @@ function CreateRecordForm({ updateForm = {}, onCloseModal }) {
           name='category'
           control={control}
           render={({ field: { onChange, value } }) => (
-            <Select value={value} onValueChange={onChange}>
+            <Select value={value} onValueChange={onChange} disabled={busy}>
               {getValues().recordType === 'income'
                 ? settings.incomeCategories.map((item) => (
                     <SelectItem value={item} key={item} className='capitalize'>
