@@ -16,7 +16,7 @@
 
 ## Overview
 
-- This is a React Budget Tracker Application integrated with the [Budget Tracker API Backend Application](https://github.com/acgeoffrey/budget-tracker-api). It contains dashboard with monthly summary, records page where all expense and income records are displayed, a calendar page where records of the selected date will be displayed and Category summary page.
+- This is a React Budget Tracker Application integrated with [my other Budget Tracker API Backend project](https://github.com/acgeoffrey/budget-tracker-api). It contains dashboard with monthly summary, records page where all expense and income records are displayed, a calendar page where records of the selected date will be displayed and Category summary page.
 
 ## Features
 
@@ -43,18 +43,19 @@
 
 ### Features To Implement
 
-- Dark Mode
 - More graphs to compare to records between current month and previous month.
 - Graph to visualize the tag expenses through the month.
 - Better Pagination
 - Budget Planner
+- Dark Mode
+- Responsive Design
 - Add Subscription tracking.
 - Add Google OAuth.
 - Upload bills and upload avatars.
 
 ## Built with
 
-- React
+- React, Tailwind CSS
 - ReactQuery, React Hook Form
 - Tremor, Material UI
 
