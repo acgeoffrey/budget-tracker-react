@@ -39,6 +39,7 @@ export const API_URLS = {
   updatePassword: () => `${API_ROOT}/user/updatePassword`,
   getDateWiseData: () => `${API_ROOT}/budget/date`,
   updateSettings: () => `${API_ROOT}/user/settings`,
+  forgetPassword: () => `${API_ROOT}/user/forgotPassword`,
 };
 
 export const customFetch = async (url, { body, ...customConfig }) => {

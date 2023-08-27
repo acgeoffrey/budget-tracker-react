@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import LoginForm from '../features/authentication/LoginForm';
 import Logo from '../ui/Logo';
 
@@ -7,6 +8,20 @@ function Login() {
       <Logo />
       <h3 className='text-center text-2xl'>Login</h3>
       <LoginForm />
+      <div className='flex flex-col items-center justify-center gap-2'>
+        <p>
+          New User?{' '}
+          <Link to='/signup' className='text-emerald-600'>
+            Register
+          </Link>{' '}
+        </p>
+        <p>
+          Trouble Signing in?{' '}
+          <Link to='/forgetpassword' className='text-emerald-600'>
+            Reset Password
+          </Link>{' '}
+        </p>
+      </div>
     </main>
   );
 }

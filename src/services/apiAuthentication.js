@@ -50,3 +50,13 @@ export const updatePassword = async (body) => {
   if (data.status === 'fail') throw new Error(data.data);
   return data;
 };
+
+export const forgetPassword = async (body) => {
+  const data = await customFetch(API_URLS.forgetPassword(), {
+    method: 'POST',
+    body,
+  });
+
+  if (data.status === 'fail') throw new Error(data.data);
+  return data;
+};

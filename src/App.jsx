@@ -21,6 +21,8 @@ import ProtectedRoute from './ui/ProtectedRoute';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterLuxon } from '@mui/x-date-pickers/AdapterLuxon';
 import AuthLayout from './ui/AuthLayout';
+import ForgetPassword from './pages/ForgetPassword';
+import ResetPassword from './pages/ResetPassword';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -56,6 +58,8 @@ function App() {
               <Route element={<AuthLayout />}>
                 <Route path='login' element={<Login />} />
                 <Route path='signup' element={<Signup />} />
+                <Route path='forgetpassword' element={<ForgetPassword />} />
+                <Route path='resetpassword' element={<ResetPassword />} />
               </Route>
               <Route path='*' element={<PageNotFound />} />
             </Routes>

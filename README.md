@@ -33,8 +33,10 @@
 
 ### Features To Implement
 
+- Dark Mode
 - More graphs to compare to records between current month and previous month.
 - Graph to visualize the tag expenses through the month.
+- Better Pagination
 - Budget Planner
 - Add Subscription tracking.
 - Add Google OAuth.

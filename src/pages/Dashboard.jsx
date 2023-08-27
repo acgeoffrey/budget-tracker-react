@@ -98,7 +98,10 @@ function Dashboard() {
         />
       </div>
       <div>
-        <DashboardGraph chartData={dateWiseExpenses} />
+        <DashboardGraph
+          chartData={dateWiseExpenses}
+          currency={user?.data?.settings[0]?.currency}
+        />
       </div>
     </>
   );
