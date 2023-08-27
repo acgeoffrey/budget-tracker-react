@@ -38,6 +38,7 @@ export const API_URLS = {
   getCategoryRecord: () => `${API_ROOT}/budget/category`,
   updatePassword: () => `${API_ROOT}/user/updatePassword`,
   getDateWiseData: () => `${API_ROOT}/budget/date`,
+  updateSettings: () => `${API_ROOT}/user/settings`,
 };
 
 export const customFetch = async (url, { body, ...customConfig }) => {

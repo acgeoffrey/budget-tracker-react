@@ -48,6 +48,7 @@ function UpdatePassForm() {
             type='password'
             id='new-pass'
             className='input h-10 rounded px-3'
+            placeholder='Min 8 characters'
             disabled={isLoading}
             {...register('password', {
               required: 'This field is required',
@@ -67,6 +68,7 @@ function UpdatePassForm() {
             type='password'
             id='confirm-new-pass'
             className='input h-10 rounded px-3'
+            placeholder='Repeat password'
             disabled={isLoading}
             {...register('passwordConfirm', {
               required: 'This field is required',
