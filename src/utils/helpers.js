@@ -26,10 +26,6 @@ export const removeItemFromLocalStorage = (key) => {
 };
 
 export const formatCurrency = (currency, value) => {
-  if (!currency || !value) return;
-
-  // if (value < 0) value = Math.abs(value);
-
   return new Intl.NumberFormat('en', {
     style: 'currency',
     currency: currency,

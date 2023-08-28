@@ -12,6 +12,8 @@ function DashboardGraph({ chartData, currency }) {
         categories={['current', 'previous']}
         colors={['indigo', 'cyan']}
         curveType='monotone'
+        valueFormatter={(data) => formatCurrency(currency, data)}
+        minValue={100}
       />
     </Card>
   );
