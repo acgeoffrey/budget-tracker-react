@@ -1,4 +1,4 @@
-import { DateTime } from 'luxon';
+import { DateTime, Interval } from 'luxon';
 import { LiaPiggyBankSolid } from 'react-icons/lia';
 import { GiReceiveMoney } from 'react-icons/gi';
 import { PiMoneyLight } from 'react-icons/pi';
@@ -12,23 +12,27 @@ import { useDateData } from '../features/dashboard/useDateData';
 import DashboardGraph from '../features/dashboard/DashboardGraph';
 
 const currFirstDay = DateTime.now().startOf('month');
-const currLastDay = DateTime.now().endOf('day');
+const currLastDay = DateTime.now().endOf('month');
 
 const prevFirstDay = DateTime.now().startOf('month').minus({ month: 1 });
-const prevLastDay = DateTime.now().endOf('day').minus({ month: 1 });
+const prevLastDay = DateTime.now().endOf('month').minus({ month: 1 });
+
+let interval = Interval.fromDateTimes(currFirstDay, currLastDay)
+  .splitBy({ day: 1 })
+  .map((date) => date.start.toISODate());
 
 function Dashboard() {
   const { isLoading: userLoading, user } = useUser();
   if (userLoading) <Loader />;
 
   const currentMonthBody = {
-    startDate: currFirstDay.toUTC().toJSDate(),
-    endDate: currLastDay.toUTC().toJSDate(),
+    startDate: currFirstDay.toUTC().toISO(),
+    endDate: currLastDay.toUTC().toISO(),
   };
 
   const previousMonthBody = {
-    startDate: prevFirstDay.toUTC().toJSDate(),
-    endDate: prevLastDay.toUTC().toJSDate(),
+    startDate: prevFirstDay.toUTC().toISO(),
+    endDate: prevLastDay.toUTC().toISO(),
   };
 
   const { isLoading: currentLoading, tags: currentMonthData } = useTags(
@@ -44,12 +48,36 @@ function Dashboard() {
     currentMonthBody,
     currLastDay,
   );
+  const { isLoading: prevDateDataLoading, dateData: prevDateData } =
+    useDateData(previousMonthBody, prevLastDay);
 
-  if (currentLoading || previousLoading || userLoading || dateDataLoading)
+  if (
+    currentLoading ||
+    previousLoading ||
+    userLoading ||
+    dateDataLoading ||
+    prevDateDataLoading
+  )
     return <Loader />;
 
   const dateWiseExpenses = dateData?.data?.dateWiseExpenses;
-  // console.log(dateWiseExpenses);
+  const previousDateWiseExpenses = prevDateData?.data?.dateWiseExpenses;
+
+  const data = interval.map((date) => {
+    return {
+      label: DateTime.fromISO(date).toFormat('dd'),
+      current: dateWiseExpenses
+        ?.filter((expense) => date === expense._id)
+        .reduce((acc, curr) => acc + parseInt(curr.totalExpenses), 0),
+      previous: previousDateWiseExpenses
+        ?.filter(
+          (expense) =>
+            DateTime.fromISO(date).toFormat('dd') ===
+            DateTime.fromISO(expense._id).toFormat('dd'),
+        )
+        .reduce((acc, curr) => acc + parseInt(curr.totalExpenses), 0),
+    };
+  });
 
   const { expenseStats: currExpenseStats, incomeStats: currIncomeStats } =
     totalStatsHelper(currentMonthData);
@@ -99,7 +127,7 @@ function Dashboard() {
       </div>
       <div>
         <DashboardGraph
-          chartData={dateWiseExpenses}
+          chartData={data}
           currency={user?.data?.settings[0]?.currency}
         />
       </div>
