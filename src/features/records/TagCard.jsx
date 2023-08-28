@@ -44,6 +44,7 @@ export default function TagCard({ tags, currency }) {
       100
     ).toFixed(1);
   }
+  console.log(percentageSpent);
 
   const isSaving = percentageSpent >= 100 ? false : true;
 
@@ -64,7 +65,9 @@ export default function TagCard({ tags, currency }) {
             <BadgeDelta
               deltaType={isSaving ? 'moderateIncrease' : 'moderateDecrease'}
             >
-              {isSaving ? 100 - percentageSpent : percentageSpent}%
+              {isSaving
+                ? `${(100 - percentageSpent).toFixed(1)}% Savings`
+                : `${(100 - percentageSpent).toFixed(1)}% Deficit`}
             </BadgeDelta>
           )}
         </Flex>
