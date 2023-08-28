@@ -11,6 +11,7 @@ function DashboardGraph({ chartData, currency }) {
         index='label'
         categories={['current', 'previous']}
         colors={['indigo', 'cyan']}
+        curveType='monotone'
       />
     </Card>
   );
