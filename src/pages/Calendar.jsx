@@ -6,6 +6,7 @@ import { useCalendar } from '../features/records/useCalendar';
 import Loader from '../ui/Loader';
 import CalendarTableOperations from '../features/records/CalendarTableOperations';
 import { Box } from '@mui/material';
+import AddRecord from '../features/records/AddRecord';
 
 function Calendar() {
   const [date, setDate] = useState(DateTime.now());
@@ -45,6 +46,7 @@ function Calendar() {
           />
         </div>
       </div>
+      <AddRecord />
     </>
   );
 }

@@ -10,6 +10,7 @@ export function useUpdateRecord() {
     onSuccess: () => {
       toast.success('Entry updated');
       queryClient.invalidateQueries({ queryKey: ['records'] });
+      queryClient.invalidateQueries({ queryKey: ['calendar'] });
     },
     onError: (err) => toast.error(err.message),
   });

@@ -38,7 +38,8 @@
   }
 
   .button {
-    @apply rounded-md bg-emerald-600 py-3 text-base text-emerald-50 outline-offset-2 outline-emerald-600 hover:bg-emerald-700;
+    @apply rounded-md bg-emerald-600 py-3 text-base text-emerald-50 outline-offset-2 outline-emerald-600 hover:bg-emerald-700
+    disabled:cursor-not-allowed;
   }
 }
 

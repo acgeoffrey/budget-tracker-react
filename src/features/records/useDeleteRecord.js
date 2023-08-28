@@ -11,6 +11,7 @@ export function useDeleteRecord() {
       toast.success('Record deleted');
 
       queryClient.invalidateQueries({ queryKey: ['records'] });
+      queryClient.invalidateQueries({ queryKey: ['calendar'] });
     },
     onError: (err) => toast.error(err.message),
   });

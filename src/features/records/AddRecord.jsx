@@ -6,7 +6,7 @@ function AddRecord() {
     <div>
       <Modal>
         <Modal.Open openWindow='create-record'>
-          <button className='button px-3'>Add Entry</button>
+          <button className='button float-right px-3'>Add Entry</button>
         </Modal.Open>
         <Modal.Window windowName='create-record'>
           <CreateRecordForm />
