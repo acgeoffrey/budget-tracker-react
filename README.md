@@ -12,7 +12,7 @@
 
 ## Links
 
-- [Live Site URL](https://coin-chef-react.vercel.app/)
+- [Live Site URL](https://coinchef.vercel.app/)
 
 ## Overview
 
