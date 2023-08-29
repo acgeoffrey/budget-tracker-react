@@ -1,6 +1,22 @@
 import DatePicker from 'react-datepicker';
+import useMonthData from '../../hooks/useMonthData';
+import { DateTime } from 'luxon';
+import { useTags } from './useTags';
+import Loader from '../../ui/Loader';
 
-function TagTableOperations({ startDate, endDate, setDateRange }) {
+const firstDay = DateTime.now().startOf('month');
+const lastDay = DateTime.now().endOf('month');
+
+function TagTableOperations() {
+  const { startDate, endDate, body, setDateRange } = useMonthData(
+    firstDay,
+    lastDay,
+  );
+
+  const { isLoading } = useTags(body, endDate);
+
+  if (isLoading) return <Loader />;
+
   return (
     <div className='flex items-center justify-between gap-3'>
       <label htmlFor='date-picker-tag' className='font-medium'>
@@ -14,9 +30,7 @@ function TagTableOperations({ startDate, endDate, setDateRange }) {
         startDate={startDate}
         dateFormat='dd/MM/yyyy'
         endDate={endDate}
-        onChange={(update) => {
-          setDateRange(update);
-        }}
+        onChange={setDateRange}
         // isClearable={true}
       />
     </div>

@@ -13,12 +13,9 @@ function Tags() {
   const { isLoading: userLoading, user } = useUser();
   if (userLoading) <Loader />;
 
-  const { startDate, endDate, body, setDateRange } = useMonthData(
-    firstDay,
-    lastDay,
-  );
+  const { body } = useMonthData(firstDay, lastDay);
 
-  const { isLoading, tags } = useTags(body, endDate);
+  const { isLoading, tags } = useTags(body, null);
   if (isLoading || userLoading) return <Loader />;
 
   // console.log(tags);
@@ -26,11 +23,7 @@ function Tags() {
   return (
     <>
       <div className='flex items-center justify-end'>
-        <TagTableOperations
-          startDate={startDate}
-          endDate={endDate}
-          setDateRange={setDateRange}
-        />
+        <TagTableOperations />
       </div>
       <div>
         <TagCard tags={tags} currency={user?.data?.settings?.currency} />
