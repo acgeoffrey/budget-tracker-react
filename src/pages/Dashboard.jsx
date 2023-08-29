@@ -107,7 +107,6 @@ function Dashboard() {
               ? (currentSavings - previousSavings).toFixed(1)
               : 0
           }
-          percentage={true}
           icon={
             <LiaPiggyBankSolid className='rounded-full bg-primary-light p-2 text-6xl text-primary-mildDark' />
           }

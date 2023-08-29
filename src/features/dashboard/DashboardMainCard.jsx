@@ -1,14 +1,7 @@
 import { BadgeDelta } from '@tremor/react';
 import { formatCurrency } from '../../utils/helpers';
 
-function DashboardMainCard({
-  amount,
-  type,
-  difference,
-  currency,
-  percentage = false,
-  icon,
-}) {
+function DashboardMainCard({ amount, type, difference, currency, icon }) {
   // if (type === 'expenses') difference = Number(difference) * -1;
   // console.log(difference);
 
