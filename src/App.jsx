@@ -71,7 +71,7 @@ function App() {
           <Toaster
             position='top-right'
             gutter={12}
-            containerClassName='text-base m-2 px-5 py-3 text-gray-700'
+            containerClassName='text-base m-2 px-5 py-3 text-gray-mildDark'
             toastOptions={{
               success: {
                 duration: 3000,

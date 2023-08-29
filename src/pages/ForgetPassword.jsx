@@ -19,7 +19,7 @@ function ForgetPassword() {
   }
 
   return (
-    <main className='grid min-h-screen grid-cols-[40%] content-center justify-center gap-9 bg-gray-100'>
+    <main className='bg-gray-light grid min-h-screen grid-cols-[40%] content-center justify-center gap-9'>
       <Logo />
       <h3 className='text-center text-2xl'>Password Reset</h3>
       <form onSubmit={handleSubmit}>
@@ -39,7 +39,7 @@ function ForgetPassword() {
         </FormElement>
       </form>
       <div className='flex flex-col items-center justify-center gap-2'>
-        <Link to='/login' className='text-primary'>
+        <Link to='/login' className='text-primary-default'>
           Go back to Login
         </Link>{' '}
       </div>

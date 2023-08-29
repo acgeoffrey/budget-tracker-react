@@ -23,7 +23,7 @@ function ResetPassword() {
     );
   }
   return (
-    <main className='grid min-h-screen grid-cols-[40%] content-center justify-center gap-9 bg-gray-100'>
+    <main className='bg-gray-light grid min-h-screen grid-cols-[40%] content-center justify-center gap-9'>
       <Logo />
       <h2 className='text-center text-2xl'>Reset Password</h2>
       <form onSubmit={handleSubmit(onSubmit)}>

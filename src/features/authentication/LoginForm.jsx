@@ -56,7 +56,7 @@ function LoginForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className='overflow-hidden rounded-xl border-[1px] border-solid border-gray-100 bg-white px-10 py-6 text-base'
+      className='border-gray-light overflow-hidden rounded-xl border-[1px] border-solid bg-white px-10 py-6 text-base'
     >
       <FormElement label='Email' error={error.email}>
         <input

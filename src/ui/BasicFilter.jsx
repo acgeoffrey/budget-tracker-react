@@ -14,15 +14,15 @@ function BasicFilter({ filterField, options }) {
   }
 
   return (
-    <div className='flex gap-1 rounded-sm border border-solid border-gray-100 p-1 shadow-sm'>
+    <div className='border-gray-light flex gap-1 rounded-sm border border-solid p-1 shadow-sm'>
       {options.map((option) => (
         <button
           key={option.value}
           onClick={() => handleClick(option.value)}
           disabled={option.value === currentFilter}
-          className={` hover:text-primaryExtraLight disabled:text-primaryExtraLight rounded-sm border-none
-          bg-white px-3 py-1 text-sm font-medium outline-primary 
-           transition-all duration-300 hover:bg-primary disabled:bg-primary`}
+          className={` rounded-sm border-none bg-white px-3
+          py-1 text-sm font-medium outline-primary-default transition-all duration-300 
+           hover:bg-primary-default hover:text-primary-extraLight disabled:bg-primary-default disabled:text-primary-extraLight`}
         >
           {option.label}
         </button>

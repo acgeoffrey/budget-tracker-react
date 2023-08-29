@@ -65,8 +65,8 @@ function RecordTableOperations() {
       />
       <div className='relative'>
         <button
-          className={` hover:text-tertiaryExtraLight bg-tertiaryMedium border-tertiary outline-tertiary
-        hover:bg-tertiary flex items-center justify-center gap-3 rounded-md border border-solid 
+          className={` hover:text-tertiary-extraLight bg-tertiary-muted border-tertiary-default outline-tertiary-default
+        hover:bg-tertiary-default flex items-center justify-center gap-3 rounded-md border border-solid 
         px-3 py-1 text-sm font-medium
         text-sky-900 transition-all duration-300`}
           onClick={() => setOpenFilter(!openFilter)}
@@ -77,7 +77,7 @@ function RecordTableOperations() {
         {openFilter && <Filter setOpenFilter={setOpenFilter} />}
       </div>
       <button
-        className='cursor-pointer text-xl text-gray-600'
+        className='text-gray-default cursor-pointer text-xl'
         onClick={handleClearFilters}
       >
         <HiOutlineXCircle />

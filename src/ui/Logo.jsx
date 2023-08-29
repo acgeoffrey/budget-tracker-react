@@ -5,7 +5,7 @@ function Logo() {
     <div className='text-center'>
       {/* <img src='/logo.png' alt='coinchef-logo' className='h-28' /> */}
       <Link to='/'>
-        <p className='text-primaryDark text-3xl'>Coin Chef</p>
+        <p className='text-primary-mildDark text-3xl'>Coin Chef</p>
       </Link>
     </div>
   );

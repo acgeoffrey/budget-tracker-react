@@ -13,7 +13,7 @@ function DashboardMainCard({
 
   return (
     <div
-      className={`flex flex-grow flex-col gap-4 rounded-md border-2 border-gray-100 bg-gray-50 px-7 py-5`}
+      className={`bg-gray-extraLight border-gray-light flex flex-grow flex-col gap-4 rounded-md border-2 px-7 py-5`}
     >
       <div className='flex items-center gap-6 '>
         {icon}
@@ -22,7 +22,7 @@ function DashboardMainCard({
             <p>Not enough data</p>
           ) : (
             <>
-              <h4 className='text-lg uppercase text-gray-600'>{type}</h4>
+              <h4 className='text-gray-default text-lg uppercase'>{type}</h4>
               <h2 className='mb-2 font-number text-2xl font-semibold'>
                 {formatCurrency(currency, amount)}
               </h2>
@@ -39,8 +39,8 @@ function DashboardMainCard({
             size='sm'
           />
 
-          <p className='text-sm text-gray-500'>
-            <span className='font-number font-medium text-gray-900'>
+          <p className='text-gray-medium text-sm'>
+            <span className='text-gray-veryDark font-number font-medium'>
               {formatCurrency(currency, difference)}
             </span>{' '}
             from last month

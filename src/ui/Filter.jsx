@@ -8,7 +8,7 @@ import Loader from './Loader';
 import Sort from './Sort';
 // import { useOuterClick } from '../hooks/useOuterClick';
 
-const h3Classes = `font-medium text-gray-800`;
+const h3Classes = `font-medium text-gray-dark`;
 
 function Filter({ setOpenFilter }) {
   // const ref = useOuterClick();
@@ -66,24 +66,24 @@ function Filter({ setOpenFilter }) {
 
   return (
     <div
-      className='absolute right-0 z-50 mt-2 flex max-h-[80vh] max-w-[30rem] flex-col gap-5 
-    overflow-scroll rounded-md border border-solid border-gray-200 bg-white px-8 py-3 shadow-2xl'
+      className='border-gray-muted absolute right-0 z-50 mt-2 flex max-h-[80vh] max-w-[30rem] flex-col 
+    gap-5 overflow-scroll rounded-md border border-solid bg-white px-8 py-3 shadow-2xl'
     >
       <div className='flex items-center justify-between'>
-        <h3 className='text-tertiary text-lg font-semibold uppercase tracking-wide'>
+        <h3 className='text-tertiary-default text-lg font-semibold uppercase tracking-wide'>
           Filters
         </h3>
         <div>
           <button
-            className='outline-tertiary mr-4 text-sm outline-offset-2'
+            className='outline-tertiary-default mr-4 text-sm outline-offset-2'
             onClick={() => setOpenFilter(false)}
           >
             Cancel
           </button>
           <button
             onClick={handleSubmitFilter}
-            className='text-primaryExtraLight hover:bg-primaryDark rounded bg-primary px-3 
-            py-1 text-sm outline-offset-2 outline-primary'
+            className='rounded bg-primary-default px-3 py-1 text-sm 
+            text-primary-extraLight outline-offset-2 outline-primary-default hover:bg-primary-mildDark'
           >
             Apply
           </button>
@@ -122,7 +122,7 @@ function Filter({ setOpenFilter }) {
           <input
             type='number'
             id='min'
-            className='input rounded p-2 text-sm focus:text-primary'
+            className='input rounded p-2 text-sm focus:text-primary-default'
             placeholder='Min Amount'
             value={minAmount}
             onChange={(e) => setMinAmount(e.target.value)}
@@ -133,7 +133,7 @@ function Filter({ setOpenFilter }) {
           <input
             type='number'
             id='max'
-            className='input rounded p-2 text-sm focus:text-primary'
+            className='input rounded p-2 text-sm focus:text-primary-default'
             placeholder='Max Amount'
             value={maxAmount}
             onChange={(e) => setMaxAmount(e.target.value)}
@@ -146,7 +146,7 @@ function Filter({ setOpenFilter }) {
         <input
           type='text'
           placeholder='Search Title'
-          className='input rounded p-2 text-sm focus:placeholder:text-primary'
+          className='input rounded p-2 text-sm focus:placeholder:text-primary-default'
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
         />

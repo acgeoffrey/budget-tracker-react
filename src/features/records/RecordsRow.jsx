@@ -33,12 +33,12 @@ function RecordsRow({ record, type = 'main' }) {
 
   return (
     <Table.Row>
-      <div className='font-medium capitalize text-gray-600'>{title}</div>
+      <div className='text-gray-default font-medium capitalize'>{title}</div>
       {type !== 'calendar' && (
         <div
           className={`w-24 rounded-2xl text-center text-sm uppercase tracking-wide ${
             recordType === 'expense'
-              ? 'bg-tertiaryMedium text-tertiaryDark'
+              ? 'bg-tertiary-muted text-tertiary-mildDark'
               : 'bg-yellow-200 text-yellow-700'
           }`}
         >
@@ -58,22 +58,22 @@ function RecordsRow({ record, type = 'main' }) {
       )}
 
       <div>
-        <div className='relative outline-primary'>
-          <button className='outline-offset-4 outline-primary'>
+        <div className='relative outline-primary-default'>
+          <button className='outline-offset-4 outline-primary-default'>
             <HiOutlineDotsVertical onClick={handleOpen} />
           </button>
 
           <Modal>
             <ContextMenu open={open} handleClose={() => setOpen(false)}>
               <Modal.Open openWindow='update-record'>
-                <button className='flex items-center justify-center gap-2 outline-offset-4 outline-primary'>
+                <button className='flex items-center justify-center gap-2 outline-offset-4 outline-primary-default'>
                   <HiOutlinePencil className=' text-blue-700' />
                   <span>Edit</span>
                 </button>
               </Modal.Open>
 
               <Modal.Open openWindow='delete-record'>
-                <button className='flex items-center justify-center gap-2 outline-offset-4 outline-primary'>
+                <button className='flex items-center justify-center gap-2 outline-offset-4 outline-primary-default'>
                   <HiOutlineTrash className='text-red-700' />
                   <span>Delete</span>
                 </button>

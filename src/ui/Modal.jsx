@@ -38,10 +38,10 @@ function Window({ children, windowName, handleClose }) {
       >
         <button
           onClick={close}
-          className='absolute right-6 top-4 translate-x-3 rounded-md 
-        border-none bg-none p-1 transition-all duration-200 hover:bg-gray-100'
+          className='hover:bg-gray-light absolute right-6 top-4 translate-x-3 
+        rounded-md border-none bg-none p-1 transition-all duration-200'
         >
-          <HiXMark className='h-6 w-6 text-gray-500' />
+          <HiXMark className='text-gray-medium h-6 w-6' />
         </button>
 
         <div>{cloneElement(children, { onCloseModal: close })}</div>

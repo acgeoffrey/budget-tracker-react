@@ -4,41 +4,41 @@
 
 @layer components {
   .navLink {
-    @apply hover:bg-secondaryMedium active:bg-secondaryMedium 
-    flex items-center gap-3 px-5 py-3 text-sm 
-    font-medium text-gray-700 outline-primary transition-all duration-300
-    hover:rounded-md hover:text-gray-900 active:rounded-md active:text-gray-900;
+    @apply text-gray-mildDark hover:text-gray-veryDark 
+    active:text-gray-veryDark flex items-center gap-3 px-5 py-3 
+    text-sm font-medium outline-primary-default transition-all duration-300
+    hover:rounded-md hover:bg-secondary-muted active:rounded-md active:bg-secondary-muted;
   }
 
   .navLink.active {
-    @apply bg-secondaryMedium rounded-md text-gray-900;
+    @apply text-gray-veryDark rounded-md bg-secondary-muted;
   }
 
   .navLink:hover .navSvg,
   .navLink:active .navSvg,
   .navLink.active .navSvg {
-    @apply text-primary;
+    @apply text-primary-default;
   }
 
   .navSvg {
-    @apply h-6 w-6 text-gray-400 transition-all duration-300;
+    @apply text-gray-subtle h-6 w-6 transition-all duration-300;
   }
 
   .button-icon {
-    @apply rounded-md border-none bg-none p-2 outline-primary transition-all duration-200 hover:bg-gray-100;
+    @apply hover:bg-gray-light rounded-md border-none bg-none p-2 outline-primary-default transition-all duration-200;
   }
 
   .button-icon svg {
-    @apply h-6 w-6 text-primary;
+    @apply h-6 w-6 text-primary-default;
   }
 
   .input {
-    @apply focus:bg-primaryExtraLight mb-1 rounded-xl border-[1px] border-solid border-gray-300 px-5 py-3 shadow-sm outline-primary
-    hover:bg-gray-50;
+    @apply hover:bg-gray-extraLight border-gray-pale mb-1 rounded-xl border-[1px] border-solid px-5 py-3 shadow-sm outline-primary-default
+    focus:bg-primary-extraLight;
   }
 
   .button {
-    @apply text-primaryExtraLight hover:bg-primaryDark rounded-md bg-primary py-3 text-base outline-offset-2 outline-primary
+    @apply rounded-md bg-primary-default py-3 text-base text-primary-extraLight outline-offset-2 outline-primary-default hover:bg-primary-mildDark
     disabled:cursor-not-allowed;
   }
 }

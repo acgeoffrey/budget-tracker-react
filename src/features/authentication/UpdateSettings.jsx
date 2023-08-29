@@ -41,7 +41,7 @@ function UpdateSettings() {
 
   return (
     <>
-      <h2 className='mt-5 border-b border-gray-300 pb-3 text-xl font-medium'>
+      <h2 className='border-gray-pale mt-5 border-b pb-3 text-xl font-medium'>
         Change User Settings
       </h2>
       <form

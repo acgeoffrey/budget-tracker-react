@@ -103,7 +103,7 @@ function Dashboard() {
           currency={user?.data?.settings[0]?.currency}
           difference={currentSavings - previousSavings}
           icon={
-            <LiaPiggyBankSolid className='bg-primaryLight text-primaryDark rounded-full p-2 text-6xl' />
+            <LiaPiggyBankSolid className='bg-primary-light text-primary-mildDark rounded-full p-2 text-6xl' />
           }
         />
         <DashboardMainCard
@@ -121,7 +121,7 @@ function Dashboard() {
           currency={user?.data?.settings[0]?.currency}
           difference={currIncomeAmount - prevIncomeAmount}
           icon={
-            <GiReceiveMoney className='bg-tertiaryLight text-tertiaryDark rounded-full p-3 text-6xl' />
+            <GiReceiveMoney className='bg-tertiary-light text-tertiary-mildDark rounded-full p-3 text-6xl' />
           }
         />
       </div>

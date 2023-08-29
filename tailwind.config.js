@@ -24,20 +24,41 @@ module.exports = {
       },
       colors: {
         // light mode
-        primaryExtraLight: '#ecfdf5', //emerald-50
-        primaryLight: '#d1fae5', //emerald-100
-        primary: '#059669', //emerald-600
-        primaryDark: '#047857', //emerald-700
 
-        secondaryExtraLight: '#f7fee7', //lime-50
-        secondaryLight: '#ecfccb', //lime-100
-        secondaryMedium: '#d9f99d', //lime-200
+        primary: {
+          extraLight: '#ecfdf5', //emerald-50
+          light: '#d1fae5', //emerald-100
+          default: '#059669', //emerald-600
+          mildDark: '#047857', //emerald-700
+        },
 
-        tertiaryExtraLight: '#f0f9ff', //skya-50
-        tertiaryLight: '#e0f2fe', //skya-100
-        tertiaryMedium: '#bae6fd', //skya-200
-        tertiary: '#0284c7', //skya-600
-        tertiaryDark: '#0369a1', //skya-700
+        secondary: {
+          extraLight: '#f7fee7', //lime-50
+          light: '#ecfccb', //lime-100
+          muted: '#d9f99d', //lime-200
+        },
+
+        tertiary: {
+          extraLight: '#f0f9ff', //sky-50
+          light: '#e0f2fe', //sky-100
+          muted: '#bae6fd', //sky-200
+          default: '#0284c7', //sky-600
+          mildDark: '#0369a1', //sky-700
+        },
+
+        gray: {
+          extraLight: '#f9fafb', //50
+          light: '#f3f4f6', //100
+          muted: '#e5e7eb', //200
+          pale: '#d1d5db', //300
+          subtle: '#9ca3af', //400
+          medium: '#6b7280', //500
+          default: '#4b5563', //600
+          mildDark: '#374151', //700
+          dark: '#1f2937', //800
+          veryDark: '#111827', //900
+          extraDark: '#030712', //950
+        },
 
         tremor: {
           brand: {

@@ -169,7 +169,7 @@ function CreateRecordForm({ updateForm = {}, onCloseModal }) {
       <FormElementRow label='Notes' error={errors?.notes?.message}>
         <textarea
           className='h-28 w-[100%] rounded-md border border-solid bg-white px-5
-          py-3 shadow-sm outline-primary'
+          py-3 shadow-sm outline-primary-default'
           type='text'
           id='notes'
           disabled={busy}
@@ -180,8 +180,8 @@ function CreateRecordForm({ updateForm = {}, onCloseModal }) {
       <FormElementRow>
         <button
           type='reset'
-          className='button rounded-md border border-gray-200 bg-white px-3 text-gray-600
-          hover:bg-gray-100'
+          className='button hover:bg-gray-light border-gray-muted text-gray-default rounded-md border bg-white
+          px-3'
           onClick={() => onCloseModal?.()}
         >
           Cancel

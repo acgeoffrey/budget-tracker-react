@@ -15,7 +15,7 @@ function Header() {
       <h1 className='text-4xl font-medium capitalize'>{currentPage}</h1>
       <div className='flex items-center justify-end gap-3'>
         <div className='flex items-center gap-2'>
-          <HiOutlineUser className='bg-primaryLight rounded-full p-2 text-4xl text-primary' />
+          <HiOutlineUser className='bg-primary-light text-primary-default rounded-full p-2 text-4xl' />
           <h4 className=''>{user?.data?.user?.name}</h4>
         </div>
         <Logout />

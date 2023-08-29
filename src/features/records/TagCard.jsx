@@ -50,7 +50,7 @@ export default function TagCard({ tags, currency }) {
 
   if (!expenseStats)
     return (
-      <Card className='bg-secondaryExtraLight'>
+      <Card className='bg-secondary-extraLight'>
         <p>Not enough data</p>
       </Card>
     );
@@ -58,7 +58,7 @@ export default function TagCard({ tags, currency }) {
   return (
     <>
       {/* <Card className=' mx-auto bg-white'> */}
-      <Card className='bg-secondaryExtraLight'>
+      <Card className='bg-secondary-extraLight'>
         <Flex>
           <Text className='truncate font-bold'>Total Expense</Text>
           {percentageSpent && (
@@ -81,7 +81,7 @@ export default function TagCard({ tags, currency }) {
           </Metric>
           <Text>
             spent on over{' '}
-            <span className='font-bold text-gray-900'>
+            <span className='text-gray-veryDark font-bold'>
               {categories?.length}
             </span>{' '}
             categories
@@ -100,13 +100,13 @@ export default function TagCard({ tags, currency }) {
       <Grid numItemsSm={4} className='mt-4 gap-4'>
         {categories?.map((item) => (
           <Card key={item._id} className={`bg-${color()}-100`}>
-            <h2 className='mt-2 truncate text-xl font-medium capitalize text-gray-700'>
+            <h2 className='text-gray-mildDark mt-2 truncate text-xl font-medium capitalize'>
               {item?._id?.toLowerCase()}
             </h2>
-            <h3 className='font-number text-lg font-semibold text-gray-900'>
+            <h3 className='text-gray-veryDark font-number text-lg font-semibold'>
               {formatCurrency(currency, item.totalAmount)}
             </h3>
-            <p className='mt-2 text-gray-600'>{item.numRecords} Expense</p>
+            <p className='text-gray-default mt-2'>{item.numRecords} Expense</p>
           </Card>
         ))}
       </Grid>

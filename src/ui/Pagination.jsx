@@ -4,8 +4,8 @@ import { useSearchParams } from 'react-router-dom';
 import { PAGE_LIMIT } from '../utils/constants';
 
 const paginationButton = `flex items-center justify-center gap-2 border-none px-2 rounded
-py-1 font-medium  transition-all duration-300 [&>svg]:h-5 [&>svg]:w-5 outline-primary
-disabled:text-gray-500 disabled:cursor-not-allowed`;
+py-1 font-medium  transition-all duration-300 [&>svg]:h-5 [&>svg]:w-5 outline-primary-default
+disabled:text-gray-medium disabled:cursor-not-allowed`;
 
 function Pagination({ count }) {
   const [searchParams, setSearchParams] = useSearchParams();

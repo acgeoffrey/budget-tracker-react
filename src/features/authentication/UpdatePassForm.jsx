@@ -17,7 +17,7 @@ function UpdatePassForm() {
 
   return (
     <>
-      <h2 className='border-b border-gray-300 pb-3 text-xl font-medium'>
+      <h2 className='border-gray-pale border-b pb-3 text-xl font-medium'>
         Change Password
       </h2>
       <form

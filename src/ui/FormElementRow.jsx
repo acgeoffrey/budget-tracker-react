@@ -1,5 +1,5 @@
 const classes = `grid grid-cols-[20rem_1fr_1.2fr] items-center gap-9 border-b 
-border-solid border-b-gray-100 px-10 py-4 first:pt-0 last:border-none last:pb-0
+border-solid border-b-gray-light px-10 py-4 first:pt-0 last:border-none last:pb-0
 [&:has(.button)]:flex [&:has(button)]:justify-end [&:has(button)]:gap-5`;
 
 function FormElementRow({ label, error, children, styles = classes }) {

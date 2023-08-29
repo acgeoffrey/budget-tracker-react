@@ -7,7 +7,7 @@ function Table({ columns, children }) {
     <TableContext.Provider value={{ columns }}>
       <div
         role='table'
-        className=' rounded-md border-[1px] border-solid border-gray-200 bg-white text-base'
+        className=' border-gray-muted rounded-md border-[1px] border-solid bg-white text-base'
       >
         {children}
       </div>
@@ -21,8 +21,8 @@ function Header({ children }) {
   return (
     <header
       role='row'
-      className={`grid ${columns} items-center gap-x-8 border-b bg-gray-50 px-5 py-3 font-medium 
-      uppercase tracking-wide text-gray-600 transition-none `}
+      className={`grid ${columns} bg-gray-extraLight text-gray-default items-center gap-x-8 border-b px-5 py-3 
+      font-medium uppercase tracking-wide transition-none `}
     >
       {children}
     </header>
@@ -45,7 +45,7 @@ function Row({ children }) {
 function Body({ data, render }) {
   if (!data || !data.length)
     return (
-      <p className='py-3 text-center text-gray-700'>
+      <p className='text-gray-mildDark py-3 text-center'>
         No data to show at the moment
       </p>
     );
@@ -55,7 +55,7 @@ function Body({ data, render }) {
 
 function Footer({ children }) {
   return (
-    <footer className='flex justify-center bg-gray-50 p-3 [&>:not(*)]:hidden'>
+    <footer className='bg-gray-extraLight flex justify-center p-3 [&>:not(*)]:hidden'>
       {children}
     </footer>
   );
