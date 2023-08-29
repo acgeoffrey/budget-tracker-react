@@ -92,7 +92,8 @@ function Dashboard() {
   const prevIncomeAmount = Number(prevIncomeStats?.totalAmount) || 0;
   const prevExpenseAmount = Number(prevExpenseStats?.totalAmount) || 0;
   const previousSavings = prevIncomeAmount - prevExpenseAmount;
-
+  // console.log(((currentSavings / previousSavings) * 100).toFixed(1) - 100);
+  // console.log(previousSavings, cursa);
   return (
     <>
       <h1 className='text-center text-xl font-medium'>Monthly Summary</h1>
@@ -101,7 +102,14 @@ function Dashboard() {
           type='savings'
           amount={currentSavings}
           currency={user?.data?.settings?.currency}
-          difference={currentSavings - previousSavings}
+          difference={
+            previousSavings && currentSavings
+              ? previousSavings < 0
+                ? ((previousSavings / currentSavings) * 100).toFixed(1)
+                : ((currentSavings / previousSavings) * 100).toFixed(1) - 100
+              : 0
+          }
+          percentage={true}
           icon={
             <LiaPiggyBankSolid className='rounded-full bg-primary-light p-2 text-6xl text-primary-mildDark' />
           }
