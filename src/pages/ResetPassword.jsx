@@ -23,9 +23,11 @@ function ResetPassword() {
     );
   }
   return (
-    <main className='bg-gray-light grid min-h-screen grid-cols-[40%] content-center justify-center gap-9'>
-      <Logo />
-      <h2 className='text-center text-2xl'>Reset Password</h2>
+    <main className='grid min-h-screen grid-cols-[40%] content-center justify-center bg-gray-light'>
+      <div className='mx-auto w-48'>
+        <Logo />
+      </div>
+      <h2 className='mb-9 text-center text-2xl'>Reset Password</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <FormElement label='New Password' error={errors?.password?.message}>
           <input

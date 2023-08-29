@@ -19,9 +19,11 @@ function ForgetPassword() {
   }
 
   return (
-    <main className='bg-gray-light grid min-h-screen grid-cols-[40%] content-center justify-center gap-9'>
-      <Logo />
-      <h3 className='text-center text-2xl'>Password Reset</h3>
+    <main className='grid min-h-screen grid-cols-[40%] content-center justify-center bg-gray-light'>
+      <div className='mx-auto w-48'>
+        <Logo />
+      </div>
+      <h3 className='mb-9 text-center text-2xl'>Password Reset</h3>
       <form onSubmit={handleSubmit}>
         <FormElement label='Enter your email'>
           <input
@@ -38,7 +40,7 @@ function ForgetPassword() {
           </button>
         </FormElement>
       </form>
-      <div className='flex flex-col items-center justify-center gap-2'>
+      <div className='mt-9 flex flex-col items-center justify-center gap-2'>
         <Link to='/login' className='text-primary-default'>
           Go back to Login
         </Link>{' '}

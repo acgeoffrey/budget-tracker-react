@@ -56,7 +56,7 @@ function LoginForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className='border-gray-light overflow-hidden rounded-xl border-[1px] border-solid bg-white px-10 py-6 text-base'
+      className='overflow-hidden rounded-xl border-[1px] border-solid border-gray-light bg-white px-10 py-6 text-base'
     >
       <FormElement label='Email' error={error.email}>
         <input
@@ -75,7 +75,7 @@ function LoginForm() {
         <input
           type='password'
           id='password'
-          placeholder='password'
+          placeholder='Enter password'
           autoComplete='current-password'
           value={password}
           disabled={isLoading}
