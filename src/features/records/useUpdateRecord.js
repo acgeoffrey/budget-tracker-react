@@ -11,6 +11,8 @@ export function useUpdateRecord() {
       toast.success('Entry updated');
       queryClient.invalidateQueries({ queryKey: ['records'] });
       queryClient.invalidateQueries({ queryKey: ['calendar'] });
+      queryClient.invalidateQueries({ queryKey: ['tags'] });
+      queryClient.invalidateQueries({ queryKey: ['dateData'] });
     },
     onError: (err) => toast.error(err.message),
   });
