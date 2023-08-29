@@ -44,7 +44,7 @@ export default function TagCard({ tags, currency }) {
       100
     ).toFixed(1);
   }
-  console.log(percentageSpent);
+  // console.log(percentageSpent);
 
   const isSaving = percentageSpent >= 100 ? false : true;
 
@@ -81,7 +81,7 @@ export default function TagCard({ tags, currency }) {
           </Metric>
           <Text>
             spent on over{' '}
-            <span className='text-gray-veryDark font-bold'>
+            <span className='font-bold text-gray-veryDark'>
               {categories?.length}
             </span>{' '}
             categories
@@ -100,13 +100,13 @@ export default function TagCard({ tags, currency }) {
       <Grid numItemsSm={4} className='mt-4 gap-4'>
         {categories?.map((item) => (
           <Card key={item._id} className={`bg-${color()}-100`}>
-            <h2 className='text-gray-mildDark mt-2 truncate text-xl font-medium capitalize'>
+            <h2 className='mt-2 truncate text-xl font-medium capitalize text-gray-mildDark'>
               {item?._id?.toLowerCase()}
             </h2>
-            <h3 className='text-gray-veryDark font-number text-lg font-semibold'>
+            <h3 className='font-number text-lg font-semibold text-gray-veryDark'>
               {formatCurrency(currency, item.totalAmount)}
             </h3>
-            <p className='text-gray-default mt-2'>{item.numRecords} Expense</p>
+            <p className='mt-2 text-gray-default'>{item.numRecords} Expense</p>
           </Card>
         ))}
       </Grid>

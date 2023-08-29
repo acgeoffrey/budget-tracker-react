@@ -42,7 +42,7 @@ function CreateRecordForm({ updateForm = {}, onCloseModal }) {
   const { errors } = formState;
 
   function onSubmit(data) {
-    console.log(data.date.toISO());
+    // console.log(data.date.toISO());
     if (isUpdate)
       updateRecord(
         { updateData: { ...data, date: data.date.toISO() }, id: updateId },
