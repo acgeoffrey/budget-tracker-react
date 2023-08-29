@@ -6,7 +6,7 @@ function DashboardGraph({ chartData, currency }) {
     <Card>
       <Title>Expense comparison with last month</Title>
       <AreaChart
-        className='mt-4 h-72'
+        className='mt-4 h-72 font-number'
         data={chartData}
         index='label'
         categories={['current', 'previous']}
@@ -14,6 +14,7 @@ function DashboardGraph({ chartData, currency }) {
         curveType='monotone'
         valueFormatter={(data) => formatCurrency(currency, data)}
         minValue={100}
+        yAxisWidth={75}
       />
     </Card>
   );
