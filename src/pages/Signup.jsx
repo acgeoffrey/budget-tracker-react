@@ -11,7 +11,7 @@ function Signup() {
       <div className='flex flex-col items-center justify-center gap-2'>
         <p>
           Already a user?{' '}
-          <Link to='/login' className='text-emerald-600'>
+          <Link to='/login' className='text-primary'>
             Login
           </Link>{' '}
         </p>

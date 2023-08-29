@@ -39,7 +39,7 @@ function ForgetPassword() {
         </FormElement>
       </form>
       <div className='flex flex-col items-center justify-center gap-2'>
-        <Link to='/login' className='text-emerald-600'>
+        <Link to='/login' className='text-primary'>
           Go back to Login
         </Link>{' '}
       </div>

@@ -50,7 +50,7 @@ export default function TagCard({ tags, currency }) {
 
   if (!expenseStats)
     return (
-      <Card className='bg-lime-50'>
+      <Card className='bg-secondaryExtraLight'>
         <p>Not enough data</p>
       </Card>
     );
@@ -58,7 +58,7 @@ export default function TagCard({ tags, currency }) {
   return (
     <>
       {/* <Card className=' mx-auto bg-white'> */}
-      <Card className='bg-lime-50'>
+      <Card className='bg-secondaryExtraLight'>
         <Flex>
           <Text className='truncate font-bold'>Total Expense</Text>
           {percentageSpent && (

@@ -169,7 +169,7 @@ function CreateRecordForm({ updateForm = {}, onCloseModal }) {
       <FormElementRow label='Notes' error={errors?.notes?.message}>
         <textarea
           className='h-28 w-[100%] rounded-md border border-solid bg-white px-5
-          py-3 shadow-sm outline-emerald-600'
+          py-3 shadow-sm outline-primary'
           type='text'
           id='notes'
           disabled={busy}

@@ -7,8 +7,8 @@ function Logout() {
 
   return (
     <button
-      className='button-icon flex items-center justify-center gap-2 
-      hover:bg-lime-200'
+      className='button-icon hover:bg-secondaryMedium flex items-center justify-center 
+      gap-2'
       onClick={logout}
       disabled={isLoading}
     >
@@ -17,7 +17,7 @@ function Logout() {
           <HiOutlineArrowRightOnRectangle />
         </>
       ) : (
-        <LoaderMini color='emerald-600' />
+        <LoaderMini color='primary' />
       )}
     </button>
   );

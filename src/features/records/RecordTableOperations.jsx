@@ -65,10 +65,10 @@ function RecordTableOperations() {
       />
       <div className='relative'>
         <button
-          className={` flex items-center justify-center gap-3
-        rounded-md border border-solid border-sky-600 bg-sky-200 px-3 py-1 text-sm 
-        font-medium text-sky-900 outline-sky-600 transition-all
-        duration-300 hover:bg-sky-600 hover:text-sky-50`}
+          className={` hover:text-tertiaryExtraLight bg-tertiaryMedium border-tertiary outline-tertiary
+        hover:bg-tertiary flex items-center justify-center gap-3 rounded-md border border-solid 
+        px-3 py-1 text-sm font-medium
+        text-sky-900 transition-all duration-300`}
           onClick={() => setOpenFilter(!openFilter)}
         >
           <HiAdjustmentsHorizontal className='text-base ' />

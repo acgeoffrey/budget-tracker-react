@@ -20,9 +20,9 @@ function BasicFilter({ filterField, options }) {
           key={option.value}
           onClick={() => handleClick(option.value)}
           disabled={option.value === currentFilter}
-          className={` rounded-sm border-none bg-white px-3
-          py-1 text-sm font-medium outline-emerald-600 transition-all duration-300 
-           hover:bg-emerald-600 hover:text-emerald-50 disabled:bg-emerald-600 disabled:text-emerald-50`}
+          className={` hover:text-primaryExtraLight disabled:text-primaryExtraLight rounded-sm border-none
+          bg-white px-3 py-1 text-sm font-medium outline-primary 
+           transition-all duration-300 hover:bg-primary disabled:bg-primary`}
         >
           {option.label}
         </button>

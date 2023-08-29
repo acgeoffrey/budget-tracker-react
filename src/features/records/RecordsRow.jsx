@@ -38,7 +38,7 @@ function RecordsRow({ record, type = 'main' }) {
         <div
           className={`w-24 rounded-2xl text-center text-sm uppercase tracking-wide ${
             recordType === 'expense'
-              ? 'bg-sky-200 text-sky-700'
+              ? 'bg-tertiaryMedium text-tertiaryDark'
               : 'bg-yellow-200 text-yellow-700'
           }`}
         >
@@ -58,22 +58,22 @@ function RecordsRow({ record, type = 'main' }) {
       )}
 
       <div>
-        <div className='relative outline-emerald-600'>
-          <button className='outline-offset-4 outline-emerald-600'>
+        <div className='relative outline-primary'>
+          <button className='outline-offset-4 outline-primary'>
             <HiOutlineDotsVertical onClick={handleOpen} />
           </button>
 
           <Modal>
             <ContextMenu open={open} handleClose={() => setOpen(false)}>
               <Modal.Open openWindow='update-record'>
-                <button className='flex items-center justify-center gap-2 outline-offset-4 outline-emerald-600'>
+                <button className='flex items-center justify-center gap-2 outline-offset-4 outline-primary'>
                   <HiOutlinePencil className=' text-blue-700' />
                   <span>Edit</span>
                 </button>
               </Modal.Open>
 
               <Modal.Open openWindow='delete-record'>
-                <button className='flex items-center justify-center gap-2 outline-offset-4 outline-emerald-600'>
+                <button className='flex items-center justify-center gap-2 outline-offset-4 outline-primary'>
                   <HiOutlineTrash className='text-red-700' />
                   <span>Delete</span>
                 </button>

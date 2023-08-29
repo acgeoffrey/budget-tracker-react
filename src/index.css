@@ -4,20 +4,20 @@
 
 @layer components {
   .navLink {
-    @apply flex items-center 
-    gap-3 px-5 py-3 text-sm font-medium text-gray-700 
-    outline-emerald-600 transition-all duration-300 hover:rounded-md hover:bg-lime-200
-    hover:text-gray-900 active:rounded-md active:bg-lime-200 active:text-gray-900;
+    @apply hover:bg-secondaryMedium active:bg-secondaryMedium 
+    flex items-center gap-3 px-5 py-3 text-sm 
+    font-medium text-gray-700 outline-primary transition-all duration-300
+    hover:rounded-md hover:text-gray-900 active:rounded-md active:text-gray-900;
   }
 
   .navLink.active {
-    @apply rounded-md bg-lime-200 text-gray-900;
+    @apply bg-secondaryMedium rounded-md text-gray-900;
   }
 
   .navLink:hover .navSvg,
   .navLink:active .navSvg,
   .navLink.active .navSvg {
-    @apply text-emerald-600;
+    @apply text-primary;
   }
 
   .navSvg {
@@ -25,20 +25,20 @@
   }
 
   .button-icon {
-    @apply rounded-md border-none bg-none p-2 outline-emerald-600 transition-all duration-200 hover:bg-gray-100;
+    @apply rounded-md border-none bg-none p-2 outline-primary transition-all duration-200 hover:bg-gray-100;
   }
 
   .button-icon svg {
-    @apply h-6 w-6 text-emerald-600;
+    @apply h-6 w-6 text-primary;
   }
 
   .input {
-    @apply mb-1 rounded-xl border-[1px] border-solid border-gray-300 px-5 py-3 shadow-sm outline-emerald-600 hover:bg-gray-50
-    focus:bg-emerald-50;
+    @apply focus:bg-primaryExtraLight mb-1 rounded-xl border-[1px] border-solid border-gray-300 px-5 py-3 shadow-sm outline-primary
+    hover:bg-gray-50;
   }
 
   .button {
-    @apply rounded-md bg-emerald-600 py-3 text-base text-emerald-50 outline-offset-2 outline-emerald-600 hover:bg-emerald-700
+    @apply text-primaryExtraLight hover:bg-primaryDark rounded-md bg-primary py-3 text-base outline-offset-2 outline-primary
     disabled:cursor-not-allowed;
   }
 }

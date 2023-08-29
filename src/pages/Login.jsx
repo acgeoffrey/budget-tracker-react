@@ -11,13 +11,13 @@ function Login() {
       <div className='flex flex-col items-center justify-center gap-2'>
         <p>
           New User?{' '}
-          <Link to='/signup' className='text-emerald-600'>
+          <Link to='/signup' className='text-primary'>
             Register
           </Link>{' '}
         </p>
         <p>
           Trouble Signing in?{' '}
-          <Link to='/forgetpassword' className='text-emerald-600'>
+          <Link to='/forgetpassword' className='text-primary'>
             Reset Password
           </Link>{' '}
         </p>

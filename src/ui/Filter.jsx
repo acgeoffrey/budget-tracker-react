@@ -70,20 +70,20 @@ function Filter({ setOpenFilter }) {
     overflow-scroll rounded-md border border-solid border-gray-200 bg-white px-8 py-3 shadow-2xl'
     >
       <div className='flex items-center justify-between'>
-        <h3 className='text-lg font-semibold uppercase tracking-wide text-sky-600'>
+        <h3 className='text-tertiary text-lg font-semibold uppercase tracking-wide'>
           Filters
         </h3>
         <div>
           <button
-            className='mr-4 text-sm outline-offset-2 outline-sky-600'
+            className='outline-tertiary mr-4 text-sm outline-offset-2'
             onClick={() => setOpenFilter(false)}
           >
             Cancel
           </button>
           <button
             onClick={handleSubmitFilter}
-            className='rounded bg-emerald-600 px-3 py-1 text-sm 
-            text-emerald-50 outline-offset-2 outline-emerald-600 hover:bg-emerald-700'
+            className='text-primaryExtraLight hover:bg-primaryDark rounded bg-primary px-3 
+            py-1 text-sm outline-offset-2 outline-primary'
           >
             Apply
           </button>
@@ -122,7 +122,7 @@ function Filter({ setOpenFilter }) {
           <input
             type='number'
             id='min'
-            className='input rounded p-2 text-sm focus:text-emerald-600'
+            className='input rounded p-2 text-sm focus:text-primary'
             placeholder='Min Amount'
             value={minAmount}
             onChange={(e) => setMinAmount(e.target.value)}
@@ -133,7 +133,7 @@ function Filter({ setOpenFilter }) {
           <input
             type='number'
             id='max'
-            className='input rounded p-2 text-sm focus:text-emerald-600'
+            className='input rounded p-2 text-sm focus:text-primary'
             placeholder='Max Amount'
             value={maxAmount}
             onChange={(e) => setMaxAmount(e.target.value)}
@@ -146,7 +146,7 @@ function Filter({ setOpenFilter }) {
         <input
           type='text'
           placeholder='Search Title'
-          className='input rounded p-2 text-sm focus:placeholder:text-emerald-600'
+          className='input rounded p-2 text-sm focus:placeholder:text-primary'
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
         />

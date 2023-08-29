@@ -18,7 +18,7 @@ function SelectComponent({ options, value, onChange, ...props }) {
     //   value={value}
     //   onChange={onChange}
     //   {...props}
-    //   className='rounded-sm border border-solid border-gray-300 bg-white px-4 py-1 text-sm font-medium capitalize shadow-sm outline-emerald-600'
+    //   className='rounded-sm border border-solid border-gray-300 bg-white px-4 py-1 text-sm font-medium capitalize shadow-sm outline-primary'
     // >
     //   {props.action !== 'sort' && (
     //     <option disabled={true} value=''>

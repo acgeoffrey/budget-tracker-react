@@ -24,6 +24,21 @@ module.exports = {
       },
       colors: {
         // light mode
+        primaryExtraLight: '#ecfdf5', //emerald-50
+        primaryLight: '#d1fae5', //emerald-100
+        primary: '#059669', //emerald-600
+        primaryDark: '#047857', //emerald-700
+
+        secondaryExtraLight: '#f7fee7', //lime-50
+        secondaryLight: '#ecfccb', //lime-100
+        secondaryMedium: '#d9f99d', //lime-200
+
+        tertiaryExtraLight: '#f0f9ff', //skya-50
+        tertiaryLight: '#e0f2fe', //skya-100
+        tertiaryMedium: '#bae6fd', //skya-200
+        tertiary: '#0284c7', //skya-600
+        tertiaryDark: '#0369a1', //skya-700
+
         tremor: {
           brand: {
             faint: '#eff6ff', // blue-50
