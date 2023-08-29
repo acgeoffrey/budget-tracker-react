@@ -32,25 +32,7 @@ function DashboardMainCard({
         </div>
       </div>
 
-      {percentage ? (
-        <div className='flex items-center justify-start gap-2'>
-          <BadgeDelta
-            deltaType={
-              difference < 100 ? 'moderateDecrease' : 'moderateIncrease'
-            }
-            isIncreasePositive={type === 'expenses' ? false : true}
-            size='sm'
-          >
-            <span className='font-number font-medium '>
-              {percentage
-                ? `${Math.abs(difference)}%`
-                : formatCurrency(currency, Math.abs(difference))}
-            </span>{' '}
-          </BadgeDelta>
-
-          <p className='text-sm text-gray-medium'>from last month</p>
-        </div>
-      ) : (
+      {
         <div className='flex items-center justify-start gap-2'>
           <BadgeDelta
             deltaType={difference < 0 ? 'moderateDecrease' : 'moderateIncrease'}
@@ -58,15 +40,13 @@ function DashboardMainCard({
             size='sm'
           >
             <span className='font-number font-medium '>
-              {percentage
-                ? `${Math.abs(difference)}%`
-                : formatCurrency(currency, Math.abs(difference))}
+              {formatCurrency(currency, Math.abs(difference))}
             </span>{' '}
           </BadgeDelta>
 
           <p className='text-sm text-gray-medium'>from last month</p>
         </div>
-      )}
+      }
     </div>
   );
 }

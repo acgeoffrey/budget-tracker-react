@@ -104,9 +104,7 @@ function Dashboard() {
           currency={user?.data?.settings?.currency}
           difference={
             previousSavings && currentSavings
-              ? previousSavings < 0
-                ? ((previousSavings / currentSavings) * 100).toFixed(1)
-                : ((currentSavings / previousSavings) * 100).toFixed(1) - 100
+              ? (currentSavings - previousSavings).toFixed(1)
               : 0
           }
           percentage={true}
