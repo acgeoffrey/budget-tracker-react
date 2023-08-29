@@ -85,6 +85,7 @@ export function useRecords() {
         search,
         pageParams,
       ),
+    staleTime: 5 * 60 * 1000,
   });
 
   // PRE-FETCHING
@@ -114,6 +115,7 @@ export function useRecords() {
           search,
           pageParams + 1,
         ),
+      staleTime: 5 * 60 * 1000,
     });
   }
 
@@ -143,6 +145,7 @@ export function useRecords() {
           search,
           pageParams - 1,
         ),
+      staleTime: 5 * 60 * 1000,
     });
   }
 

@@ -10,6 +10,7 @@ export function useDateData(body, endDate) {
   } = useQuery({
     queryKey: ['dateData', endDate],
     queryFn: () => getDateWiseData(body),
+    staleTime: 10 * 60 * 1000,
   });
 
   return { isLoading, dateData, error };

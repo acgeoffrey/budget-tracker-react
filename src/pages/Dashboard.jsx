@@ -6,7 +6,6 @@ import { PiMoneyLight } from 'react-icons/pi';
 import DashboardMainCard from '../features/dashboard/DashboardMainCard';
 import { useUser } from '../features/authentication/useUser';
 import Loader from '../ui/Loader';
-import { useTags } from '../features/records/useTags';
 import { totalStatsHelper } from '../utils/helpers';
 import { useDateData } from '../features/dashboard/useDateData';
 import DashboardGraph from '../features/dashboard/DashboardGraph';
@@ -35,14 +34,14 @@ function Dashboard() {
     endDate: prevLastDay.toUTC().toISO(),
   };
 
-  const { isLoading: currentLoading, tags: currentMonthData } = useTags(
-    currentMonthBody,
-    currLastDay,
-  );
-  const { isLoading: previousLoading, tags: previousMonthData } = useTags(
-    previousMonthBody,
-    prevLastDay,
-  );
+  // const { isLoading: currentLoading, tags: currentMonthData } = useTags(
+  //   currentMonthBody,
+  //   currLastDay,
+  // );
+  // const { isLoading: previousLoading, tags: previousMonthData } = useTags(
+  //   previousMonthBody,
+  //   prevLastDay,
+  // );
 
   const { isLoading: dateDataLoading, dateData } = useDateData(
     currentMonthBody,
@@ -51,14 +50,9 @@ function Dashboard() {
   const { isLoading: prevDateDataLoading, dateData: prevDateData } =
     useDateData(previousMonthBody, prevLastDay);
 
-  if (
-    currentLoading ||
-    previousLoading ||
-    userLoading ||
-    dateDataLoading ||
-    prevDateDataLoading
-  )
-    return <Loader />;
+  if (userLoading || dateDataLoading || prevDateDataLoading) return <Loader />;
+
+  // console.log(dateData);
 
   const dateWiseExpenses = dateData?.data?.dateWiseExpenses;
   const previousDateWiseExpenses = prevDateData?.data?.dateWiseExpenses;
@@ -80,10 +74,10 @@ function Dashboard() {
   });
 
   const { expenseStats: currExpenseStats, incomeStats: currIncomeStats } =
-    totalStatsHelper(currentMonthData);
+    totalStatsHelper(dateData);
 
   const { expenseStats: prevExpenseStats, incomeStats: prevIncomeStats } =
-    totalStatsHelper(previousMonthData);
+    totalStatsHelper(prevDateData);
 
   const currIncomeAmount = Number(currIncomeStats?.totalAmount) || 0;
   const currExpenseAmount = Number(currExpenseStats?.totalAmount) || 0;
@@ -93,7 +87,6 @@ function Dashboard() {
   const prevExpenseAmount = Number(prevExpenseStats?.totalAmount) || 0;
   const previousSavings = prevIncomeAmount - prevExpenseAmount;
   // console.log(((currentSavings / previousSavings) * 100).toFixed(1) - 100);
-  // console.log(previousSavings, cursa);
   return (
     <>
       <h1 className='text-center text-xl font-medium'>Monthly Summary</h1>

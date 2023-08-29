@@ -10,6 +10,7 @@ export function useTags(body, endDate) {
   } = useQuery({
     queryKey: ['tags', endDate],
     queryFn: () => getAllCategories(body),
+    staleTime: 10 * 60 * 1000,
   });
 
   return { isLoading, tags, error };

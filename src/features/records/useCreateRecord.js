@@ -11,6 +11,8 @@ export function useCreateRecord() {
       toast.success('Entry added');
       queryClient.invalidateQueries({ queryKey: ['records'] });
       queryClient.invalidateQueries({ queryKey: ['calendar'] });
+      queryClient.invalidateQueries({ queryKey: ['tags'] });
+      queryClient.invalidateQueries({ queryKey: ['dateData'] });
     },
     onError: (err) => toast.error(err.message),
   });

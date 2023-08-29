@@ -6,6 +6,7 @@ export function useCalendar(type, date1, date2) {
   const { isLoading, data: calendar } = useQuery({
     queryKey: ['calendar', type, date1],
     queryFn: () => getCalendarRecord(type, date1, date2),
+    staleTime: 10 * 60 * 1000,
   });
 
   return { isLoading, calendar };
