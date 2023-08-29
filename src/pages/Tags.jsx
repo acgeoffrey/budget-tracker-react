@@ -33,7 +33,7 @@ function Tags() {
         />
       </div>
       <div>
-        <TagCard tags={tags} currency={user?.data?.settings[0]?.currency} />
+        <TagCard tags={tags} currency={user?.data?.settings?.currency} />
       </div>
     </>
   );

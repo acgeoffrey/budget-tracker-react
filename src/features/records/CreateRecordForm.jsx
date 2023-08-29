@@ -27,7 +27,7 @@ function CreateRecordForm({ updateForm = {}, onCloseModal }) {
 
   const { user } = useUser();
 
-  const settings = user?.data?.settings[0];
+  const settings = user?.data?.settings;
   const busy = isCreating || isUpdating;
 
   const { id: updateId, ...updateValues } = updateForm;
@@ -180,8 +180,8 @@ function CreateRecordForm({ updateForm = {}, onCloseModal }) {
       <FormElementRow>
         <button
           type='reset'
-          className='button hover:bg-gray-light border-gray-muted text-gray-default rounded-md border bg-white
-          px-3'
+          className='button rounded-md border border-gray-muted bg-white px-3 text-gray-default
+          hover:bg-gray-light'
           onClick={() => onCloseModal?.()}
         >
           Cancel

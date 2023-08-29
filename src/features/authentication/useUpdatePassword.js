@@ -9,7 +9,7 @@ export function useUpdatePassword() {
       toast.success('Password updated');
     },
     onError: (err) => {
-      toast.error('Error updating password');
+      toast.error(err.message);
     },
   });
 

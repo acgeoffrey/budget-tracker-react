@@ -23,7 +23,7 @@ function RecordsRow({ record, type = 'main' }) {
   const { isDeleting, deleteRecord } = useDeleteRecord();
   const { id, title, recordType, category, date, amount } = record;
   const { user } = useUser();
-  const currency = user?.data?.settings[0]?.currency;
+  const currency = user?.data?.settings?.currency;
 
   function handleOpen() {
     // if (id === open) dispatch(viewContextMenu(''));
@@ -33,7 +33,7 @@ function RecordsRow({ record, type = 'main' }) {
 
   return (
     <Table.Row>
-      <div className='text-gray-default font-medium capitalize'>{title}</div>
+      <div className='font-medium capitalize text-gray-default'>{title}</div>
       {type !== 'calendar' && (
         <div
           className={`w-24 rounded-2xl text-center text-sm uppercase tracking-wide ${

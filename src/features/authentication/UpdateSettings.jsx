@@ -10,7 +10,7 @@ import LoaderMini from '../../ui/LoaderMini';
 function UpdateSettings() {
   const { isLoading, user } = useUser();
 
-  const [currency, setCurrency] = useState(user?.data?.settings[0]?.currency);
+  const [currency, setCurrency] = useState(user?.data?.settings?.currency);
   const [incomeTag, setIncomeTag] = useState('');
   const [expenseTag, setExpenseTag] = useState('');
 
@@ -41,7 +41,7 @@ function UpdateSettings() {
 
   return (
     <>
-      <h2 className='border-gray-pale mt-5 border-b pb-3 text-xl font-medium'>
+      <h2 className='mt-5 border-b border-gray-pale pb-3 text-xl font-medium'>
         Change User Settings
       </h2>
       <form

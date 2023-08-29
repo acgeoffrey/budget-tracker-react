@@ -27,8 +27,8 @@ function Filter({ setOpenFilter }) {
 
   if (isLoading) return <Loader />;
 
-  let expenseCategories = user.data.settings[0].expenseCategories;
-  let incomeCategories = user.data.settings[0].incomeCategories;
+  let expenseCategories = user.data.settings.expenseCategories;
+  let incomeCategories = user.data.settings.incomeCategories;
   expenseCategories = expenseCategories.map((item) => {
     return { value: item, label: item };
   });
@@ -66,16 +66,16 @@ function Filter({ setOpenFilter }) {
 
   return (
     <div
-      className='border-gray-muted absolute right-0 z-50 mt-2 flex max-h-[80vh] max-w-[30rem] flex-col 
-    gap-5 overflow-scroll rounded-md border border-solid bg-white px-8 py-3 shadow-2xl'
+      className='absolute right-0 z-50 mt-2 flex max-h-[80vh] max-w-[30rem] flex-col gap-5 
+    overflow-scroll rounded-md border border-solid border-gray-muted bg-white px-8 py-3 shadow-2xl'
     >
       <div className='flex items-center justify-between'>
-        <h3 className='text-tertiary-default text-lg font-semibold uppercase tracking-wide'>
+        <h3 className='text-lg font-semibold uppercase tracking-wide text-tertiary-default'>
           Filters
         </h3>
         <div>
           <button
-            className='outline-tertiary-default mr-4 text-sm outline-offset-2'
+            className='mr-4 text-sm outline-offset-2 outline-tertiary-default'
             onClick={() => setOpenFilter(false)}
           >
             Cancel
@@ -88,6 +88,17 @@ function Filter({ setOpenFilter }) {
             Apply
           </button>
         </div>
+      </div>
+
+      <div className='flex flex-col gap-2'>
+        <h3 className={h3Classes}>Search Records</h3>
+        <input
+          type='text'
+          placeholder='Search Title'
+          className='input rounded p-2 text-sm focus:placeholder:text-primary-default'
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+        />
       </div>
 
       <div className='flex flex-col gap-3'>
@@ -139,17 +150,6 @@ function Filter({ setOpenFilter }) {
             onChange={(e) => setMaxAmount(e.target.value)}
           />
         </div>
-      </div>
-
-      <div className='flex flex-col gap-2'>
-        <h3 className={h3Classes}>Search Records</h3>
-        <input
-          type='text'
-          placeholder='Search Title'
-          className='input rounded p-2 text-sm focus:placeholder:text-primary-default'
-          value={searchText}
-          onChange={(e) => setSearchText(e.target.value)}
-        />
       </div>
     </div>
   );

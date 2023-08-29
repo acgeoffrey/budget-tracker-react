@@ -100,16 +100,16 @@ function Dashboard() {
         <DashboardMainCard
           type='savings'
           amount={currentSavings}
-          currency={user?.data?.settings[0]?.currency}
+          currency={user?.data?.settings?.currency}
           difference={currentSavings - previousSavings}
           icon={
-            <LiaPiggyBankSolid className='bg-primary-light text-primary-mildDark rounded-full p-2 text-6xl' />
+            <LiaPiggyBankSolid className='rounded-full bg-primary-light p-2 text-6xl text-primary-mildDark' />
           }
         />
         <DashboardMainCard
           type='expenses'
           amount={currExpenseAmount}
-          currency={user?.data?.settings[0]?.currency}
+          currency={user?.data?.settings?.currency}
           difference={currExpenseAmount - prevExpenseAmount}
           icon={
             <PiMoneyLight className='rounded-full bg-rose-100 p-3 text-6xl text-rose-700' />
@@ -118,17 +118,17 @@ function Dashboard() {
         <DashboardMainCard
           type='income'
           amount={currIncomeAmount}
-          currency={user?.data?.settings[0]?.currency}
+          currency={user?.data?.settings?.currency}
           difference={currIncomeAmount - prevIncomeAmount}
           icon={
-            <GiReceiveMoney className='bg-tertiary-light text-tertiary-mildDark rounded-full p-3 text-6xl' />
+            <GiReceiveMoney className='rounded-full bg-tertiary-light p-3 text-6xl text-tertiary-mildDark' />
           }
         />
       </div>
       <div>
         <DashboardGraph
           chartData={data}
-          currency={user?.data?.settings[0]?.currency}
+          currency={user?.data?.settings?.currency}
         />
       </div>
     </>
