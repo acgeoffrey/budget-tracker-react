@@ -1,6 +1,8 @@
-import { Outlet, useNavigate } from 'react-router-dom';
-import { useUser } from '../features/authentication/useUser';
 import { useEffect } from 'react';
+import { Outlet, useNavigate } from 'react-router-dom';
+
+import { useUser } from '../features/authentication/useUser';
+
 import Loader from './Loader';
 
 function AuthLayout() {
@@ -18,7 +20,7 @@ function AuthLayout() {
 
   if (isLoading)
     return (
-      <div className='bg-gray-extraLight flex h-screen items-center justify-center'>
+      <div className='flex h-screen items-center justify-center bg-gray-extraLight'>
         <Loader />
       </div>
     );

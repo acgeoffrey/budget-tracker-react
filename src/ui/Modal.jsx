@@ -1,7 +1,8 @@
 import { cloneElement, createContext, useContext, useState } from 'react';
-// import { useOuterClick } from '../hooks/useOuterClick';
 import { createPortal } from 'react-dom';
 import { HiXMark } from 'react-icons/hi2';
+
+// import { useOuterClick } from '../hooks/useOuterClick';
 
 const ModalContext = createContext();
 
@@ -24,7 +25,7 @@ function Open({ children, openWindow }) {
   return cloneElement(children, { onClick: () => open(openWindow) });
 }
 
-function Window({ children, windowName, handleClose }) {
+function Window({ children, windowName }) {
   const { openComponent, close } = useContext(ModalContext);
   // const ref = useOuterClick(close);
 
@@ -38,10 +39,10 @@ function Window({ children, windowName, handleClose }) {
       >
         <button
           onClick={close}
-          className='hover:bg-gray-light absolute right-6 top-4 translate-x-3 
-        rounded-md border-none bg-none p-1 transition-all duration-200'
+          className='absolute right-6 top-4 translate-x-3 rounded-md 
+        border-none bg-none p-1 transition-all duration-200 hover:bg-gray-light'
         >
-          <HiXMark className='text-gray-medium h-6 w-6' />
+          <HiXMark className='h-6 w-6 text-gray-medium' />
         </button>
 
         <div>{cloneElement(children, { onCloseModal: close })}</div>
