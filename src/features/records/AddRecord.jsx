@@ -1,12 +1,18 @@
 import Modal from '../../ui/Modal';
 import CreateRecordForm from './CreateRecordForm';
 
-function AddRecord() {
+function AddRecord({ type = '' }) {
   return (
     <div>
       <Modal>
         <Modal.Open openWindow='create-record'>
-          <button className='button float-right px-3'>Add Entry</button>
+          <button
+            className={`button px-3 ${
+              type === 'sidebar' ? 'mt-auto w-full' : 'float-right'
+            }`}
+          >
+            Add Entry
+          </button>
         </Modal.Open>
         <Modal.Window windowName='create-record'>
           <CreateRecordForm />
