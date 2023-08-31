@@ -7,7 +7,6 @@ import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterLuxon } from '@mui/x-date-pickers/AdapterLuxon';
 import 'react-datepicker/dist/react-datepicker.css';
 import { Suspense, lazy } from 'react';
-import Loader from './ui/Loader';
 
 // import store from './store';
 
@@ -40,6 +39,7 @@ const Login = lazy(() => import('./pages/Login'));
 const Signup = lazy(() => import('./pages/Signup'));
 const ForgetPassword = lazy(() => import('./pages/ForgetPassword'));
 const ResetPassword = lazy(() => import('./pages/ResetPassword'));
+import FullPageSpinner from './ui/FullPageSpinner';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -56,7 +56,7 @@ function App() {
 
       <LocalizationProvider dateAdapter={AdapterLuxon}>
         <BrowserRouter>
-          <Suspense fallback={<Loader />}>
+          <Suspense fallback={<FullPageSpinner />}>
             <Routes>
               <Route
                 element={

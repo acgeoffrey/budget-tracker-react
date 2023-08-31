@@ -4,14 +4,14 @@
 
 @layer components {
   .navLink {
-    @apply text-gray-mildDark hover:text-gray-veryDark 
-    active:text-gray-veryDark flex items-center gap-3 px-5 py-3 
-    text-sm font-medium outline-primary-default transition-all duration-300
-    hover:rounded-md hover:bg-secondary-muted active:rounded-md active:bg-secondary-muted;
+    @apply flex items-center 
+    gap-3 px-5 py-3 text-sm font-medium text-gray-mildDark 
+    outline-primary-default transition-all duration-300 hover:rounded-md hover:bg-secondary-muted
+    hover:text-gray-veryDark active:rounded-md active:bg-secondary-muted active:text-gray-veryDark;
   }
 
   .navLink.active {
-    @apply text-gray-veryDark rounded-md bg-secondary-muted;
+    @apply rounded-md bg-secondary-muted text-gray-veryDark;
   }
 
   .navLink:hover .navSvg,
@@ -21,11 +21,11 @@
   }
 
   .navSvg {
-    @apply text-gray-subtle h-6 w-6 transition-all duration-300;
+    @apply h-6 w-6 text-gray-subtle transition-all duration-300;
   }
 
   .button-icon {
-    @apply hover:bg-gray-light rounded-md border-none bg-none p-2 outline-primary-default transition-all duration-200;
+    @apply rounded-md border-none bg-none p-2 outline-primary-default transition-all duration-200 hover:bg-gray-light;
   }
 
   .button-icon svg {
@@ -33,7 +33,7 @@
   }
 
   .input {
-    @apply hover:bg-gray-extraLight border-gray-pale mb-1 rounded-xl border-[1px] border-solid px-5 py-3 shadow-sm outline-primary-default
+    @apply mb-1 rounded-xl border-[1px] border-solid border-gray-pale px-5 py-3 shadow-sm outline-primary-default hover:bg-gray-extraLight
     focus:bg-primary-extraLight;
   }
 
@@ -45,7 +45,71 @@
 
 /*** LOADER STYLES ***/
 
-/** FULL PAGE **/
+.loader {
+  width: 16px;
+  height: 16px;
+  position: relative;
+  left: -32px;
+  border-radius: 50%;
+  color: #10b981;
+  background: currentColor;
+  box-shadow:
+    32px 0,
+    -32px 0,
+    64px 0;
+}
+
+.loader::after {
+  content: '';
+  position: absolute;
+  left: -32px;
+  top: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 10px;
+  background: #047857;
+  animation: move 3s linear infinite alternate;
+}
+
+@keyframes move {
+  0%,
+  5% {
+    left: -32px;
+    width: 16px;
+  }
+  15%,
+  20% {
+    left: -32px;
+    width: 48px;
+  }
+  30%,
+  35% {
+    left: 0px;
+    width: 16px;
+  }
+  45%,
+  50% {
+    left: 0px;
+    width: 48px;
+  }
+  60%,
+  65% {
+    left: 32px;
+    width: 16px;
+  }
+
+  75%,
+  80% {
+    left: 32px;
+    width: 48px;
+  }
+  95%,
+  100% {
+    left: 64px;
+    width: 16px;
+  }
+}
+
 body {
   margin: 0;
 }
