@@ -13,7 +13,7 @@ import Table from '../../ui/Table';
 import Modal from '../../ui/Modal';
 import ContextMenu from '../../ui/ContextMenu';
 import CreateRecordForm from './CreateRecordForm';
-import ConfirmDelete from '../../ui/ConfirmDelete';
+import ConfirmDelete from '../../ui/ConfirmWindow';
 
 function RecordsRow({ record, type = 'main' }) {
   // const dispatch = useDispatch();
@@ -86,9 +86,10 @@ function RecordsRow({ record, type = 'main' }) {
 
             <Modal.Window windowName='delete-record'>
               <ConfirmDelete
-                name='record'
+                name='Delete record'
                 disabled={isDeleting}
                 onConfirm={() => deleteRecord(id)}
+                action='delete'
               />
             </Modal.Window>
           </Modal>

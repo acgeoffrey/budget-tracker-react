@@ -1,25 +1,30 @@
 import { HiOutlineArrowRightOnRectangle } from 'react-icons/hi2';
 import { useLogout } from './useLogout';
-import LoaderMini from '../../ui/LoaderMini';
+import Modal from '../../ui/Modal';
+import ConfirmLogout from '../../ui/ConfirmWindow';
 
 function Logout() {
   const { logout, isLoading } = useLogout();
 
   return (
-    <button
-      className='button-icon hover:bg-secondary-muted flex items-center justify-center 
-      gap-2'
-      onClick={logout}
-      disabled={isLoading}
-    >
-      {!isLoading ? (
-        <>
+    <Modal>
+      <Modal.Open openWindow='logout'>
+        <button
+          className='button-icon flex items-center justify-center gap-2 
+      hover:bg-secondary-muted'
+        >
           <HiOutlineArrowRightOnRectangle />
-        </>
-      ) : (
-        <LoaderMini color='primary-default' />
-      )}
-    </button>
+        </button>
+      </Modal.Open>
+      <Modal.Window windowName='logout'>
+        <ConfirmLogout
+          name='Logout'
+          disabled={isLoading}
+          onConfirm={logout}
+          action='logout'
+        />
+      </Modal.Window>
+    </Modal>
   );
 }
 
