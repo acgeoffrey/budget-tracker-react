@@ -39,7 +39,7 @@ const Login = lazy(() => import('./pages/Login'));
 const Signup = lazy(() => import('./pages/Signup'));
 const ForgetPassword = lazy(() => import('./pages/ForgetPassword'));
 const ResetPassword = lazy(() => import('./pages/ResetPassword'));
-import FullPageSpinner from './ui/FullPageSpinner';
+import FullPageLoader from './ui/FullPageSpinner';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -56,7 +56,7 @@ function App() {
 
       <LocalizationProvider dateAdapter={AdapterLuxon}>
         <BrowserRouter>
-          <Suspense fallback={<FullPageSpinner />}>
+          <Suspense fallback={<FullPageLoader />}>
             <Routes>
               <Route
                 element={

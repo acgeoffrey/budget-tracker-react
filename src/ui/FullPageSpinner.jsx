@@ -1,7 +1,9 @@
+import Loader from './Loader';
+
 function FullPageSpinner() {
   return (
     <main className='flex h-screen items-center justify-center'>
-      <span className='loader'></span>
+      <Loader />
     </main>
   );
 }
