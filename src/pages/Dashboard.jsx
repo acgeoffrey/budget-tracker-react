@@ -63,7 +63,7 @@ function Dashboard() {
       current: dateWiseExpenses
         ?.filter((expense) => date === expense._id)
         .reduce((acc, curr) => acc + parseInt(curr.totalExpenses), 0),
-      previous: previousDateWiseExpenses
+      last: previousDateWiseExpenses
         ?.filter(
           (expense) =>
             DateTime.fromISO(date).toFormat('dd') ===
@@ -89,7 +89,9 @@ function Dashboard() {
   // console.log(((currentSavings / previousSavings) * 100).toFixed(1) - 100);
   return (
     <>
-      <h1 className='text-center text-xl font-medium'>Monthly Summary</h1>
+      <h1 className='text-center text-xl font-medium text-gray-veryDark'>
+        Monthly Summary - {DateTime.now().toLocal().toFormat('MMMM yyyy')}
+      </h1>
       <div className='flex items-center justify-around gap-5'>
         <DashboardMainCard
           type='savings'
