@@ -74,11 +74,21 @@ function CreateRecordForm({ updateForm = {}, onCloseModal }) {
         <input
           type='text'
           id='title'
-          className='input h-10 rounded-md'
+          className='input h-10 grow rounded-md'
           disabled={busy}
           {...register('title', {
             required: 'This field is required',
           })}
+        />
+      </FormElementRow>
+
+      <FormElementRow label='Amount' error={errors?.amount?.message}>
+        <input
+          type='number'
+          id='amount'
+          className='input h-10 rounded-md'
+          disabled={busy}
+          {...register('amount', { required: 'This field is required' })}
         />
       </FormElementRow>
 
@@ -97,16 +107,6 @@ function CreateRecordForm({ updateForm = {}, onCloseModal }) {
               </SelectItem>
             </Select>
           )}
-        />
-      </FormElementRow>
-
-      <FormElementRow label='Amount' error={errors?.amount?.message}>
-        <input
-          type='number'
-          id='amount'
-          className='input h-10 rounded-md'
-          disabled={busy}
-          {...register('amount', { required: 'This field is required' })}
         />
       </FormElementRow>
 

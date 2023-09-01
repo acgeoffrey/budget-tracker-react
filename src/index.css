@@ -33,7 +33,7 @@
   }
 
   .input {
-    @apply mb-1 rounded-xl border-[1px] border-solid border-gray-pale px-5 py-3 shadow-sm outline-primary-default hover:bg-gray-extraLight
+    @apply rounded-xl border border-solid border-gray-pale px-5 py-3 shadow-sm outline-primary-default hover:bg-gray-extraLight
     focus:bg-primary-extraLight;
   }
 

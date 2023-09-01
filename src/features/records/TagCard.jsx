@@ -50,8 +50,8 @@ export default function TagCard({ tags, currency }) {
 
   if (!expenseStats)
     return (
-      <Card className='bg-secondary-extraLight'>
-        <p>Not enough data</p>
+      <Card className='flex-cols flex items-center justify-center bg-secondary-extraLight'>
+        <p>Not enough data. Start adding some Expenses.</p>
       </Card>
     );
 

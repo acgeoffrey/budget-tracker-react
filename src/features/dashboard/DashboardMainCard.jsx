@@ -12,16 +12,10 @@ function DashboardMainCard({ amount, type, difference, currency, icon }) {
       <div className='flex items-center gap-6 '>
         {icon}
         <div>
-          {!amount ? (
-            <p>Not enough data</p>
-          ) : (
-            <>
-              <h4 className='text-lg uppercase text-gray-default'>{type}</h4>
-              <h2 className='mb-2 font-number text-2xl font-semibold'>
-                {formatCurrency(currency, amount)}
-              </h2>
-            </>
-          )}
+          <h4 className='text-lg uppercase text-gray-default'>{type}</h4>
+          <h2 className='mb-2 font-number text-2xl font-semibold'>
+            {formatCurrency(currency, amount)}
+          </h2>
         </div>
       </div>
 
