@@ -12,7 +12,7 @@
 
 ## Links
 
-- [Live Site URL](https://coinchef.vercel.app/)
+- [Live App URL](https://coinchef.vercel.app/)
 
 ## Overview
 
@@ -66,8 +66,8 @@
 
   - VITE_API_URL (Connect with the API)
 
-- "npm run dev"
-- Server should run on [http://localhost:5173/](http://localhost:5173/).
+- `npm run dev` to run the Application.
+- App should run on [http://localhost:5173/](http://localhost:5173/).
 
 ## Author
 
