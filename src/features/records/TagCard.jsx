@@ -113,12 +113,12 @@ export default function TagCard({ tags, currency }) {
               <h3 className='font-number text-lg font-semibold text-gray-veryDark'>
                 {formatCurrency(currency, item.totalAmount)}
               </h3>
-              <p className='mt-2 text-gray-default'>
-                {item.numRecords} Expense
+              <p className='mt-2 text-sm text-gray-default'>
+                {item.numRecords} {item.numRecords > 1 ? `Expenses` : `Expense`}
               </p>
             </div>
             <div
-              className={` bg-${colors[index]}-200 rounded p-2 text-gray-dark`}
+              className={` bg-${colors[index]}-200 rounded p-2 font-number text-gray-dark`}
             >
               {' '}
               <span className='font-semibold'>
