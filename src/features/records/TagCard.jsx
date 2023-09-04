@@ -21,7 +21,7 @@ const colors = [
   'orange',
   'stone',
 ];
-const color = () => colors[Math.floor(Math.random() * colors.length)];
+// const color = () => colors[Math.floor(Math.random() * colors.length)];
 
 export default function TagCard({ tags, currency }) {
   const categories = tags?.data?.categoryStats;
@@ -47,6 +47,8 @@ export default function TagCard({ tags, currency }) {
   // console.log(percentageSpent);
 
   const isSaving = percentageSpent >= 100 ? false : true;
+
+  const totalAmount = expenseStats?.totalAmount;
 
   if (!expenseStats)
     return (
@@ -77,7 +79,7 @@ export default function TagCard({ tags, currency }) {
           className='space-x-1'
         >
           <Metric className='font-number'>
-            {formatCurrency(currency, expenseStats?.totalAmount)}
+            {formatCurrency(currency, totalAmount)}
           </Metric>
           <Text>
             spent on over{' '}
@@ -98,16 +100,33 @@ export default function TagCard({ tags, currency }) {
         )}
       </Card>
       <Grid numItemsSm={4} className='mt-4 gap-4'>
-        {categories?.map((item) => (
-          <Card key={item._id} className={`bg-${color()}-100`}>
-            <h2 className='mt-2 truncate text-xl font-medium capitalize text-gray-mildDark'>
-              {item?._id?.toLowerCase()}
-            </h2>
-            <h3 className='font-number text-lg font-semibold text-gray-veryDark'>
-              {formatCurrency(currency, item.totalAmount)}
-            </h3>
-            <p className='mt-2 text-gray-default'>{item.numRecords} Expense</p>
-          </Card>
+        {categories?.map((item, index) => (
+          <div
+            key={item._id}
+            className={`bg-${colors[index]}-50 flex items-center justify-between gap-1 border-4 p-5 
+            border-${colors[index]}-200 rounded`}
+          >
+            <div>
+              <h2 className='mt-2 truncate text-xl font-medium capitalize text-gray-mildDark'>
+                {item?._id?.toLowerCase()}
+              </h2>
+              <h3 className='font-number text-lg font-semibold text-gray-veryDark'>
+                {formatCurrency(currency, item.totalAmount)}
+              </h3>
+              <p className='mt-2 text-gray-default'>
+                {item.numRecords} Expense
+              </p>
+            </div>
+            <div
+              className={` bg-${colors[index]}-200 rounded-full p-3 text-gray-dark`}
+            >
+              {' '}
+              <span className=' text-xl font-semibold'>
+                {((item.totalAmount / totalAmount) * 100).toFixed(1)}
+              </span>
+              %
+            </div>
+          </div>
         ))}
       </Grid>
       {/* </Card> */}

@@ -1,14 +1,16 @@
 import { StaticDatePicker } from '@mui/x-date-pickers';
-import RecordsTable from '../features/records/RecordsTable';
 import { useState } from 'react';
 import { DateTime } from 'luxon';
-import { useCalendar } from '../features/records/useCalendar';
-import Loader from '../ui/Loader';
-import CalendarTableOperations from '../features/records/CalendarTableOperations';
 import { Box } from '@mui/material';
-import AddRecord from '../features/records/AddRecord';
+
+import { useCalendar } from '../features/records/useCalendar';
 import { useUser } from '../features/authentication/useUser';
 import { formatCurrency } from '../utils/helpers';
+
+import RecordsTable from '../features/records/RecordsTable';
+import Loader from '../ui/Loader';
+import CalendarTableOperations from '../features/records/CalendarTableOperations';
+import AddRecord from '../features/records/AddRecord';
 
 function Calendar() {
   const [date, setDate] = useState(DateTime.now());
