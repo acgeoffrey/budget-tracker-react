@@ -103,7 +103,7 @@ export default function TagCard({ tags, currency }) {
         {categories?.map((item, index) => (
           <div
             key={item._id}
-            className={`bg-${colors[index]}-50 flex items-center justify-between gap-1 border-4 p-5 
+            className={`bg-${colors[index]}-50 flex items-center justify-between gap-3 border-4 p-5 
             border-${colors[index]}-200 rounded`}
           >
             <div>
@@ -118,10 +118,10 @@ export default function TagCard({ tags, currency }) {
               </p>
             </div>
             <div
-              className={` bg-${colors[index]}-200 rounded-full p-3 text-gray-dark`}
+              className={` bg-${colors[index]}-200 rounded p-2 text-gray-dark`}
             >
               {' '}
-              <span className=' text-xl font-semibold'>
+              <span className='font-semibold'>
                 {((item.totalAmount / totalAmount) * 100).toFixed(1)}
               </span>
               %
